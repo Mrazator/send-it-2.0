@@ -2,9 +2,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 15px;
+  padding: 10px 15px;
+
+  &:hover {
+    background-color: white;
+    cursor: pointer;
+    color: rgba(29,11,11,0.67);
+    font-weight: 600;
+  }
 
   li {
     list-style: none;
+  }
+
+  i {
+    font-size: 20px;
+
+    &:hover {
+      color: indianred;
+    }
   }
 }

@@ -2,6 +2,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 15px; }
+  padding: 10px 15px; }
+  .Channel:hover {
+    background-color: white;
+    cursor: pointer;
+    color: rgba(29, 11, 11, 0.67);
+    font-weight: 600; }
   .Channel li {
     list-style: none; }
+  .Channel i {
+    font-size: 20px; }
+    .Channel i:hover {
+      color: indianred; }
