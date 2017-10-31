@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 // import logo from '../assets/logo.svg'
 import '../../styles/components/App.css'
 
-import Body from "./Body";
 import Channels from "./Channels";
+import Body from "./Body";
 
 class App extends Component {
   render() {
