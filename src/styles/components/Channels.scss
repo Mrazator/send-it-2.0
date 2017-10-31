@@ -18,7 +18,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 15px 5px;
+    padding: 25px 15px 10px;
 
     h1 {
       font-size: 20px;
@@ -28,13 +28,13 @@
     }
 
     i {
-      border: 1px solid;
+      border: 2px solid;
       border-radius: 50%;
       font-weight: 300;
 
       &:before {
         margin: 0;
-        padding: 2px;
+        padding: 1.5px;
       }
     }
   }
