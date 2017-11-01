@@ -1,34 +1,30 @@
 .Channels {
+  height: calc(100vh - 40px);
   min-width: 260px;
+  padding-left: 20px;
   color: #ddd;
-  overflow-y: scroll;
-  height: calc(100vh - 40px); }
+  overflow-y: scroll; }
   .Channels .channels--manage {
-    padding: 0 15px 0 0;
-    position: absolute;
-    top: 22px;
-    left: 10px; }
+    display: flex;
+    justify-content: space-between;
+    padding-right: 11px; }
     .Channels .channels--manage h1 {
       font-size: 30px;
-      color: rgba(29, 11, 11, 0.67);
+      color: black;
       margin: 0;
       float: left; }
     .Channels .channels--manage i {
       cursor: pointer;
-      position: relative;
-      left: 88px;
-      top: -1px;
-      float: left;
       font-size: 35px;
       color: indianred; }
+      .Channels .channels--manage i:before {
+        margin: 0; }
       .Channels .channels--manage i:hover {
-        font-size: 39px;
-        left: 85px;
-        top: -1px; }
+        color: black; }
   .Channels ul {
-    margin: 25px 0 0;
+    margin: 0;
     padding: 25px 0;
-    background-color: rgba(218, 152, 139, 0.87); }
+    min-height: calc(100vh - 130px); }
 
 .Channels::-webkit-scrollbar {
   width: 3px;

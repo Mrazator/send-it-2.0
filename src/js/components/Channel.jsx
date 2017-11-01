@@ -9,15 +9,16 @@ class Channel extends Component {
             name: PropTypes.string.isRequired,
             customData: PropTypes.string
         }).isRequired,
-        onDelete: PropTypes.func.isRequired
+        onDelete: PropTypes.func.isRequired,
+        onStartEditing: PropTypes.func.isRequired
     }
 
     render() {
         return (
-            <div className="Channel">
-                <li>{this.props.item.name}</li>
+            <li className="Channel">
+                <span onClick={() => this.props.onStartEditing(this.props.item.id)}>{this.props.item.name}</span>
                 <i className="icon-trash" onClick={() => this.props.onDelete(this.props.item.id)}/>
-            </div>
+            </li>
         )
     }
 }
