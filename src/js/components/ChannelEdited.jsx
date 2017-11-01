@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import '../../styles/components/ChannelEdited.css'
 
-class ChannelEdited extends Component {
+class ChannelEdited extends PureComponent {
   static propTypes = {
     item: PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -21,6 +21,14 @@ class ChannelEdited extends Component {
     }
 
     this._onNameChange = this._onNameChange.bind(this)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.item !== nextProps.item) {
+      this.setState({
+        editedItem: nextProps.item,
+      })
+    }
   }
 
   _onNameChange(event) {

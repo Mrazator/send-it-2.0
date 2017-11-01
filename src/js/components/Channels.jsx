@@ -10,31 +10,48 @@ class Channels extends Component {
     super()
 
     this.state = {
-      list: Immutable.List([
-        {
-          id: uuid(),
-          name: "#channel1",
-          customData: "custom data of channel1"
-        },
-        {
-          id: uuid(),
-          name: "#channel2",
-          customData: "custom data of channel2"
-        },
-        {
-          id: uuid(),
-          name: "#channel3",
-          customData: "custom data of channel3"
-        },
-      ]),
+      list: this._loadInitialTodoList(),
       editedItemId: null
     }
-
+    this._getDefaultTodoList = this._getDefaultTodoList.bind(this)
+    this._loadInitialTodoList = this._loadInitialTodoList.bind(this)
     this._onCreateNew = this._onCreateNew.bind(this)
     this._onDelete = this._onDelete.bind(this)
     this._startEditing = this._startEditing.bind(this)
     this._cancelEditing = this._cancelEditing.bind(this)
     this._updateItem = this._updateItem.bind(this)
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (this.state.list !== nextState.list) {
+      localStorage.setItem('channelList', JSON.stringify(nextState.list.toJS()))
+    }
+  }
+
+
+  _getDefaultTodoList() {
+    return Immutable.List([
+      {
+        id: uuid(),
+        name: "#channel1",
+        customData: "custom data of channel1"
+      },
+      {
+        id: uuid(),
+        name: "#channel2",
+        customData: "custom data of channel2"
+      },
+      {
+        id: uuid(),
+        name: "#channel3",
+        customData: "custom data of channel3"
+      }
+    ])
+  }
+
+  _loadInitialTodoList() {
+    const storedListJSON = localStorage.getItem('channelList');
+    return storedListJSON ? Immutable.List(JSON.parse(storedListJSON)) : this._getDefaultTodoList();
   }
 
   _onCreateNew() {
@@ -44,14 +61,14 @@ class Channels extends Component {
         name: 'New item',
         customData: ''
       })
-    }));
+    }))
   }
 
   _onDelete(deletedItemId) {
     this.setState((previousState) => ({
       list: previousState.list.filterNot(item => item.id === deletedItemId)
-    }));
-  };
+    }))
+  }
 
   _startEditing(itemId){
     this.setState({
