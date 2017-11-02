@@ -15,8 +15,12 @@
     font-size: 20px;
     cursor: pointer;
 
-    &:hover {
+    &.icon-cancel:hover {
       color: indianred;
+    }
+
+    &.icon-ok:hover {
+      color: black;
     }
   }
 }

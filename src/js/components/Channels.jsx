@@ -90,7 +90,7 @@ class Channels extends Component {
       }
 
       const itemIndex = previousState.list.findIndex(i => i.id === item.id)
-      if(itemIndex > 0 && item.name.length > 0){
+      if(itemIndex >= 0 && item.name.length > 0){
         newState.list = previousState.list.update(itemIndex, previousItem => ({ ...previousItem, ...item}))
       }
 

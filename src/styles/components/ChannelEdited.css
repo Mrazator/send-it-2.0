@@ -11,5 +11,7 @@
   .ChannelEdited i {
     font-size: 20px;
     cursor: pointer; }
-    .ChannelEdited i:hover {
+    .ChannelEdited i.icon-cancel:hover {
       color: indianred; }
+    .ChannelEdited i.icon-ok:hover {
+      color: black; }
