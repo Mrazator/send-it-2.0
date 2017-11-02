@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import '../../styles/components/Channel.css'
+import '../../../styles/components/Channel.css'
 
-function Channel(props) {
+const Channel = (props) => {
     return (
         <li className="Channel">
-            <span onClick={() => props.onStartEditing(props.item.id)}>{props.item.name}</span>
-            <i className="icon-trash" onClick={() => props.onDelete(props.item.id)}/>
+            <span onClick={props.onStartEditing}>{props.item.name}</span>
+            <i className="icon-trash" onClick={props.onDelete}/>
         </li>
     )
 }
@@ -21,4 +21,4 @@ Channel.propTypes = {
     onStartEditing: PropTypes.func.isRequired
 };
 
-export default Channel
+export {Channel}
