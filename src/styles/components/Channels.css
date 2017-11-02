@@ -23,9 +23,9 @@
       .Channels .channels--manage i:hover {
         color: black; }
   .Channels ul {
-    min-height: calc(100vh - 130px);
+    min-height: calc(100vh - 100px);
     margin: 0;
-    padding: 25px 0; }
+    padding: 10px 0; }
 
 .Channels::-webkit-scrollbar {
   width: 3px;
