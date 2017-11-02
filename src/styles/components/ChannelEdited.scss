@@ -1,14 +1,14 @@
+@import '../config/base.scss';
+
 .ChannelEdited {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flex-between-center();
   padding: 1px 15px 0 8px;
   list-style: none;
 
   input.name {
-    padding: 10px 0 10px 5px;
     width: 150px;
-    border: 2px solid #ccc;
+    padding: 10px 0 10px 5px;
+    border: 2px solid $grey;
   }
 
   i {
@@ -16,11 +16,11 @@
     cursor: pointer;
 
     &.icon-cancel:hover {
-      color: indianred;
+      color: $buttons;
     }
 
     &.icon-ok:hover {
-      color: black;
+      color: $black;
     }
   }
 }

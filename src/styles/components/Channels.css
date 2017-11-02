@@ -2,17 +2,18 @@
   height: calc(100vh - 40px);
   min-width: 260px;
   padding-left: 20px;
-  color: #ddd;
+  color: rgba(0, 0, 0, 0.5);
   overflow-y: scroll; }
   .Channels .channels--manage {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-right: 11px; }
     .Channels .channels--manage h1 {
-      font-size: 30px;
-      color: black;
+      float: left;
       margin: 0;
-      float: left; }
+      font-size: 30px;
+      color: black; }
     .Channels .channels--manage i {
       cursor: pointer;
       font-size: 35px;
@@ -22,13 +23,13 @@
       .Channels .channels--manage i:hover {
         color: black; }
   .Channels ul {
+    min-height: calc(100vh - 130px);
     margin: 0;
-    padding: 25px 0;
-    min-height: calc(100vh - 130px); }
+    padding: 25px 0; }
 
 .Channels::-webkit-scrollbar {
   width: 3px;
-  background-color: #ccc; }
+  background: rgba(0, 0, 0, 0.5); }
 
 .Channels::-webkit-scrollbar-thumb {
-  background: rgba(192, 127, 110, 0.95); }
+  background: indianred; }

@@ -1,41 +1,42 @@
+@import '../config/base.scss';
+
 .Channels {
   height: calc(100vh - 40px);
   min-width: 260px;
   padding-left: 20px;
-  color: #ddd;
+  color: $grey;
   overflow-y: scroll;
 
   .channels--manage {
-    display: flex;
-    justify-content: space-between;
+    @include flex-between-center();
     padding-right: 11px;
 
     h1 {
-      font-size: 30px;
-      color: black;
-      margin: 0;
       float: left;
+      margin: 0;
+      font-size: 30px;
+      color: $black;
     }
 
     i {
       cursor: pointer;
       font-size: 35px;
-      color: indianred;
+      color: $buttons;
 
       &:before {
         margin: 0;
       }
 
       &:hover {
-        color: black;
+        color: $black;
       }
     }
   }
 
   ul {
+    min-height: calc(100vh - 130px);
     margin: 0;
     padding: 25px 0;
-    min-height: calc(100vh - 130px);
   }
 }
 
@@ -43,9 +44,9 @@
 
 .Channels::-webkit-scrollbar {
   width: 3px;
-  background-color: #ccc;
+  background: $grey;
 }
 
 .Channels::-webkit-scrollbar-thumb {
-  background: rgba(192,127,110,0.95);
+  background: $buttons;
 }

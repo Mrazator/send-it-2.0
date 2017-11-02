@@ -1,15 +1,15 @@
+@import '../config/base.scss';
+
 .Channel {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flex-between-center();
   padding: 10px 15px;
   list-style: none;
 
   &:hover {
     cursor: pointer;
     margin-left: -10px;
-    border-left: 2px solid #ccc;
-    color: black;
+    border-left: 2px solid $grey;
+    color: $black;
     padding-left: 23px;
   }
 
@@ -21,7 +21,7 @@
     font-size: 20px;
 
     &:hover {
-      color: indianred;
+      color: $buttons;
     }
   }
 }

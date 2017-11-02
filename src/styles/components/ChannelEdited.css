@@ -1,13 +1,13 @@
 .ChannelEdited {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 1px 15px 0 8px;
   list-style: none; }
   .ChannelEdited input.name {
-    padding: 10px 0 10px 5px;
     width: 150px;
-    border: 2px solid #ccc; }
+    padding: 10px 0 10px 5px;
+    border: 2px solid rgba(0, 0, 0, 0.5); }
   .ChannelEdited i {
     font-size: 20px;
     cursor: pointer; }

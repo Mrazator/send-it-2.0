@@ -1,7 +1,21 @@
+//Colors
+$black: black;
+$buttons: indianred;
+$grey: rgba(0,0,0,0.5);
+
+//Media query breakpoints
 $breakpoint-sm: 500px !default;
 $breakpoint-md: 769px !default;
 $breakpoint-lg: 1025px !default;
-$breakpoint-xl: 2000px !default;
+$breakpoint-xl: 2000px !default
+
+//mixins
+
+@mixin flex-between-center() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 @mixin sm() {
   @media (min-width: $breakpoint-sm) {
