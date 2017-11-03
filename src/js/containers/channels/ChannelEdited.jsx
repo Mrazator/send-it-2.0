@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import '../../../styles/components/ChannelEdited.css'
-import { ChannelEdited as ChannelEditedComponent } from '../../components/channels/ChannelEdited';
+import { ChannelEdited as ChannelEditedComponent, getTitleInput } from '../../components/channels/ChannelEdited';
 
 class ChannelEdited extends PureComponent {
+
     static propTypes = {
         item: PropTypes.shape({
             id: PropTypes.string.isRequired,
@@ -22,6 +23,7 @@ class ChannelEdited extends PureComponent {
         }
 
         this._onNameChange = this._onNameChange.bind(this)
+        this._handleEscEnterKey = this._handleEscEnterKey.bind(this)
     }
 
     componentWillReceiveProps(nextProps) {
@@ -31,6 +33,21 @@ class ChannelEdited extends PureComponent {
             })
         }
     }
+
+    componentDidMount(){
+        const textLength = getTitleInput().value.length;
+        getTitleInput().focus();
+        getTitleInput().setSelectionRange(textLength, textLength);
+    }
+
+    _handleEscEnterKey(e) {
+        if (e.keyCode === 13) { //Enter key
+            this.props.onUpdateItem(this.state.editedItem);
+        }
+        else if (e.keyCode === 27) { // ESC key
+            this.props.onCancelEditing();
+        }
+    };
 
     _onNameChange(event) {
         const value = event.target.value
@@ -47,10 +64,11 @@ class ChannelEdited extends PureComponent {
         return (
             <ChannelEditedComponent
                 item={this.state.editedItem}
-                onNameChange={this._onNameChange}
                 onCancelEditing={this.props.onCancelEditing}
-                onUpdateItem={() => this.props.onUpdateItem(this.state.editedItem)}
                 disabled={this.props.item === this.state.editedItem}
+                onUpdateItem={() => this.props.onUpdateItem(this.state.editedItem)}
+                onNameChange={this._onNameChange}
+                onHandleKey={this._handleEscEnterKey}
             />
         )
     }

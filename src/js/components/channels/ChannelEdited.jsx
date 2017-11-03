@@ -2,7 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import '../../../styles/components/ChannelEdited.css'
 
+let titleInput;
+
+const getTitleInput = () => titleInput;
+
 const ChannelEdited = (props) => {
+
     return (
         <li className="ChannelEdited">
             <input
@@ -10,6 +15,8 @@ const ChannelEdited = (props) => {
                 className="name"
                 value={props.item.name}
                 onChange={props.onNameChange}
+                onKeyDown={props.onHandleKey}
+                ref={(input) => titleInput = input}
             />
             <div>
                 <i
@@ -35,7 +42,8 @@ ChannelEdited.propTypes = {
     disabled: PropTypes.bool.isRequired,
     onNameChange: PropTypes.func.isRequired,
     onCancelEditing: PropTypes.func.isRequired,
-    onUpdateItem: PropTypes.func.isRequired
+    onUpdateItem: PropTypes.func.isRequired,
+    onHandleKey: PropTypes.func.isRequired
 }
 
-export {ChannelEdited}
+export {ChannelEdited, getTitleInput}
