@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 // import logo from '../assets/logo.svg'
-import '../styles/components/App.css'
 
 import Channels from "./containers/channels/Channels";
 import Body from "./components/body/Body";

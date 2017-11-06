@@ -1,6 +1,13 @@
-.App {
-  display: flex;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  margin: 20px 0;
+@import '../config/base.scss';
+
+body {
+  min-width: $breakpoint-md;
+
+  .App {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    margin: 20px 0;
+  }
 }
+

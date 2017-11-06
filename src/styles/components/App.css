@@ -1,5 +1,7 @@
-.App {
-  display: flex;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  margin: 20px 0; }
+body {
+  min-width: 769px; }
+  body .App {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    margin: 20px 0; }

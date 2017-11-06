@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import '../../../styles/components/Channel.css'
 
 const Channel = (props) => {
     return (

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Immutable from 'immutable'
-import '../../../styles/components/Channels.css'
 import { Channel } from "./Channel";
 import ChannelEdited from "../../containers/channels/ChannelEdited";
 
@@ -26,7 +25,7 @@ const Channels = (props) => {
 
     return (
         <div className="Channels">
-            <div className="channels--manage">
+            <div className="channels-manage">
                 <h1>Channels.</h1>
                 <i className="icon-plus" onClick={props.onCreateNew}/>
             </div>

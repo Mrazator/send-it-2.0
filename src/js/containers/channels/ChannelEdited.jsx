@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import '../../../styles/components/ChannelEdited.css'
 import { ChannelEdited as ChannelEditedComponent, getTitleInput } from '../../components/channels/ChannelEdited';
 
 class ChannelEdited extends PureComponent {

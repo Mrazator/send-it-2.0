@@ -9,8 +9,7 @@ $breakpoint-md: 769px !default;
 $breakpoint-lg: 1025px !default;
 $breakpoint-xl: 2000px !default
 
-//mixins
-
+//mixin
 @mixin flex-between-center() {
   display: flex;
   justify-content: space-between;

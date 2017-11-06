@@ -7,7 +7,7 @@
   color: $grey;
   overflow-y: scroll;
 
-  .channels--manage {
+  .channels-manage {
     @include flex-between-center();
     padding-right: 11px;
 

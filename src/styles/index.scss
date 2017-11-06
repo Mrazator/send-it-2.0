@@ -1,6 +1,11 @@
-@import './config/base.scss';
+//config, font-icons, base
+@import './config/normalize.scss';
 @import '../../src/assets/fontello/css/fontello.css';
+@import './config/base.scss';
 
-body {
-  min-width: $breakpoint-md;
-}
+//components
+@import './components/App.scss';
+@import './components/Body.scss';
+@import './components/Channel.scss';
+@import './components/ChannelEdited.scss';
+@import './components/Channels.scss';

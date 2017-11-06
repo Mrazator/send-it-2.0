@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import Immutable from 'immutable'
-import '../../../styles/components/Channels.css'
 import {uuid} from '../../utils/uuid'
 import { Channels as ChannelsComponent } from "../../components/channels/Channels"
 
