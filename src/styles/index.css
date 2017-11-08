@@ -444,23 +444,23 @@ body {
   padding-left: 20px;
   color: rgba(0, 0, 0, 0.5);
   overflow-y: scroll; }
-  .Channels .channels--manage {
+  .Channels .channels-manage {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-right: 11px; }
-    .Channels .channels--manage h1 {
+    .Channels .channels-manage h1 {
       float: left;
       margin: 0;
       font-size: 30px;
       color: black; }
-    .Channels .channels--manage i {
+    .Channels .channels-manage i {
       cursor: pointer;
       font-size: 35px;
       color: indianred; }
-      .Channels .channels--manage i:before {
+      .Channels .channels-manage i:before {
         margin: 0; }
-      .Channels .channels--manage i:hover {
+      .Channels .channels-manage i:hover {
         color: black; }
   .Channels ul {
     min-height: calc(100vh - 100px);
