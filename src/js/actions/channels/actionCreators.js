@@ -1,8 +1,10 @@
 import {uuid} from "../../utils/uuid"
 import {
-TODO_LIST_ITEM_CREATE,
-TODO_LIST_ITEM_DELETE,
-TODO_LIST_ITEM_UPDATE
+  TODO_LIST_ITEM_CREATE,
+  TODO_LIST_ITEM_DELETE,
+  TODO_LIST_ITEM_UPDATE,
+  TODO_LIST_ITEM_START_EDITING,
+  TODO_LIST_ITEM_CANCEL_EDITING
 } from "../../constants/actionTypes";
 
 
@@ -29,4 +31,15 @@ export const updateChannel = (channel) => ({
     payload: {
         channel
     }
+})
+
+export const startEditingItem = (id) => ({
+    type: TODO_LIST_ITEM_START_EDITING,
+    payload: {
+        id
+    }
+})
+
+export const cancelEditingItem = () => ({
+    type: TODO_LIST_ITEM_CANCEL_EDITING
 })

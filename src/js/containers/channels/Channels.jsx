@@ -9,15 +9,14 @@ class Channels extends Component {
         list: PropTypes.instanceOf(Immutable.List).isRequired,
         onCreate: PropTypes.func.isRequired,
         onUpdate: PropTypes.func.isRequired,
-        onDelete: PropTypes.func.isRequired
+        onDelete: PropTypes.func.isRequired,
+        editedItemId: PropTypes.string,
+        onStartEditing: PropTypes.func.isRequired,
+        onCancelEditing: PropTypes.func.isRequired
       }
 
     constructor(props) {
         super(props)
-
-        this.state = {
-            editedItemId: null
-        }
 
         Channels._getDefaultTodoList = Channels._getDefaultTodoList.bind(this)
         Channels._loadInitialTodoList = Channels._loadInitialTodoList.bind(this)
@@ -34,28 +33,16 @@ class Channels extends Component {
         }
     }
 
-    _startEditing(itemId) {
-        this.setState({
-            editedItemId: itemId
-        })
-    }
-
-    _cancelEditing() {
-        this.setState({
-            editedItemId: null
-        })
-    }
-
     render() {
         return (
             <ChannelsComponent
-                list={this.state.list}
-                editedItemId={this.state.editedItemId}
+                list={this.props.list}
+                editedItemId={this.props.editedItemId}
                 onDelete={this.props.onDelete}
                 onUpdateItem={this.props.onUpdate}
                 onCreateNew={this.props.onCreate}
-                onStartEditing={this._startEditing}
-                onCancelEditing={this._cancelEditing}
+                onStartEditing={this.props.onStartEditing}
+                onCancelEditing={this.props.onCancelEditing}
             />
         )
     }
