@@ -10,7 +10,7 @@ const Channels = (props) => {
             return <ChannelEdited
                 key={x.id}
                 item={x}
-                onUpdateItem={props.onUpdateItem}
+                onUpdateItem={props.onUpdate}
                 onCancelEditing={props.onCancelEditing}
             />
         }
@@ -27,7 +27,7 @@ const Channels = (props) => {
         <div className="Channels">
             <div className="channels-manage">
                 <h1>Channels.</h1>
-                <i className="icon-plus" onClick={props.onCreateNew}/>
+                <i className="icon-plus" onClick={props.onCreate}/>
             </div>
             <ul>{channelElements}</ul>
         </div>
@@ -40,8 +40,8 @@ Channels.PropTypes = {
     onDelete: PropTypes.func.isRequired,
     onStartEditing: PropTypes.func.isRequired,
     onCancelEditing: PropTypes.func.isRequired,
-    onCreateNew: PropTypes.func.isRequired,
-    onUpdateItem: PropTypes.func.isRequired
+    onCreate: PropTypes.func.isRequired,
+    onUpdate: PropTypes.func.isRequired
 }
 
 export {Channels}

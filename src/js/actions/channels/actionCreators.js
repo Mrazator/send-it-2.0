@@ -6,12 +6,13 @@ TODO_LIST_ITEM_UPDATE
 } from "../../constants/actionTypes";
 
 
-export const addChannel = (channel) => ({
+export const addChannel = () => ({
     type: TODO_LIST_ITEM_CREATE,
     payload: {
-        item: {
-            ...channel,
-            id: uuid()
+        channel: {
+          id: uuid(),
+          name: 'new channel',
+          customData: ''
         }
     }
 })

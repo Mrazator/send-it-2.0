@@ -20,7 +20,7 @@ const ChannelEdited = (props) => {
             <div>
                 <i
                     className="icon-ok"
-                    onClick={props.onUpdateItem}
+                    onClick={props.onUpdate}
                     disabled={props.disabled}
                 />
                 <i
@@ -41,7 +41,7 @@ ChannelEdited.propTypes = {
     disabled: PropTypes.bool.isRequired,
     onNameChange: PropTypes.func.isRequired,
     onCancelEditing: PropTypes.func.isRequired,
-    onUpdateItem: PropTypes.func.isRequired,
+    onUpdate: PropTypes.func.isRequired,
     onHandleKey: PropTypes.func.isRequired
 }
 

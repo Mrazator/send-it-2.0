@@ -11,7 +11,7 @@ class ChannelEdited extends PureComponent {
             customData: PropTypes.string
         }).isRequired,
         onCancelEditing: PropTypes.func.isRequired,
-        onUpdateItem: PropTypes.func.isRequired
+        onUpdate: PropTypes.func.isRequired
     }
 
     constructor(props) {
@@ -41,7 +41,7 @@ class ChannelEdited extends PureComponent {
 
     _handleEscEnterKey(e) {
         if (e.keyCode === 13) { //Enter key
-            this.props.onUpdateItem(this.state.editedItem);
+            this.props.onUpdate(this.state.editedItem);
         }
         else if (e.keyCode === 27) { // ESC key
             this.props.onCancelEditing();
@@ -65,7 +65,7 @@ class ChannelEdited extends PureComponent {
                 item={this.state.editedItem}
                 onCancelEditing={this.props.onCancelEditing}
                 disabled={this.props.item === this.state.editedItem}
-                onUpdateItem={() => this.props.onUpdateItem(this.state.editedItem)}
+                onUpdateItem={() => this.props.onUpdate(this.state.editedItem)}
                 onNameChange={this._onNameChange}
                 onHandleKey={this._handleEscEnterKey}
             />
