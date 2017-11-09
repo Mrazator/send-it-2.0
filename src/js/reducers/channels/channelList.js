@@ -8,7 +8,7 @@ import {
 export const channelList = (previousState = Immutable.List(), action) => {
     switch (action.type) {
         case TODO_LIST_ITEM_CREATE:
-            return previousState.push({ ...action.payload.channel });
+            return previousState.push({ ...action.payload.channel })
 
         case TODO_LIST_ITEM_DELETE:
             return previousState.filterNot(item => item.id === action.payload.id)

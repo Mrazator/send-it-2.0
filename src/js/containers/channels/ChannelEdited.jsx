@@ -65,7 +65,7 @@ class ChannelEdited extends PureComponent {
                 item={this.state.editedItem}
                 onCancelEditing={this.props.onCancelEditing}
                 disabled={this.props.item === this.state.editedItem}
-                onUpdateItem={() => this.props.onUpdate(this.state.editedItem)}
+                onUpdate={() => this.props.onUpdate(this.state.editedItem)}
                 onNameChange={this._onNameChange}
                 onHandleKey={this._handleEscEnterKey}
             />
@@ -73,4 +73,4 @@ class ChannelEdited extends PureComponent {
     }
 }
 
-export default ChannelEdited
+export { ChannelEdited }

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Immutable from 'immutable'
-import { Channel } from "./Channel";
-import ChannelEdited from "../../containers/channels/ChannelEdited";
+import { Channel } from "../../containers-redux/channels/Channel";
+import { ChannelEdited } from "../../containers-redux/channels/ChannelEdited";
 
 const Channels = (props) => {
     const channelElements = props.list.map(x => {
@@ -10,16 +10,12 @@ const Channels = (props) => {
             return <ChannelEdited
                 key={x.id}
                 item={x}
-                onUpdateItem={props.onUpdate}
-                onCancelEditing={props.onCancelEditing}
             />
         }
 
         return <Channel
             key={x.id}
             item={x}
-            onDelete={() => props.onDelete(x.id)}
-            onStartEditing={() => props.onStartEditing(x.id)}
         />
     })
 
@@ -37,11 +33,7 @@ const Channels = (props) => {
 Channels.PropTypes = {
     list: PropTypes.instanceOf(Immutable.List).isRequired,
     editedItemId: PropTypes.string,
-    onDelete: PropTypes.func.isRequired,
-    onStartEditing: PropTypes.func.isRequired,
-    onCancelEditing: PropTypes.func.isRequired,
-    onCreate: PropTypes.func.isRequired,
-    onUpdate: PropTypes.func.isRequired
+    onCreate: PropTypes.func.isRequired
 }
 
 export {Channels}
