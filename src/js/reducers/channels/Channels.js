@@ -5,7 +5,7 @@ import {
     TODO_LIST_ITEM_UPDATE
 } from '../../constants/actionTypes'
 
-export const channelList = (previousState = Immutable.List(), action) => {
+export const channels = (previousState = Immutable.List(), action) => {
     switch (action.type) {
         case TODO_LIST_ITEM_CREATE:
             return previousState.push({ ...action.payload.channel })

@@ -25,7 +25,7 @@
   .Channels ul {
     min-height: calc(100vh - 100px);
     margin: 0;
-    padding: 10px 0; }
+    padding: 0; }
 
 .Channels::-webkit-scrollbar {
   width: 3px;

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Channels from "../../containers/channels/Channels"
+import { Channels } from "../../components/channels/Channels"
 import {
   addChannel
 } from "../../actions/channels/actionCreators"
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onCreate: () => dispatch(addChannel())
+  onCreate: () => dispatch(addChannel()),
 })
 
 const enhancer = connect(mapStateToProps, mapDispatchToProps)

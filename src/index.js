@@ -21,8 +21,7 @@ const thunk = require('redux-thunk').default
 const initialState = {
   channelManagement: {
     channelList: getInitialItems()
-  },
-  // editedItemId: false
+  }
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

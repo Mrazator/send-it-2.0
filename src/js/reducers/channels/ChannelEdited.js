@@ -5,7 +5,7 @@ import {
   TODO_LIST_ITEM_DELETE
 } from '../../constants/actionTypes'
 
-export const editedItemId = (prevState = null, action) => {
+export const channelEditedId = (previousState = null, action) => {
   switch(action.type) {
     case TODO_LIST_ITEM_START_EDITING:
       return action.payload.id;
@@ -16,6 +16,6 @@ export const editedItemId = (prevState = null, action) => {
       return null
 
     default:
-      return null
+      return previousState
   }
 }

@@ -4,7 +4,9 @@ import {
   TODO_LIST_ITEM_DELETE,
   TODO_LIST_ITEM_UPDATE,
   TODO_LIST_ITEM_START_EDITING,
-  TODO_LIST_ITEM_CANCEL_EDITING
+  TODO_LIST_ITEM_CANCEL_EDITING,
+    TODO_LIST_SAVING_FINISHED,
+    TODO_LIST_SAVING_STARTED,
 } from "../../constants/actionTypes";
 
 
@@ -43,3 +45,12 @@ export const startEditingItem = (id) => ({
 export const cancelEditingItem = () => ({
     type: TODO_LIST_ITEM_CANCEL_EDITING
 })
+
+export const savingStarted = () => ({
+    type: TODO_LIST_SAVING_STARTED,
+})
+
+export const savingFinished = () => ({
+    type: TODO_LIST_SAVING_FINISHED,
+})
+
