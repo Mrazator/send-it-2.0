@@ -1,6 +1,7 @@
-import React, { PureComponent } from 'react'
+import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
-import { ChannelEdited as ChannelEditedComponent, getTitleInput } from '../../components/channels/ChannelEdited';
+
+import {ChannelEdited as ChannelEditedComponent, getTitleInput} from '../../components/channels/ChannelEdited';
 
 class ChannelEdited extends PureComponent {
 
@@ -33,7 +34,7 @@ class ChannelEdited extends PureComponent {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         const textLength = getTitleInput().value.length;
         getTitleInput().focus();
         getTitleInput().setSelectionRange(textLength, textLength);
@@ -73,4 +74,4 @@ class ChannelEdited extends PureComponent {
     }
 }
 
-export { ChannelEdited }
+export {ChannelEdited}

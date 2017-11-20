@@ -1,14 +1,11 @@
-import {
-    TODO_LIST_SAVING_FINISHED,
-    TODO_LIST_SAVING_STARTED
-} from '../../constants/actionTypes'
+import * as actions from '../../constants/actionTypes'
 
 export const isSaving = (prevState = false, action) => {
     switch (action.type) {
-        case TODO_LIST_SAVING_STARTED:
+        case actions.TODO_LIST_SAVING_STARTED:
             return true
 
-        case TODO_LIST_SAVING_FINISHED:
+        case actions.TODO_LIST_SAVING_FINISHED:
             return false;
 
         default:

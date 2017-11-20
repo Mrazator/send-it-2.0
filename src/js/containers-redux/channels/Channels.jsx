@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onCreate: () => dispatch(addChannel()),
+  onCreate: () => dispatch(addChannel())
 })
 
 const enhancer = connect(mapStateToProps, mapDispatchToProps)

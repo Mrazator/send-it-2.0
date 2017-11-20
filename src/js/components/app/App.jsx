@@ -1,15 +1,15 @@
 import React from 'react'
-import { ChannelsRedux } from '../../containers-redux/channels/Channels'
-import Body from "../body/Body"
-import Profile from "../settings/Settings"
 
+import Body from "../body/Body"
+import Settings from "../settings/Settings"
+import {ChannelsRedux} from '../../containers-redux/channels/Channels'
 
 const App = () => {
     return (
         <div className="App">
-          <ChannelsRedux/>
-          <Body/>
-          <Profile/>
+            <ChannelsRedux/>
+            <Body/>
+            <Settings/>
         </div>
     )
 }

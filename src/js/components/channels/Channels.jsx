@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Immutable from 'immutable'
 import {Link} from 'react-router-dom'
+
 import {Channel} from "../../containers-redux/channels/Channel"
 import {ChannelEdited} from "../../containers-redux/channels/ChannelEdited"
 import {SavingStatus} from "../../containers-redux/channels/SavingStatus"

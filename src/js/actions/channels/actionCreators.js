@@ -1,17 +1,9 @@
 import {uuid} from "../../utils/uuid"
-import {
-  TODO_LIST_ITEM_CREATE,
-  TODO_LIST_ITEM_DELETE,
-  TODO_LIST_ITEM_UPDATE,
-  TODO_LIST_ITEM_START_EDITING,
-  TODO_LIST_ITEM_CANCEL_EDITING,
-    TODO_LIST_SAVING_FINISHED,
-    TODO_LIST_SAVING_STARTED,
-} from "../../constants/actionTypes";
+import * as action from "../../constants/actionTypes";
 
 
 export const addChannel = () => ({
-    type: TODO_LIST_ITEM_CREATE,
+    type: action.TODO_LIST_ITEM_CREATE,
     payload: {
         channel: {
           id: uuid(),
@@ -22,35 +14,35 @@ export const addChannel = () => ({
 })
 
 export const removeChannel = (id) => ({
-    type: TODO_LIST_ITEM_DELETE,
+    type: action.TODO_LIST_ITEM_DELETE,
     payload: {
         id
     }
 })
 
 export const updateChannel = (channel) => ({
-    type: TODO_LIST_ITEM_UPDATE,
+    type: action.TODO_LIST_ITEM_UPDATE,
     payload: {
         channel
     }
 })
 
 export const startEditingItem = (id) => ({
-    type: TODO_LIST_ITEM_START_EDITING,
+    type: action.TODO_LIST_ITEM_START_EDITING,
     payload: {
         id
     }
 })
 
 export const cancelEditingItem = () => ({
-    type: TODO_LIST_ITEM_CANCEL_EDITING
+    type: action.TODO_LIST_ITEM_CANCEL_EDITING
 })
 
 export const savingStarted = () => ({
-    type: TODO_LIST_SAVING_STARTED,
+    type: action.TODO_LIST_SAVING_STARTED,
 })
 
 export const savingFinished = () => ({
-    type: TODO_LIST_SAVING_FINISHED,
+    type: action.TODO_LIST_SAVING_FINISHED,
 })
 

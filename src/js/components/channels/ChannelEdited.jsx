@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 let titleInput;
-
 const getTitleInput = () => titleInput;
 
 const ChannelEdited = (props) => {
