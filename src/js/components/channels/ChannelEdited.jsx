@@ -5,7 +5,6 @@ let titleInput;
 const getTitleInput = () => titleInput;
 
 const ChannelEdited = (props) => {
-
     return (
         <li className="ChannelEdited">
             <input

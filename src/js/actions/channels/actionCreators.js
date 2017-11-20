@@ -1,7 +1,6 @@
 import {uuid} from "../../utils/uuid"
 import * as action from "../../constants/actionTypes";
 
-
 export const addChannel = () => ({
     type: action.TODO_LIST_ITEM_CREATE,
     payload: {
