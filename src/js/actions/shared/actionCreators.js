@@ -1,10 +1,10 @@
 import * as actions from '../../constants/actionTypes'
-import {appiId} from '../../constants/api'
+import {appId} from '../../constants/api'
 
 export const receiveValidToken = () => ({
     type: actions.SHARED_RECEIVE_TOKEN,
     payload: {
-        token: appiId
+        token: appId
     }
 })
 
