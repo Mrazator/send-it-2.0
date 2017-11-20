@@ -6,8 +6,8 @@
   overflow-y: scroll; }
   .Channels .channels-manage {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding-right: 11px; }
     .Channels .channels-manage h1 {
       float: left;

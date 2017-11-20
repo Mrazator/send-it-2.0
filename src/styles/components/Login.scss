@@ -1,0 +1,5 @@
+@import '../config/base.scss';
+
+.Login {
+  @include full-page();
+}

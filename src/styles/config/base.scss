@@ -9,11 +9,22 @@ $breakpoint-md: 769px !default;
 $breakpoint-lg: 1025px !default;
 $breakpoint-xl: 2000px !default
 
-//mixin
-@mixin flex-between-center() {
+//mixins
+@mixin flex-align-center() {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+
+@mixin flex-between-center() {
+  @include flex-align-center();
+  justify-content: space-between;
+}
+
+@mixin full-page(){
+  @include flex-align-center();
+  flex-direction: column;
+  height: calc(100vh - 500px);
+  padding: 250px 0;
 }
 
 @mixin sm() {

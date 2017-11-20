@@ -404,8 +404,8 @@ body {
 
 .Channel {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 10px 15px;
   list-style: none; }
   .Channel:hover {
@@ -423,8 +423,8 @@ body {
 
 .ChannelEdited {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 1px 15px 0 8px;
   list-style: none; }
   .ChannelEdited input.name {
@@ -447,8 +447,8 @@ body {
   overflow-y: scroll; }
   .Channels .channels-manage {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding-right: 11px; }
     .Channels .channels-manage h1 {
       float: left;
@@ -491,12 +491,18 @@ body {
 
 .Profile {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   height: calc(100vh - 500px);
   padding: 250px 0; }
   .Profile .profile-picture {
     height: 150px;
     width: 150px;
     background: greenyellow; }
+
+.Login {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 500px);
+  padding: 250px 0; }

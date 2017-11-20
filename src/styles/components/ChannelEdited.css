@@ -1,7 +1,7 @@
 .ChannelEdited {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 1px 15px 0 8px;
   list-style: none; }
   .ChannelEdited input.name {
