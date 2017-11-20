@@ -5,7 +5,7 @@ import {
 } from "../../actions/channels/actionCreators"
 
 const mapStateToProps = (state) => ({
-  list: state.channelManagement.channelList,
+  channels: state.channelManagement.channels,
   editedItemId: state.channelManagement.editedItemId
 })
 

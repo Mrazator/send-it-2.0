@@ -3,7 +3,7 @@ import { SavingStatus } from '../../components/channels/SavingStatus';
 import { saveChannels } from '../../actions/channels/saveChannels';
 
 const mapStateToProps = (state) => ({
-    list: state.channelManagement.channelList,
+    channels: state.channelManagement.channels,
     isSaving: state.channelManagement.isSaving,
 });
 

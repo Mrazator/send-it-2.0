@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ChannelsRedux } from './containers-redux/channels/Channels'
 import Body from "./components/body/Body"
+import Profile from "./components/profile/Profile"
 
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
         <div className="App">
           <ChannelsRedux/>
           <Body/>
+          <Profile/>
         </div>
     )
   }

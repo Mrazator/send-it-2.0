@@ -399,7 +399,8 @@ body {
     margin: 20px 0; }
 
 .Body {
-  background-color: beige; }
+  background-color: beige;
+  flex-grow: 1; }
 
 .Channel {
   display: flex;
@@ -477,3 +478,13 @@ body {
 .saving {
   font-size: 10px;
   margin: 15px 0 0 15px; }
+
+.Profile {
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  border-left: 2px solid rgba(0, 0, 0, 0.5);
+  padding: 5px 0; }
+  .Profile i.icon-user {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 27px; }

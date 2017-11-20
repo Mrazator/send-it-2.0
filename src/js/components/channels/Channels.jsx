@@ -6,7 +6,7 @@ import { ChannelEdited } from "../../containers-redux/channels/ChannelEdited"
 import {SavingStatus} from "../../containers-redux/channels/SavingStatus"
 
 const Channels = (props) => {
-    const channelElements = props.list.map(x => {
+    const channelElements = props.channels.map(x => {
         if (x.id === props.editedItemId) {
             return <ChannelEdited
                 key={x.id}
@@ -33,7 +33,7 @@ const Channels = (props) => {
 }
 
 Channels.PropTypes = {
-    list: PropTypes.instanceOf(Immutable.List).isRequired,
+    channels: PropTypes.instanceOf(Immutable.List).isRequired,
     editedItemId: PropTypes.string,
     onCreate: PropTypes.func.isRequired
 }

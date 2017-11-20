@@ -5,7 +5,7 @@ import {isSaving} from "./IsSaving";
 
 
 export const channelManagement = combineReducers({
-    channelList: channels,
+    channels: channels,
     editedItemId: channelEditedId,
     isSaving: isSaving
 })

@@ -15,19 +15,14 @@ import './styles/config/normalize.css'
 import './styles/index.css'
 
 import { app } from './js/reducers/app'
-import { getInitialItems } from "./js/utils/getInitialItems"
+import { getInitialState } from "./js/utils/getInitialState"
 
 const thunk = require('redux-thunk').default
-const initialState = {
-  channelManagement: {
-    channelList: getInitialItems()
-  }
-}
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const middleware = [thunk, logger]
 
-const store = createStore(app, initialState, composeEnhancers(
+const store = createStore(app, getInitialState(), composeEnhancers(
   applyMiddleware(...middleware)
 ))
 

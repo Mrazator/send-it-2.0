@@ -5,13 +5,13 @@ import React from 'react'
 export class SavingStatus extends React.PureComponent {
 
     static propTypes = {
-        list: PropTypes.instanceOf(Immutable.List).isRequired,
+        channels: PropTypes.instanceOf(Immutable.List).isRequired,
         isSaving: PropTypes.bool.isRequired,
         save: PropTypes.func.isRequired
     };
 
     componentWillUpdate(nextProps) {
-        if (this.props.list !== nextProps.list) {
+        if (this.props.channels !== nextProps.channels) {
             this.props.save()
         }
     }
