@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "connected-react-router": "^4.3.0",
+    "history": "^4.7.2",
     "immutable": "^3.8.2",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.1",

@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Immutable from 'immutable'
-import { Channel } from "../../containers-redux/channels/Channel"
-import { ChannelEdited } from "../../containers-redux/channels/ChannelEdited"
+import {Link} from 'react-router-dom'
+import {Channel} from "../../containers-redux/channels/Channel"
+import {ChannelEdited} from "../../containers-redux/channels/ChannelEdited"
 import {SavingStatus} from "../../containers-redux/channels/SavingStatus"
+import {ROOT} from "../../constants/routes"
 
 const Channels = (props) => {
     const channelElements = props.channels.map(x => {
@@ -23,7 +25,7 @@ const Channels = (props) => {
     return (
         <div className="Channels">
             <div className="channels-manage">
-                <h1>Channels.</h1>
+                <Link to={ROOT}><h1>Channels.</h1></Link>
                 <i className="icon-plus" onClick={props.onCreate}/>
             </div>
             <SavingStatus/>

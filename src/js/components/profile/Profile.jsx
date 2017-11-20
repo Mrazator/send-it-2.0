@@ -1,10 +1,9 @@
 import React from 'react'
 
-
-const Profile  = () => {
+const Profile = () => {
     return (
         <div className="Profile">
-            <i className="icon-user"/>
+            <h1>Profile page</h1>
         </div>
     )
 }
