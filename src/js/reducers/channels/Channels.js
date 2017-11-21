@@ -3,13 +3,13 @@ import * as actions from '../../constants/actionTypes'
 
 export const channels = (previousState = Immutable.List(), action) => {
     switch (action.type) {
-        case actions.TODO_LIST_ITEM_CREATE:
+        case actions.CHANNELS_ITEM_CREATE:
             return previousState.push({...action.payload.channel})
 
-        case actions.TODO_LIST_ITEM_DELETE:
+        case actions.CHANNELS_ITEM_DELETE:
             return previousState.filterNot(item => item.id === action.payload.id)
 
-        case actions.TODO_LIST_ITEM_UPDATE: {
+        case actions.CHANNELS_ITEM_UPDATE: {
             const channel = action.payload.channel
             const itemIndex = previousState.findIndex(i => i.id === channel.id)
             return itemIndex >= 0 && channel.name.length > 0

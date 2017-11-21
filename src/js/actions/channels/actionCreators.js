@@ -2,7 +2,7 @@ import {uuid} from "../../utils/uuid"
 import * as actions from "../../constants/actionTypes";
 
 export const addChannel = () => ({
-    type: actions.TODO_LIST_ITEM_CREATE,
+    type: actions.CHANNELS_ITEM_CREATE,
     payload: {
         channel: {
           id: uuid(),
@@ -13,35 +13,35 @@ export const addChannel = () => ({
 })
 
 export const removeChannel = (id) => ({
-    type: actions.TODO_LIST_ITEM_DELETE,
+    type: actions.CHANNELS_ITEM_DELETE,
     payload: {
         id
     }
 })
 
 export const updateChannel = (channel) => ({
-    type: actions.TODO_LIST_ITEM_UPDATE,
+    type: actions.CHANNELS_ITEM_UPDATE,
     payload: {
         channel
     }
 })
 
 export const startEditingItem = (id) => ({
-    type: actions.TODO_LIST_ITEM_START_EDITING,
+    type: actions.CHANNELS_ITEM_START_EDITING,
     payload: {
         id
     }
 })
 
 export const cancelEditingItem = () => ({
-    type: actions.TODO_LIST_ITEM_CANCEL_EDITING
+    type: actions.CHANNELS_ITEM_CANCEL_EDITING
 })
 
 export const savingStarted = () => ({
-    type: actions.TODO_LIST_SAVING_STARTED,
+    type: actions.CHANNELS_SAVING_STARTED,
 })
 
 export const savingFinished = () => ({
-    type: actions.TODO_LIST_SAVING_FINISHED,
+    type: actions.CHANNELS_SAVING_FINISHED,
 })
 
