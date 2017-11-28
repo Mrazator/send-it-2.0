@@ -5,6 +5,7 @@ export const token = (prevState = null, action) => {
         case actions.SHARED_RECEIVE_TOKEN:
             return action.payload.token
 
+        case actions.SHARED_AUTHENTICATION_FAILED:
         case actions.SHARED_INVALIDATE_TOKEN:
             return null
 

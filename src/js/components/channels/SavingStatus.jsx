@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Immutable from 'immutable'
+import { SavingSpinner } from '../shared/SavingSpinner.jsx'
 
 export class SavingStatus extends React.PureComponent {
 
@@ -17,7 +18,7 @@ export class SavingStatus extends React.PureComponent {
     }
 
     render() {
-        const text = this.props.isSaving ? 'saving...' : 'all saved'
+        const text = this.props.isSaving ? <SavingSpinner/> : 'all saved'
 
         return (
             <div className="saving">
