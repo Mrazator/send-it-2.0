@@ -4,7 +4,7 @@ export const convertFromServerChannel = (serverChannel) => ({
     ...serverChannel.channels[serverChannel.channels.length -1]
 });
 
-export const convertToServerChannel = (ownerEmail, users) =>
+export const convertToServerChannelCreate = (ownerEmail, users) =>
     [
         {
             path: "/channels/-",
@@ -19,3 +19,24 @@ export const convertToServerChannel = (ownerEmail, users) =>
             }
         }
     ];
+
+export const convertToServerChannelDelete = (channelId) =>
+    [
+        {
+            path: "/channels/" + channelId,
+            op: "remove"
+        }
+    ]
+
+export const convertToServerChannelEdit = (channel) =>     [
+    {
+        path: "/channels/"+channel.id,
+        op: "replace",
+        value: {
+            name: channel.name,
+            customData: JSON.stringify({
+                ...channel.customData
+            })
+        }
+    }
+];

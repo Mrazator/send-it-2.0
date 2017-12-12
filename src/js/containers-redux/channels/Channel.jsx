@@ -2,14 +2,14 @@ import {connect} from 'react-redux'
 
 import {Channel} from '../../components/channels/Channel'
 import {
-    removeChannel,
     startEditingItem,
     selectChannel
 } from '../../actions/channels/actionCreators'
+import {deleteChannel} from "../../actions/channels/deleteChannel";
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onDelete: () => dispatch(removeChannel(ownProps.item.id)),
+    onDelete: () => dispatch(deleteChannel(ownProps.item.id)),
     onStartEditing: () => dispatch(startEditingItem(ownProps.item.id)),
     onSelect: () => dispatch(selectChannel(ownProps.item.id))
 });
