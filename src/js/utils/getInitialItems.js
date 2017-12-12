@@ -1,23 +1,6 @@
 import Immutable from 'immutable'
-import {uuid} from './uuid'
 
-const defaultItems = Immutable.List([
-    {
-        id: uuid(),
-        name: "#channel1",
-        customData: "custom data of channel1"
-    },
-    {
-        id: uuid(),
-        name: "#channel2",
-        customData: "custom data of channel2"
-    },
-    {
-        id: uuid(),
-        name: "#channel3",
-        customData: "custom data of channel3"
-    }
-])
+const defaultItems = Immutable.List([])
 
 export const getInitialItems = () => {
     const storedListJSON = localStorage.getItem('channels')

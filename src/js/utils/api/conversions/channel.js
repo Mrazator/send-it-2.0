@@ -1,7 +1,7 @@
 import {uuid} from "../../uuid";
 
 export const convertFromServerChannel = (serverChannel) => ({
-    ...serverChannel.channels[serverChannel.channels.length -1]
+    ...serverChannel.channels[serverChannel.channels.length - 1]
 });
 
 export const convertToServerChannelCreate = (ownerEmail, users) =>
@@ -28,15 +28,13 @@ export const convertToServerChannelDelete = (channelId) =>
         }
     ]
 
-export const convertToServerChannelEdit = (channel) =>     [
-    {
-        path: "/channels/"+channel.id,
-        op: "replace",
-        value: {
-            name: channel.name,
-            customData: JSON.stringify({
-                ...channel.customData
-            })
+export const convertToServerChannelEdit = (channel) =>
+    [
+        {
+            path: "/channels/" + channel.id,
+            op: "replace",
+            value: {
+                ...channel
+            }
         }
-    }
-];
+    ]
