@@ -1,13 +1,17 @@
-import {uuid} from "../../utils/uuid"
 import * as actions from "../../constants/actionTypes";
 
-export const addChannel = () => ({
+export const selectChannel = (id) => ({
+    type: actions.CHANNELS_ITEM_SELECT,
+    payload: {
+        id
+    }
+})
+
+export const addChannel = (channel) => ({
     type: actions.CHANNELS_ITEM_CREATE,
     payload: {
         channel: {
-          id: uuid(),
-          name: 'new channel',
-          customData: ''
+            ...channel
         }
     }
 })

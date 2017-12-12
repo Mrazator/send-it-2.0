@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as PropTypes from 'prop-types'
 
 import * as formStates from '../../constants/formStates'
+import { SavingSpinner } from '../shared/SavingSpinner.jsx'
 
 const NoChangedDetails = () => (
   <div
@@ -30,21 +31,33 @@ const SubmitDetails = () => (
   </button>
 )
 
-const UpdatePane = ({formState}) => {
-  switch (formState) {
-    case formStates.NOT_CHANGED:
-      return <NoChangedDetails/>
+const UploadingDetails = () => (
+    <div
+        className="well-sm alert-warning text-center"
+        role="alert"
+    >
+      <SavingSpinner />
+    </div>
+);
 
-    case formStates.INVALID:
-      return <InvalidDetails/>
+const UpdatePane = ({ formState }) => {
+    switch (formState) {
+        case formStates.NOT_CHANGED:
+            return <NoChangedDetails />;
 
-    case formStates.SAVEAVBLE:
-      return <SubmitDetails/>
+        case formStates.INVALID:
+            return <InvalidDetails />;
 
-    default:
-      throw new Error(`Unknown form state "${formState}"`)
-  }
-}
+        case formStates.SAVEAVBLE:
+            return <SubmitDetails />;
+
+        case formStates.SAVING_NOW:
+            return <UploadingDetails />;
+
+        default:
+            throw new Error(`Unknown form state "${formState}"`);
+    }
+};
 
 UpdatePane.propTypes = {
   formState: PropTypes.string.isRequired

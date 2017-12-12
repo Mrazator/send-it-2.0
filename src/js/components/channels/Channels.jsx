@@ -38,6 +38,7 @@ const Channels = (props) => {
 Channels.PropTypes = {
     channels: PropTypes.instanceOf(Immutable.List).isRequired,
     editedItemId: PropTypes.string,
+    selectedItemId: PropTypes.string,
     onCreate: PropTypes.func.isRequired
 }
 

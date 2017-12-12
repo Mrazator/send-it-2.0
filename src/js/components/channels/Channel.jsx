@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Channel = (props) => {
     return (
-        <li className="Channel">
+        <li className="Channel" onClick={props.onSelect}>
             <span onClick={props.onStartEditing}>{props.item.name}</span>
             <i className="icon-trash" onClick={props.onDelete}/>
         </li>
@@ -17,7 +17,8 @@ Channel.propTypes = {
         customData: PropTypes.string
     }).isRequired,
     onDelete: PropTypes.func.isRequired,
-    onStartEditing: PropTypes.func.isRequired
+    onStartEditing: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired
 };
 
 export {Channel}

@@ -20,4 +20,4 @@ export const channels = (previousState = Immutable.List(), action) => {
         default:
             return previousState
     }
-};
+}

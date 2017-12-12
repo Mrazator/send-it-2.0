@@ -5,7 +5,7 @@ import {Route, Switch} from 'react-router-dom'
 import {ROOT, PROFILE, LOGIN} from '../constants/routes'
 
 import App from "./app/App"
-import Profile from "./profile/Profile"
+import { Profile } from '../../js/containers-redux/profile/Profile.jsx'
 import Login from "./login/Login"
 import {AuthenticatedRoute} from "./app/AuthenticatedRoute"
 

@@ -6,8 +6,8 @@ import {shared} from './shared/shared'
 import {profile} from './profile/profile'
 
 export const app = combineReducers({
-  channelManagement,
-  profile,
-  shared,
-  form
+    channelManagement,
+    profile,
+    shared,
+    form
 })
