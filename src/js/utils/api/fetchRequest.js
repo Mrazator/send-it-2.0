@@ -10,6 +10,6 @@ export const fetchRequest = (uri, token, method, bodyJson) =>
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
-            body: JSON.stringify(bodyJson),
+            body: JSON.stringify(bodyJson)
         })
         .then(validateResponse);

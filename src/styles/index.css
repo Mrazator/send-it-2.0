@@ -511,3 +511,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between; }
+
+form.Details {
+  height: 125px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+  form.Details input {
+    width: calc(100% - 4px); }

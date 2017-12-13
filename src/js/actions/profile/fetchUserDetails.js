@@ -4,12 +4,11 @@ import {
     startFetchingProfileDetails
 } from './actionCreators';
 import {
-    USER_EMAIL,
     apiUserEmail
 } from '../../constants/api';
-import { invalidateToken, failAuthentication } from '../shared/actionCreators';
-import { fetchReceive } from '../../utils/api/fetchReceive';
-import { convertFromServerDetails } from '../../utils/api/conversions/profileDetails';
+import {invalidateToken, failAuthentication} from '../shared/actionCreators';
+import {fetchReceive} from '../../utils/api/fetchReceive';
+import {convertFromServerDetails} from '../../utils/api/conversions/profileDetails';
 
 import {
     EXPIRED_AUTHENTICATION_MESSAGE,
@@ -24,7 +23,9 @@ export const fetchUserDetails = () =>
         const requestUri = apiUserEmail(getState().profile.details.email);
 
         return fetchReceive(requestUri, authToken)
-            .then((serverDetails) => dispatch(updateProfileDetails(convertFromServerDetails(serverDetails))))
+            .then((serverDetails) => {
+                dispatch(updateProfileDetails(serverDetails.email, serverDetails.customData))
+            })
             .catch((error) => {
                 if (error.statusCode === 401) {
                     dispatch(invalidateToken());

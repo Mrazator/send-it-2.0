@@ -7,7 +7,6 @@ import {
     failUploadingProfileDetails,
 } from './actionCreators';
 import {
-    USER_EMAIL,
     apiUserEmail
 } from '../../constants/api';
 import {
@@ -45,14 +44,14 @@ export const uploadUserDetails = (details) =>
         dispatch(startSubmit(DETAILS_FORM_NAME));
 
         const authToken = getState().shared.token;
-        const requestUri = apiUserEmail(getState().profile.details.email);
-        const serverDetails = convertToServerDetails(details);
+        const requestUri = apiUserEmail(details.email);
+        const serverDetails = details.customData;
 
         try {
             await performAuthorizedRequest(dispatch, async () => {
-                const receivedServerDetails = await fetchRequest(requestUri, authToken, serverDetails);
+                const receivedServerDetails = await fetchRequest(requestUri, authToken, "PUT", serverDetails);
                 const updatedDetails = convertFromServerDetails(receivedServerDetails);
-                return dispatch(updateProfileDetails(updatedDetails));
+                return dispatch(updateProfileDetails(updatedDetails.email, updatedDetails.customData));
             });
         }
         catch (error) {

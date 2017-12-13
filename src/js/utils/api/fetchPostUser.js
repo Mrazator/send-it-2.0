@@ -1,14 +1,15 @@
 import {validateResponseLogin} from "./validateResponseLogin";
 
-export const fetchUser = (uri, method, email) => {
+export const fetchPostUser = (uri, email) => {
     const bodyJson = {
-        email
+        email,
+        customData: email.slice(0, email.indexOf('@'))
     }
 
     return fetch(
         uri,
         {
-            method,
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',

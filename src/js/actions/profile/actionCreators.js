@@ -1,10 +1,11 @@
 import * as actionTypes from '../../constants/actionTypes'
 import { errorActionFactory } from '../../utils/errorActionFactory'
 
-export const updateProfileDetails = (details) => ({
+export const updateProfileDetails = (email, customData) => ({
   type: actionTypes.PROFILE_UPDATE_DETAILS,
   payload: {
-      email: details
+      email,
+      customData
   }
 })
 

@@ -10,22 +10,23 @@ import {
     MILISECONDS_TO_AUTO_DISMISS_ERROR,
     FAILED_AUTHENTICATION_MESSAGE
 } from '../../constants/uiConstants'
-import {fetchUser} from "../../utils/api/fetchUser";
 import {apiUsers} from "../../constants/api";
 import {updateProfileDetails} from "../profile/actionCreators";
+import {fetchPostUser} from "../../utils/api/fetchPostUser";
 
 export const authenticateUser = (destinationLocation, userEmail) =>
     (dispatch) => {
         dispatch(startAuthentication());
 
-        return fetchUser(apiUsers(), "POST", userEmail)
+        return fetchPostUser(apiUsers(), userEmail)
             .then((response) => {
                     if (response) {
                         fetchAuthToken(userEmail)
                             .then((token) => {
                                 dispatch(receiveValidToken(token));
                                 dispatch(push(destinationLocation));
-                                // dispatch(updateProfileDetails(userEmail))
+                                console.log(userEmail, userEmail.slice(0, userEmail.indexOf("@")))
+                                dispatch(updateProfileDetails(userEmail, userEmail.slice(0, userEmail.indexOf("@"))))
                                 localStorage.setItem(keys.SHARED_TOKEN, JSON.stringify(token));
                                 localStorage.setItem(keys.SHARED_TOKEN_TIMESTAMP, JSON.stringify(new Date().getTime()));
                             })

@@ -1,0 +1,11 @@
+form.Details {
+  height: 125px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  input {
+    width: calc(100% - 4px);
+  }
+}

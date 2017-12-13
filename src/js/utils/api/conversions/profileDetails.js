@@ -1,9 +1,10 @@
 export const convertFromServerDetails = (serverDetails) => ({
-    customData: serverDetails.customData,
     email: serverDetails.email,
-});
+    ...JSON.parse(serverDetails.customData || '{}')
+})
+
 
 export const convertToServerDetails = (details) => JSON.stringify({
-    ...details,
-    email: undefined,
-});
+    customData: details.customData,
+    email: undefined
+})
