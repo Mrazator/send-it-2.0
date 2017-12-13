@@ -10,7 +10,7 @@ import {
     MILISECONDS_TO_AUTO_DISMISS_ERROR,
     FAILED_AUTHENTICATION_MESSAGE
 } from '../../constants/uiConstants'
-import {apiUsers} from "../../constants/api";
+import {API_USER_URI} from "../../constants/api";
 import {updateProfileDetails} from "../profile/actionCreators";
 import {fetchPostUser} from "../../utils/api/fetchPostUser";
 
@@ -18,7 +18,7 @@ export const authenticateUser = (destinationLocation, userEmail) =>
     (dispatch) => {
         dispatch(startAuthentication());
 
-        return fetchPostUser(apiUsers(), userEmail)
+        return fetchPostUser(API_USER_URI(), userEmail)
             .then((response) => {
                     if (response) {
                         fetchAuthToken(userEmail)

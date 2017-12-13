@@ -8,7 +8,6 @@ import {
 } from '../../constants/api';
 import {invalidateToken, failAuthentication} from '../shared/actionCreators';
 import {fetchReceive} from '../../utils/api/fetchReceive';
-import {convertFromServerDetails} from '../../utils/api/conversions/profileDetails';
 
 import {
     EXPIRED_AUTHENTICATION_MESSAGE,

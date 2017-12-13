@@ -1,5 +1,5 @@
 import {removeChannel, savingStarted} from "./actionCreators";
-import {channelsUri} from "../../constants/api";
+import {API_CHANNEL_URI} from "../../constants/api";
 import {convertToServerChannelDelete} from "../../utils/api/conversions/channel";
 import {fetchRequest} from "../../utils/api/fetchRequest";
 import {failAuthentication, invalidateToken} from "../shared/actionCreators";
@@ -12,7 +12,7 @@ export const deleteChannel = (channelId) =>
         dispatch(savingStarted())
 
         const authToken = getState().shared.token
-        const requestUri = channelsUri()
+        const requestUri = API_CHANNEL_URI()
         const bodyJson = convertToServerChannelDelete(channelId)
 
         return fetchRequest(requestUri, authToken, "PATCH", bodyJson)

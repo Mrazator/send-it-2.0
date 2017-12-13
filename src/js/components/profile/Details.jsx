@@ -23,6 +23,7 @@ const getFormState = (dirty, valid, submitting) => {
 
 const Details = ({initialValues, handleSubmit, valid, dirty, submitting}) => (
     <form className='Details' onSubmit={handleSubmit}>
+        <label>nickname:</label>
         <Field
             type="text"
             name="customData"

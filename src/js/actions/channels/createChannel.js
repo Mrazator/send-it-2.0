@@ -1,4 +1,4 @@
-import {channelsUri} from "../../constants/api";
+import {API_CHANNEL_URI} from "../../constants/api";
 import {fetchRequest} from "../../utils/api/fetchRequest";
 import {failAuthentication, invalidateToken} from "../shared/actionCreators";
 import {failFetchingProfileDetails} from "../profile/actionCreators";
@@ -14,7 +14,7 @@ export const createChannel = () =>
         dispatch(savingStarted())
 
         const authToken = getState().shared.token
-        const requestUri = channelsUri()
+        const requestUri = API_CHANNEL_URI()
         const bodyJson = convertToServerChannelCreate(getState().profile.details.email, [])
 
         return fetchRequest(requestUri, authToken, "PATCH", bodyJson)

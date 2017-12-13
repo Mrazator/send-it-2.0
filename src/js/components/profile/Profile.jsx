@@ -5,6 +5,7 @@ import {LogoutBtn} from "../../containers-redux/profile/LogoutBtn"
 import {HeadInHelmet} from '../../containers-redux/shared/HeadInHelmet'
 import {Details} from "../../containers-redux/profile/Details"
 import {Loader} from "../../containers-redux/shared/Loader"
+import {Avatar} from "../../containers-redux/profile/Avatar";
 
 class Profile extends React.PureComponent {
 
@@ -21,7 +22,9 @@ class Profile extends React.PureComponent {
             <div className="Profile">
                 <HeadInHelmet/>
                 <h1>Profile page</h1>
-                <img className="profile-picture" src="" alt="profile"/>
+                <div>
+                    <Avatar className="profile-picture"/>
+                </div>
                 <Loader stateLoadingSelector={state => state.profile.isFetchingDetails}>
                     <Details />
                 </Loader>
