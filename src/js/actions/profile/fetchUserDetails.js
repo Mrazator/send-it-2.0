@@ -21,7 +21,7 @@ export const fetchUserDetails = () =>
         dispatch(startFetchingProfileDetails());
 
         const authToken = getState().shared.token;
-        const requestUri = apiUserEmail(USER_EMAIL);
+        const requestUri = apiUserEmail(getState().profile.details.email);
 
         return fetchReceive(requestUri, authToken)
             .then((serverDetails) => dispatch(updateProfileDetails(convertFromServerDetails(serverDetails))))

@@ -12,6 +12,7 @@ import {
 } from '../../constants/uiConstants'
 import {fetchUser} from "../../utils/api/fetchUser";
 import {apiUsers} from "../../constants/api";
+import {updateProfileDetails} from "../profile/actionCreators";
 
 export const authenticateUser = (destinationLocation, userEmail) =>
     (dispatch) => {
@@ -24,6 +25,7 @@ export const authenticateUser = (destinationLocation, userEmail) =>
                             .then((token) => {
                                 dispatch(receiveValidToken(token));
                                 dispatch(push(destinationLocation));
+                                // dispatch(updateProfileDetails(userEmail))
                                 localStorage.setItem(keys.SHARED_TOKEN, JSON.stringify(token));
                                 localStorage.setItem(keys.SHARED_TOKEN_TIMESTAMP, JSON.stringify(new Date().getTime()));
                             })

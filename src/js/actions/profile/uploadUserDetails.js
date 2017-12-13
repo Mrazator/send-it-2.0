@@ -15,12 +15,12 @@ import {
     invalidateToken,
     failAuthentication,
 } from '../shared/actionCreators';
-import { fetchRequest } from '../../utils/api/fetchRequest';
+import {fetchRequest} from '../../utils/api/fetchRequest';
 import {
     convertFromServerDetails,
     convertToServerDetails
 } from '../../utils/api/conversions/profileDetails';
-import { DETAILS_FORM_NAME } from '../../constants/formNames';
+import {DETAILS_FORM_NAME} from '../../constants/formNames';
 
 const MILISECONDS_TO_AUTO_DISMISS_ERROR = 2000;
 const FAILED_UPDATE_DETAILS_MESSAGE = 'Updating details went grievously wrong…';
@@ -45,7 +45,7 @@ export const uploadUserDetails = (details) =>
         dispatch(startSubmit(DETAILS_FORM_NAME));
 
         const authToken = getState().shared.token;
-        const requestUri = apiUserEmail(USER_EMAIL);
+        const requestUri = apiUserEmail(getState().profile.details.email);
         const serverDetails = convertToServerDetails(details);
 
         try {

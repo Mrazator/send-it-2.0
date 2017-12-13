@@ -28,6 +28,7 @@ const Details = ({handleSubmit, valid, dirty, submitting}) => (
   <form onSubmit={handleSubmit}>
     <Field
       type="text"
+      name="text"
       placeholder="email"
       required
       component={Input}

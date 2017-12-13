@@ -4,7 +4,7 @@ import { errorActionFactory } from '../../utils/errorActionFactory'
 export const updateProfileDetails = (details) => ({
   type: actionTypes.PROFILE_UPDATE_DETAILS,
   payload: {
-    details
+      email: details
   }
 })
 
