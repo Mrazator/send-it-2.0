@@ -506,3 +506,8 @@ body {
   flex-direction: column;
   height: calc(100vh - 500px);
   padding: 250px 0; }
+  .Login form {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }

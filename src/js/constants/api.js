@@ -6,4 +6,5 @@ export const API_AUTH_URI = `${API_URI}/auth`
 export const USER_EMAIL = 'whatever'
 
 export const channelsUri = () => `${API_URI}/app/${API_ID}`
-export const createApiUserUri = (email) => `${API_URI}/${API_ID}/user/${email}`
+export const apiUsers = () => `${API_URI}/${API_ID}/user`
+export const apiUserEmail = (email) => `${API_URI}/${API_ID}/user/${email}`

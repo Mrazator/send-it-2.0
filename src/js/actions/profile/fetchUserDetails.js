@@ -5,7 +5,7 @@ import {
 } from './actionCreators';
 import {
     USER_EMAIL,
-    createApiUserUri
+    apiUserEmail
 } from '../../constants/api';
 import { invalidateToken, failAuthentication } from '../shared/actionCreators';
 import { fetchReceive } from '../../utils/api/fetchReceive';
@@ -21,7 +21,7 @@ export const fetchUserDetails = () =>
         dispatch(startFetchingProfileDetails());
 
         const authToken = getState().shared.token;
-        const requestUri = createApiUserUri(USER_EMAIL);
+        const requestUri = apiUserEmail(USER_EMAIL);
 
         return fetchReceive(requestUri, authToken)
             .then((serverDetails) => dispatch(updateProfileDetails(convertFromServerDetails(serverDetails))))

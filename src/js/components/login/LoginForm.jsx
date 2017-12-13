@@ -8,8 +8,25 @@ class LoginForm extends React.PureComponent {
         onSubmit: PropTypes.func.isRequired
     }
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            componentId: 0,
+            email: ""
+        }
+
+        this._onNameChange = this._onNameChange.bind(this)
+    }
+
     componentWillMount() {
         this.setState(() => ({componentId: uuid()}))
+    }
+
+    _onNameChange(event) {
+        const value = event.target.value
+
+        this.setState({email: value})
     }
 
     render() {
@@ -18,17 +35,16 @@ class LoginForm extends React.PureComponent {
 
         return (
             <form>
-                <label htmlFor={loginId}>
-                    e-mail
-                </label>
                 <input
                     type="email"
+                    value={this.state.value}
                     id={loginId}
+                    onChange={this._onNameChange}
                     placeholder="email@email.com"
                 />
                 <button
-                    type="button"
-                    onClick={this.props.onSubmit}
+                    type="submit"
+                    onClick={() => this.props.onSubmit(this.state.email)}
                 >
                     Log in
                 </button>

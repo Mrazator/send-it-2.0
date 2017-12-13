@@ -8,7 +8,7 @@ import {
 } from './actionCreators';
 import {
     USER_EMAIL,
-    createApiUserUri
+    apiUserEmail
 } from '../../constants/api';
 import {
     dismissError,
@@ -45,7 +45,7 @@ export const uploadUserDetails = (details) =>
         dispatch(startSubmit(DETAILS_FORM_NAME));
 
         const authToken = getState().shared.token;
-        const requestUri = createApiUserUri(USER_EMAIL);
+        const requestUri = apiUserEmail(USER_EMAIL);
         const serverDetails = convertToServerDetails(details);
 
         try {

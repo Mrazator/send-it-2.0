@@ -2,4 +2,11 @@
 
 .Login {
   @include full-page();
+
+  form {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }

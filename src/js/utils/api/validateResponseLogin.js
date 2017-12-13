@@ -1,10 +1,12 @@
-export const validateResponse = (response) => {
-    if (response.status >= 200 && response.status < 300) {
-        return response.json()
+export const validateResponseLogin = (response) => {
+    if (response.status === 200 || response.status === 201) {
+        return true
+    }
+    else if(response.status === 400){
+        return true
     }
     else {
-        console.log(3, "az druhy fail")
-        console.log(response)
+        console.log("prvni fail")
         const errorMessge = response.statusText || `Something went wrong (ending up in ${response.status})`
 
         const error = new Error(errorMessge)
