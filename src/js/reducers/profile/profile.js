@@ -1,11 +1,15 @@
-import {combineReducers} from 'redux'
+import {combineReducers} from 'redux';
 
-import {details} from './details'
-import {isFetchingDetails} from './isFetchingDetails'
-import {isUploadingAvatar} from "./isUploadingAvatar";
+import {details} from './details';
+import {avatarUri} from './avatarUri';
+import {isFetchingDetails} from './isFetchingDetails';
+import {isFetchingAvatar} from './isFetchingAvatar';
+import {isUploadingAvatar} from './isUploadingAvatar';
 
 export const profile = combineReducers({
     details,
+    avatarUri,
     isFetchingDetails,
-    isUploadingAvatar
-})
+    isFetchingAvatar,
+    isUploadingAvatar,
+});

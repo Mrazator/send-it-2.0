@@ -1,7 +1,7 @@
 import { uuid } from './uuid';
 
 export const errorActionFactory = (actionType) =>
-    (errorMessage, error) => ({
+    (errorMessage, error = {}) => ({
         type: actionType,
         payload: {
             error: {

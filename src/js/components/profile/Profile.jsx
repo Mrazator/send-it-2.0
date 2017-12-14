@@ -22,8 +22,10 @@ class Profile extends React.PureComponent {
             <div className="Profile">
                 <HeadInHelmet/>
                 <h1>Profile page</h1>
-                <div>
-                    <Avatar className="profile-picture"/>
+                <div className="profile-img">
+                    <Loader stateLoadingSelector={state => state.profile.isFetchingAvatar}>
+                        <Avatar className="profile-picture"/>
+                    </Loader>
                 </div>
                 <Loader stateLoadingSelector={state => state.profile.isFetchingDetails}>
                     <Details />

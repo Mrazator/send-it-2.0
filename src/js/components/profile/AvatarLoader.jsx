@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
+import { AvatarLoaderPane } from './AvatarLoader.styles';
 import { SavingSpinner } from '../shared/SavingSpinner.jsx';
 
 class AvatarLoader extends React.PureComponent {
@@ -30,7 +31,7 @@ class AvatarLoader extends React.PureComponent {
             : <i className='glyphicon glyphicon-open' />;
 
         return (
-            <div className="AvatarLoader"
+            <AvatarLoaderPane
                 isUploading={isUploading}
                 onMouseLeave={this._hideLoader}
                 onDragLeave={this._hideLoader}
@@ -44,7 +45,7 @@ class AvatarLoader extends React.PureComponent {
                 >
                     {message}
                 </Dropzone>
-            </div>
+            </AvatarLoaderPane>
         );
     }
 }

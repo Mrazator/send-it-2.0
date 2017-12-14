@@ -6,6 +6,7 @@ import { uploadUserAvatar } from '../../actions/profile/uploadUserAvatar';
 
 const mapStateToProps = (state) => ({
     isUploading: state.profile.isUploadingAvatar,
+    uri: state.profile.avatarUri
 });
 
 const mapDispatchToProps = (dispatch) => ({
