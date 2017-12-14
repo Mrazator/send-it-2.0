@@ -493,8 +493,8 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: calc(100vh - 500px);
-  padding: 250px 0; }
+  height: calc(100vh - 200px);
+  padding: 100px 0; }
   .Profile .profile-img {
     width: 200px; }
   .Profile .profile-picture {
@@ -506,8 +506,8 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: calc(100vh - 500px);
-  padding: 250px 0; }
+  height: calc(100vh - 200px);
+  padding: 100px 0; }
   .Login form {
     height: 60px;
     display: flex;

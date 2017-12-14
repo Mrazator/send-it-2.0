@@ -1,9 +1,14 @@
 import {validateResponseLogin} from "./validateResponseLogin";
 
 export const fetchPostUser = (uri, email) => {
+    const custom = {
+        nickName: email.slice(0, email.indexOf('@')),
+        avatarId: ""
+    }
+
     const bodyJson = {
         email,
-        customData: email.slice(0, email.indexOf('@'))
+        customData: JSON.stringify(custom)
     }
 
     return fetch(

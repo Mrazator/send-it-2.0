@@ -23,8 +23,8 @@ $breakpoint-xl: 2000px !default
 @mixin full-page(){
   @include flex-align-center();
   flex-direction: column;
-  height: calc(100vh - 500px);
-  padding: 250px 0;
+  height: calc(100vh - 200px);
+  padding: 100px 0;
 }
 
 @mixin sm() {

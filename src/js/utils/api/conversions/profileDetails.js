@@ -1,6 +1,6 @@
 export const convertFromServerDetails = (serverDetails) => ({
     email: serverDetails.email,
-    ...JSON.parse(serverDetails.customData || '{}')
+    customData: {...JSON.parse(serverDetails.customData)}
 })
 
 

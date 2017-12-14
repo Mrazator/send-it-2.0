@@ -31,13 +31,18 @@ export const uploadUserAvatar = (file) =>
                     throw new Error('Avatar uploaded to the server, however, server did not store the file.');
                 }
 
+                const state = getState();
+
                 const updatedDetails = {
-                    ...getState().profile.details,
-                    avatarId: uploadResult[0].id,
-                };
+                    ...state.profile.details,
+                    customData:  {
+                        ...state.profile.details.customData,
+                        avatarId: uploadResult[0].id
+                    }
+                }
 
                 await dispatch(uploadUserDetails(updatedDetails));
-                await dispatch(fetchUserAvatar(updatedDetails.avatarId));
+                await dispatch(fetchUserAvatar(updatedDetails.customData.avatarId));
             });
         }
         catch (error) {

@@ -2,7 +2,6 @@ import {
     updateProfileDetails,
     failFetchingProfileDetails,
     startFetchingProfileDetails,
-    startFetchingProfileAvatar
 } from './actionCreators';
 import {
     apiUserEmail
@@ -19,15 +18,12 @@ import {fetchUserAvatar} from "./fetchUserAvatar";
 export const fetchUserDetails = () =>
     (dispatch, getState) => {
         dispatch(startFetchingProfileDetails());
-        dispatch(startFetchingProfileAvatar());
 
         const authToken = getState().shared.token;
         const requestUri = apiUserEmail(getState().profile.details.email);
 
         return fetchReceive(requestUri, authToken)
-            .then((serverDetails) => {
-                dispatch(updateProfileDetails(serverDetails.email, serverDetails.customData))
-            })
+            .then((serverDetails) => dispatch(updateProfileDetails(serverDetails.email, JSON.parse(serverDetails.customData))))
             .then(({ payload: {details: { avatarId } = {} } = {} }) => avatarId && dispatch(fetchUserAvatar(avatarId)))
             .catch((error) => {
                 if (error.statusCode === 401) {

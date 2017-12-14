@@ -25,8 +25,7 @@ export const authenticateUser = (destinationLocation, userEmail) =>
                             .then((token) => {
                                 dispatch(receiveValidToken(token));
                                 dispatch(push(destinationLocation));
-                                console.log(userEmail, userEmail.slice(0, userEmail.indexOf("@")))
-                                dispatch(updateProfileDetails(userEmail, userEmail.slice(0, userEmail.indexOf("@"))))
+                                dispatch(updateProfileDetails(userEmail,{ nickName:  userEmail.slice(0, userEmail.indexOf("@")), avatarId: ""}))
                                 localStorage.setItem(keys.SHARED_TOKEN, JSON.stringify(token));
                                 localStorage.setItem(keys.SHARED_TOKEN_TIMESTAMP, JSON.stringify(new Date().getTime()));
                             })

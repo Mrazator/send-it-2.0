@@ -29,13 +29,15 @@ export const uploadUserDetails = (details) =>
     async (dispatch, getState) => {
         dispatch(startSubmit(DETAILS_FORM_NAME));
 
+        console.log(details)
         const authToken = getState().shared.token;
         const requestUri = apiUserEmail(details.email);
         const serverDetails = details.customData;
 
         try {
             await performAuthorizedRequest(dispatch, async () => {
-                const receivedServerDetails = await fetchRequest(requestUri, authToken, "PUT", serverDetails);
+
+                const receivedServerDetails = await fetchRequest(requestUri, authToken, "PUT", JSON.stringify(serverDetails));
                 const updatedDetails = convertFromServerDetails(receivedServerDetails);
                 return dispatch(updateProfileDetails(updatedDetails.email, updatedDetails.customData));
             });

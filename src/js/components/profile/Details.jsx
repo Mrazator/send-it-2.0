@@ -4,7 +4,6 @@ import {Field} from 'redux-form'
 
 import * as formStates from '../../constants/formStates'
 import {UpdatePane} from "./UpdatePanel";
-// import {Input} from "./Input";
 
 const getFormState = (dirty, valid, submitting) => {
     if (!dirty) {
@@ -26,8 +25,8 @@ const Details = ({initialValues, handleSubmit, valid, dirty, submitting}) => (
         <label>nickname:</label>
         <Field
             type="text"
-            name="customData"
-            placeholder={initialValues.customData}
+            name="customData.nickName"
+            placeholder={initialValues.customData.nickName}
             component="input"
         />
 
