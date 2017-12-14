@@ -17,10 +17,7 @@ const Channels = (props) => {
             />
         }
 
-        return <Channel
-            key={x.id}
-            item={x}
-        />
+        return <Channel key={x.id} item={x}/>
     })
 
     return (

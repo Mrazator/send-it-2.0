@@ -1,12 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Link} from "react-router-dom";
 
 const Channel = (props) => {
     return (
-        <li className="Channel" onClick={props.onSelect}>
-            <span onClick={props.onStartEditing}>{props.item.name}</span>
-            <i className="icon-trash" onClick={props.onDelete}/>
-        </li>
+        <Link to={`/channels/${props.item.id}`}>
+            <li className="Channel" onClick={props.onSelect}>
+                <span onClick={props.onStartEditing}>{props.item.name}</span>
+                <i className="icon-trash" onClick={props.onDelete}/>
+            </li>
+        </Link>
+
     )
 }
 

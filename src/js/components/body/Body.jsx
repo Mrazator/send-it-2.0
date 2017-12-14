@@ -1,8 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import {Route} from "react-router-dom";
 
-const Body = () => {
+const Body = (props) => {
     return (
-        <div className="Body"/>
+        <Route path={`/channels/:${props.itemId}`}>
+            <div className="Body"/>
+        </Route>
     )
 }
+
+Body.propTypes = {
+    itemId: PropTypes.number.isRequired
+}
+
 export default Body
