@@ -3,6 +3,9 @@ import * as actions from '../../constants/actionTypes'
 
 export const channels = (previousState = Immutable.List(), action) => {
     switch (action.type) {
+        case actions.CHANNELS_UPDATE:
+            return Immutable.List(action.payload.channels)
+
         case actions.CHANNELS_ITEM_CREATE:
             return previousState.push({...action.payload.channel})
 

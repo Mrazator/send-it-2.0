@@ -1,17 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Route} from "react-router-dom";
+import "react-router-dom";
+import {Message} from "./Message";
 
 const Body = (props) => {
+    // const messageElements = props.messages.map(x => <Message key={x.id} item={x}/>)
+
     return (
-        <Route path={`/channels/:${props.itemId}`}>
-            <div className="Body"/>
-        </Route>
+        <div className="Body">
+            <div className="Messages">
+                <ul>
+                    {/*{messageElements}*/}
+                </ul>
+            </div>
+
+            <div className="MessageManagement">
+                <div className="InviteUsers"/>
+                <div className="SendText"/>
+            </div>
+
+            1.{props.itemId}
+            <br/>
+            2.{props.channelId}
+        </div>
     )
 }
 
 Body.propTypes = {
-    itemId: PropTypes.number.isRequired
+    itemId: PropTypes.string
 }
 
 export default Body

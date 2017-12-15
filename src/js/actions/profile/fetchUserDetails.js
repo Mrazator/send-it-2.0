@@ -24,7 +24,7 @@ export const fetchUserDetails = () =>
 
         return fetchReceive(requestUri, authToken)
             .then((serverDetails) => dispatch(updateProfileDetails(serverDetails.email, JSON.parse(serverDetails.customData))))
-            .then(({ payload: {details: { avatarId } = {} } = {} }) => avatarId && dispatch(fetchUserAvatar(avatarId)))
+            .then(({ payload: {customData: { avatarId } = {} } = {} }) => avatarId && dispatch(fetchUserAvatar(avatarId)))
             .catch((error) => {
                 if (error.statusCode === 401) {
                     dispatch(invalidateToken());

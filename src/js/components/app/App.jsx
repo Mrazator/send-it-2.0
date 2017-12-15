@@ -6,12 +6,12 @@ import {HeadInHelmet} from '../../containers-redux/shared/HeadInHelmet'
 import {Errors} from "../../containers-redux/shared/Errors";
 import {BodyRedux} from "../../containers-redux/body/Body";
 
-const App = () => {
+const App = ({computedMatch}) => {
     return (
         <div className="App">
             <HeadInHelmet/>
             <ChannelsRedux/>
-            <BodyRedux/>
+            <BodyRedux channelId={computedMatch.params.channelId}/>
             <Settings/>
             <Errors/>
         </div>

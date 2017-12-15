@@ -34,7 +34,7 @@ ChannelEdited.propTypes = {
     item: PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        customData: PropTypes.string
+        customData: PropTypes.object
     }).isRequired,
     disabled: PropTypes.bool.isRequired,
     onNameChange: PropTypes.func.isRequired,

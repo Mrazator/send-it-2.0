@@ -1,5 +1,15 @@
 import * as actions from "../../constants/actionTypes";
 
+export const updateChannels = (channels) => {
+    return {
+        type: actions.CHANNELS_UPDATE,
+        payload: {
+            channels
+        }
+
+    }
+}
+
 export const selectChannel = (id) => ({
     type: actions.CHANNELS_ITEM_SELECT,
     payload: {

@@ -15,6 +15,7 @@ const LayoutSelector = ({isAuthenticated}) => {
             <Switch>
                 <Route exact path={LOGIN} component={Login}/>
                 <AuthenticatedRoute exact path={ROOT} component={App} isAuthenticated={isAuthenticated}/>
+                <AuthenticatedRoute exact path={"/channels/:channelId"} component={App} isAuthenticated={isAuthenticated}/>
                 <AuthenticatedRoute exact path={PROFILE} component={Profile} isAuthenticated={isAuthenticated}/>
             </Switch>
         </div>

@@ -5,6 +5,7 @@ import {failFetchingProfileDetails} from "../profile/actionCreators";
 import {EXPIRED_AUTHENTICATION_MESSAGE, FAILED_FETCH_DETAILS_MESSAGE} from "../../constants/uiConstants";
 import {addChannel, savingStarted} from "./actionCreators";
 import {
+    convertFromServer,
     convertFromServerChannel,
     convertToServerChannelCreate
 } from "../../utils/api/conversions/channel";
@@ -18,7 +19,7 @@ export const createChannel = () =>
         const bodyJson = convertToServerChannelCreate(getState().profile.details.email, [])
 
         return fetchRequest(requestUri, authToken, "PATCH", bodyJson)
-            .then((server) => dispatch(addChannel(convertFromServerChannel(server))))
+            .then((server) => dispatch(addChannel(convertFromServer(convertFromServerChannel(server)))))
             .catch((error) => {
                 if (error.statusCode === 401) {
                     dispatch(invalidateToken());

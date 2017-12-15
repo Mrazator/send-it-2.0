@@ -18,7 +18,7 @@ Channel.propTypes = {
     item: PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        customData: PropTypes.string
+        customData: PropTypes.object
     }).isRequired,
     onDelete: PropTypes.func.isRequired,
     onStartEditing: PropTypes.func.isRequired,
