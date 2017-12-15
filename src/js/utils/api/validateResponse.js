@@ -3,8 +3,6 @@ export const validateResponse = (response) => {
         return response.json()
     }
     else {
-        console.log(3, "az druhy fail")
-        console.log(response)
         const errorMessge = response.statusText || `Something went wrong (ending up in ${response.status})`
 
         const error = new Error(errorMessge)

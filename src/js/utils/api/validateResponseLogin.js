@@ -6,7 +6,6 @@ export const validateResponseLogin = (response) => {
         return true
     }
     else {
-        console.log("prvni fail")
         const errorMessge = response.statusText || `Something went wrong (ending up in ${response.status})`
 
         const error = new Error(errorMessge)

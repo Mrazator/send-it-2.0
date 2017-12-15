@@ -1,6 +1,6 @@
 import {push} from 'connected-react-router'
 import * as keys from "../../constants/localStorageKeys"
-import {dismissError, receiveValidToken} from './actionCreators'
+import {dismissError, receiveValidEmail, receiveValidToken} from './actionCreators'
 import {
     failAuthentication,
     startAuthentication
@@ -23,9 +23,15 @@ export const authenticateUser = (destinationLocation, userEmail) =>
                     if (response) {
                         fetchAuthToken(userEmail)
                             .then((token) => {
+                                dispatch(receiveValidEmail(userEmail))
                                 dispatch(receiveValidToken(token));
                                 dispatch(push(destinationLocation));
-                                dispatch(updateProfileDetails(userEmail,{ nickName:  userEmail.slice(0, userEmail.indexOf("@")), avatarId: ""}))
+                                dispatch(updateProfileDetails(userEmail, {
+                                    nickName: userEmail.slice(0, userEmail.indexOf("@")),
+                                    avatarId: ""
+                                }))
+
+                                localStorage.setItem(keys.SHARED_EMAIL, userEmail)
                                 localStorage.setItem(keys.SHARED_TOKEN, JSON.stringify(token));
                                 localStorage.setItem(keys.SHARED_TOKEN_TIMESTAMP, JSON.stringify(new Date().getTime()));
                             })

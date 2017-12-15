@@ -1,10 +1,18 @@
 import * as actions from '../../constants/actionTypes'
 import {errorActionFactory} from "../../utils/errorActionFactory";
+import {SHARED_RECEIVE_EMAIL} from "../../constants/actionTypes";
 
 export const receiveValidToken = (token) => ({
     type: actions.SHARED_RECEIVE_TOKEN,
     payload: {
         token
+    }
+})
+
+export const receiveValidEmail = (email) => ({
+    type: SHARED_RECEIVE_EMAIL,
+    payload: {
+        email
     }
 })
 

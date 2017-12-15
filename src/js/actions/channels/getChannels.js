@@ -10,7 +10,7 @@ export const getChannels = () =>
 
         return fetchReceive(requestUri, authToken)
             .then(async (server) => {
-                const owner = getState().profile.details.email
+                const owner = getState().shared.email
 
                 return dispatch(updateChannels(convertFromServerChannels(server, owner)))
             })
