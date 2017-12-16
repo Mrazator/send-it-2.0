@@ -18,7 +18,7 @@ export const authenticateUser = (destinationLocation, userEmail) =>
     (dispatch) => {
         dispatch(startAuthentication());
 
-        return fetchPostUser(API_USER_URI(), userEmail)
+        return fetchPostUser(API_USER_URI, userEmail)
             .then((response) => {
                     if (response) {
                         fetchAuthToken(userEmail)

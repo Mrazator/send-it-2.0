@@ -3,7 +3,7 @@ import {uuid} from "../../uuid";
 export const convertFromServerChannels = (server, owner) => {
     return server.channels
         .map(x => convertFromServer(x))
-        .filter(x => x.customData.owner === owner) //|| x.customData.usersInChannel.filter(x => x === owner) !== []
+        .filter(x => x.customData.owner === owner) //|| x.customData.users.filter(x => x === owner) !== []
 }
 
 export const convertFromServer = (channel) => {
@@ -14,7 +14,7 @@ export const convertFromServer = (channel) => {
         name: channel.name,
         customData: {
             ...custom,
-            usersInChannel: JSON.parse(custom.usersInChannel)
+            users: JSON.parse(custom.users)
         }
     }
 }
@@ -33,7 +33,7 @@ export const convertToServerChannelCreate = (ownerEmail, users) =>
                 name: "New channel",
                 customData: JSON.stringify({
                     owner: ownerEmail,
-                    usersInChannel: JSON.stringify(users)
+                    users: JSON.stringify(users)
                 })
             }
         }
@@ -56,7 +56,7 @@ export const convertToServerChannelEdit = (channel) =>
                 ...channel,
                 customData: JSON.stringify({
                     owner: channel.customData.owner,
-                    usersInChannel: JSON.stringify(channel.customData.usersInChannel)
+                    users: JSON.stringify(channel.customData.users)
                 })
             }
         }

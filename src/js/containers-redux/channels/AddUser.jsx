@@ -4,6 +4,7 @@ import {AddUser} from "../../components/channels/AddUser"
 import {loadUsers} from "../../actions/channels/loadUsers";
 import {uploadChannelUsers} from "../../actions/channels/uploadChannelUsers";
 import PropTypes from 'prop-types'
+import Immutable from 'immutable'
 
 const mapStateToProps = (state, ownProps) => ({
     channel: ownProps.channel,
@@ -29,7 +30,7 @@ const connectedComponent = stateEnhancer(formEnhancer(AddUser))
 connectedComponent.propTypes = {
     channel: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        usersInChannel: PropTypes.array.isRequired,
+        users: PropTypes.instanceOf(Immutable.List()),
     }).isRequired
 };
 export { connectedComponent as AddUserRedux }

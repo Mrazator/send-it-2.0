@@ -10,7 +10,7 @@ export class AddUser extends React.PureComponent {
         channel: PropTypes.object.isRequired,
         handleSubmit: PropTypes.func.isRequired,
         onLoadUsers: PropTypes.func.isRequired,
-        selected: PropTypes.func.isRequired
+        selected: PropTypes.bool.isRequired
     }
 
     componentDidMount() {
@@ -31,10 +31,9 @@ export class AddUser extends React.PureComponent {
                         component={SelectComponent}
                     />
 
-                    <i
-                        type="submit"
-                        className="icon-ok"
-                        title="add"
+                    <button type="submit"
+                            className="icon-ok"
+                            title="add"
                     />
                 </form>
             </div>

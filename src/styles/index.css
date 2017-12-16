@@ -498,9 +498,15 @@ body {
       -webkit-appearance: initial;
       cursor: pointer;
       font-size: 20px;
-      margin-left: 5px; }
-      .Channels ul .AddUser .icon-ok.icon-ok:hover {
+      margin-left: 5px;
+      color: grey;
+      background-color: white;
+      padding: 0;
+      border-style: none; }
+      .Channels ul .AddUser .icon-ok:hover {
         color: black; }
+      .Channels ul .AddUser .icon-ok:focus {
+        outline: none; }
     .Channels ul .AddUser form {
       padding: 0 15px 14px 15px;
       margin-left: -10px;

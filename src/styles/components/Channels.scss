@@ -44,9 +44,17 @@
         cursor: pointer;
         font-size: 20px;
         margin-left: 5px;
+        color: grey;
+        background-color: white;
+        padding: 0;
+        border-style: none;
 
-        &.icon-ok:hover {
+        &:hover {
           color: $black;
+        }
+
+        &:focus {
+          outline: none;
         }
       }
 

@@ -1,13 +1,19 @@
+import {savingStarted} from "./actionCreators";
+import {API_CHANNEL_URI} from "../../constants/api";
+import {convertToServerChannelEdit} from "../../utils/api/conversions/channel";
+
 export const uploadChannelUsers = (channel) =>
     (dispatch, getState) => {
 
+        dispatch(savingStarted())
         console.log(channel)
-        // dispatch(savingStarted())
         //
         // const authToken = getState().shared.token
         // const requestUri = API_CHANNEL_URI()
         // const bodyJson = convertToServerChannelEdit(channel)
-        //
+        // console.log(channel)
+        // console.log(bodyJson)
+
         // return fetchRequest(requestUri, authToken, "PATCH", bodyJson)
         //     .then((server) => dispatch(updateChannel(channel)))
         //     .catch((error) => {

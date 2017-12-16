@@ -14,7 +14,7 @@ class Channels extends React.PureComponent {
         editedItemId: PropTypes.string,
         selectedItemId: PropTypes.string,
         channelId: PropTypes.string,
-        users: PropTypes.array,
+        users: PropTypes.instanceOf(Immutable.List),
         onCreate: PropTypes.func.isRequired,
         getChannels: PropTypes.func.isRequired,
         savingEnded: PropTypes.func.isRequired
