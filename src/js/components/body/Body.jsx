@@ -1,33 +1,39 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import "react-router-dom";
-import {Message} from "./Message";
+import Immutable from 'immutable'
+import "react-router-dom"
 
-const Body = (props) => {
-    // const messageElements = props.messages.map(x => <Message key={x.id} item={x}/>)
+import {Message} from "./Message"
 
-    return (
-        <div className="Body">
-            <div className="Messages">
-                <ul>
-                    {/*{messageElements}*/}
-                </ul>
+class Body extends React.PureComponent {
+    static propTypes = {
+        itemId: PropTypes.string,
+        channelId: PropTypes.string,
+        messages: PropTypes.instanceOf(Immutable.List()).isRequired
+    }
+
+    render() {
+        const messageElements = this.props.messages.map(x => <Message key={x.id} item={x}/>)
+
+        return (
+            <div className="Body">
+                <div className="Messages">
+                    <ul>
+                        {messageElements}
+                    </ul>
+                </div>
+
+                <div className="MessageManagement">
+                    <div className="InviteUsers"/>
+                    <div className="SendText"/>
+                </div>
+
+                1.{this.props.itemId}
+                <br/>
+                2.{this.props.channelId}
             </div>
-
-            <div className="MessageManagement">
-                <div className="InviteUsers"/>
-                <div className="SendText"/>
-            </div>
-
-            1.{props.itemId}
-            <br/>
-            2.{props.channelId}
-        </div>
-    )
-}
-
-Body.propTypes = {
-    itemId: PropTypes.string
+        )
+    }
 }
 
 export default Body
