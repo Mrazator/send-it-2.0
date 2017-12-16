@@ -23,5 +23,11 @@
     &:hover {
       color: $buttons;
     }
+
+    &.adding {
+      &:before {
+        transform: rotate(45deg);
+      }
+    }
   }
 }

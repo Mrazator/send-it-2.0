@@ -3,6 +3,10 @@
 .Profile {
   @include full-page();
 
+  h1 {
+    margin-top: 0;
+  }
+
   .profile-img {
     width: 200px;
   }

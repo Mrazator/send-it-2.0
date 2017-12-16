@@ -6,11 +6,18 @@ export const convertFromServerChannels = (server, owner) => {
         .filter(x => x.customData.owner === owner) //|| x.customData.usersInChannel.filter(x => x === owner) !== []
 }
 
-export const convertFromServer = (channel) => ({
-    id: channel.id,
-    name: channel.name,
-    customData: JSON.parse(channel.customData)
-})
+export const convertFromServer = (channel) => {
+    const custom = JSON.parse(channel.customData)
+
+    return {
+        id: channel.id,
+        name: channel.name,
+        customData: {
+            ...custom,
+            usersInChannel: JSON.parse(custom.usersInChannel)
+        }
+    }
+}
 
 export const convertFromServerChannel = (serverChannel) => ({
     ...serverChannel.channels[serverChannel.channels.length - 1]
@@ -26,7 +33,7 @@ export const convertToServerChannelCreate = (ownerEmail, users) =>
                 name: "New channel",
                 customData: JSON.stringify({
                     owner: ownerEmail,
-                    usersInChannel: users
+                    usersInChannel: JSON.stringify(users)
                 })
             }
         }
@@ -49,7 +56,7 @@ export const convertToServerChannelEdit = (channel) =>
                 ...channel,
                 customData: JSON.stringify({
                     owner: channel.customData.owner,
-                    usersInChannel: channel.customData.usersInChannel
+                    usersInChannel: JSON.stringify(channel.customData.usersInChannel)
                 })
             }
         }

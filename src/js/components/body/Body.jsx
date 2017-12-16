@@ -12,7 +12,8 @@ class Body extends React.PureComponent {
         messages: PropTypes.instanceOf(Immutable.List),
         onLoadMessages: PropTypes.func.isRequired,
         onCreateMessage: PropTypes.func.isRequired,
-        onLoadedMessage: PropTypes.func.isRequired
+        onLoadedMessage: PropTypes.func.isRequired,
+        isAddingUser: PropTypes.bool.isRequired
     }
 
     constructor(props) {
@@ -25,10 +26,15 @@ class Body extends React.PureComponent {
         this._onTextChange = this._onTextChange.bind(this)
     }
 
+    componentWillUpdate(nextProps) {
+        if (this.props.messages !== nextProps.messages) {
+            this.setState({text: ""})
+        }
+    }
+
     async componentDidMount() {
         await this.props.onLoadMessages(this.props.channelId)
         this.props.onLoadedMessage()
-
     }
 
     _onTextChange(event) {
@@ -42,8 +48,17 @@ class Body extends React.PureComponent {
             ? this.props.messages.map(x => <Message key={x.id} item={x}/>)
             : null
 
+        const InviteUser = this.props.isAddingUser
+            ? <div className="InviteUsers">
+                Invite these users:
+            </div>
+            : null
+
         return (
             <div className="Body">
+
+                {InviteUser}
+
                 <div className="Messages">
                     <ul>
                         {messageElements}
@@ -51,14 +66,13 @@ class Body extends React.PureComponent {
                 </div>
 
                 <div className="MessageManagement">
-                    <div className="InviteUsers"/>
                     <div className="SendText">
                         <form>
                             <input
                                 type="text"
                                 value={this.state.text}
                                 onChange={this._onTextChange}
-                                placeholder="Type some message..."
+                                placeholder="Type a message..."
                             />
                             <button onClick={() => this.props.onCreateMessage(this.props.channelId, this.state.text)}>
                                 send it

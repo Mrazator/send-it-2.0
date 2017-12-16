@@ -5,11 +5,13 @@ import {channelEditedId} from "./ChannelEdited"
 import {isSaving} from "./IsSaving";
 import {channelSelectedId} from './ChannelSelected'
 import {selectedChannel} from "./messages/selectedChannel";
+import {isAddingUser} from "./IsAddingUser";
 
 export const channelManagement = combineReducers({
-    channels: channels,
-    selectedChannel: selectedChannel,
+    channels,
+    selectedChannel,
+    isSaving,
     editedItemId: channelEditedId,
-    isSaving: isSaving,
     selectedItemId: channelSelectedId,
+    isAddingUser: isAddingUser || false
 })

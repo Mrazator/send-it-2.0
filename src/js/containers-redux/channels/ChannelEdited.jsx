@@ -4,7 +4,7 @@ import {ChannelEdited} from '../../containers/channels/ChannelEdited.jsx'
 import {
     cancelEditingItem
 } from '../../actions/channels/actionCreators'
-import {editChannel} from "../../actions/channels/updateChannel";
+import {editChannel} from "../../actions/channels/editChannel";
 
 const mapDispatchToProps = (dispatch) => ({
     onUpdate: (item) => dispatch(editChannel(item)),

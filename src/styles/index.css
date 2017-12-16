@@ -424,6 +424,8 @@ body {
     font-size: 20px; }
     .Channel i:hover {
       color: indianred; }
+    .Channel i.adding:before {
+      transform: rotate(45deg); }
 
 .ChannelEdited {
   display: flex;
@@ -502,9 +504,11 @@ body {
 .Profile {
   display: flex;
   align-items: center;
-  flex-direction: column;
-  height: calc(100vh - 200px);
-  padding: 100px 0; }
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column; }
+  .Profile h1 {
+    margin-top: 0; }
   .Profile .profile-img {
     width: 200px; }
   .Profile .profile-picture {
@@ -515,9 +519,11 @@ body {
 .Login {
   display: flex;
   align-items: center;
-  flex-direction: column;
-  height: calc(100vh - 200px);
-  padding: 100px 0; }
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column; }
+  .Login h1 {
+    margin-top: 0; }
   .Login form {
     height: 60px;
     display: flex;

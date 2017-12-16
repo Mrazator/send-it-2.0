@@ -40,6 +40,15 @@ export const updateChannel = (channel) => ({
     }
 })
 
+
+export const addingUser = () => ({
+    type: actions.CHANNELS_ADDING_USER
+})
+
+export const cancelAddingUser = () => ({
+    type: actions.CHANNELS_USER_ADDED_OR_STOPPED
+})
+
 export const startEditingItem = (id) => ({
     type: actions.CHANNELS_ITEM_START_EDITING,
     payload: {
