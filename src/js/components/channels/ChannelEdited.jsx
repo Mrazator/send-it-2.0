@@ -6,7 +6,7 @@ const getTitleInput = () => titleInput;
 
 const ChannelEdited = (props) => {
     return (
-        <li className="ChannelEdited">
+        <li className={props.selected ? "ChannelEdited selected" : "ChannelEdited"}>
             <input
                 type="text"
                 className="name"

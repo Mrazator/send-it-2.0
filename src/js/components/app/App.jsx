@@ -12,7 +12,7 @@ const App = ({computedMatch}) => {
     return (
         <div className="App">
             <HeadInHelmet/>
-            <ChannelsRedux/>
+            <ChannelsRedux channelId={channelId}/>
             { channelId ? <BodyRedux channelId={channelId}/> : <div className="Body"><h2>Choose a channel</h2></div>}
             <Settings/>
             <Errors/>

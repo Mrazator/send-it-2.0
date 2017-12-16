@@ -5,12 +5,11 @@ import {Link} from "react-router-dom";
 const Channel = (props) => {
     return (
         <Link to={`/channels/${props.item.id}`}>
-            <li className="Channel" onClick={props.onSelect}>
+            <li onClick={props.onSelect} className={props.selected ? "Channel selected" : "Channel"}>
                 <span onClick={props.onStartEditing}>{props.item.name}</span>
                 <i className="icon-trash" onClick={props.onDelete}/>
             </li>
         </Link>
-
     )
 }
 
@@ -20,6 +19,7 @@ Channel.propTypes = {
         name: PropTypes.string.isRequired,
         customData: PropTypes.object
     }).isRequired,
+    selected: PropTypes.bool.isRequired,
     onDelete: PropTypes.func.isRequired,
     onStartEditing: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired

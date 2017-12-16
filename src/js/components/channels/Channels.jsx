@@ -13,10 +13,11 @@ class Channels extends React.PureComponent {
         channels: PropTypes.instanceOf(Immutable.List).isRequired,
         editedItemId: PropTypes.string,
         selectedItemId: PropTypes.string,
+        channelId: PropTypes.string,
         onCreate: PropTypes.func.isRequired
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.getChannels()
     }
 
@@ -26,10 +27,11 @@ class Channels extends React.PureComponent {
                 return <ChannelEdited
                     key={x.id}
                     item={x}
+                    selected={this.props.channelId === x.id}
                 />
             }
 
-            return <Channel key={x.id} item={x}/>
+            return <Channel key={x.id} item={x} selected={this.props.channelId === x.id}/>
         })
 
         return (

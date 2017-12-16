@@ -2,6 +2,7 @@ import {connect} from 'react-redux'
 import Body from "../../components/body/Body";
 import {loadMessages} from "../../actions/body/loadMessages";
 import {createMessage} from "../../actions/body/createMessage";
+import {loadingEnded} from "../../actions/body/actionCreators";
 
 const mapStateToProps = (state) => ({
     itemId: state.channelManagement.selectedItemId,
@@ -10,7 +11,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onLoadMessages: (channelId) => dispatch(loadMessages(channelId)),
-    onCreateMessage: (channelId, text) => dispatch(createMessage(channelId, text))
+    onCreateMessage: (channelId, text) => dispatch(createMessage(channelId, text)),
+    onLoadedMessage: () => dispatch(loadingEnded())
 })
 
 

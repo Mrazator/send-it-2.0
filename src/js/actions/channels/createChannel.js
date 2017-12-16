@@ -16,7 +16,7 @@ export const createChannel = () =>
 
         const authToken = getState().shared.token
         const requestUri = API_CHANNEL_URI()
-        const bodyJson = convertToServerChannelCreate(getState().profile.details.email, [])
+        const bodyJson = convertToServerChannelCreate(getState().shared.email, [])
 
         return fetchRequest(requestUri, authToken, "PATCH", bodyJson)
             .then((server) => dispatch(addChannel(convertFromServer(convertFromServerChannel(server)))))

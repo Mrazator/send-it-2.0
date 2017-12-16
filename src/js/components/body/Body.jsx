@@ -8,10 +8,11 @@ import {Message} from "./Message"
 class Body extends React.PureComponent {
     static propTypes = {
         itemId: PropTypes.string,
-        channelId: PropTypes.string,
-        messages: PropTypes.instanceOf(Immutable.List()).isRequired,
+        channelId: PropTypes.string.isRequired,
+        messages: PropTypes.instanceOf(Immutable.List),
         onLoadMessages: PropTypes.func.isRequired,
-        onCreateMessage: PropTypes.func.isRequired
+        onCreateMessage: PropTypes.func.isRequired,
+        onLoadedMessage: PropTypes.func.isRequired
     }
 
     constructor(props) {
@@ -24,8 +25,10 @@ class Body extends React.PureComponent {
         this._onTextChange = this._onTextChange.bind(this)
     }
 
-    componentWillMount() {
-        this.props.onLoadMessages(this.props.channelId)
+    async componentDidMount() {
+        await this.props.onLoadMessages(this.props.channelId)
+        this.props.onLoadedMessage()
+
     }
 
     _onTextChange(event) {

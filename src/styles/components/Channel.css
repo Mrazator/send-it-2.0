@@ -4,7 +4,7 @@
   justify-content: space-between;
   padding: 10px 15px;
   list-style: none; }
-  .Channel:hover {
+  .Channel:hover, .Channel.selected {
     cursor: pointer;
     margin-left: -10px;
     border-left: 2px solid rgba(0, 0, 0, 0.5);

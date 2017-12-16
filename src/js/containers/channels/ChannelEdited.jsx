@@ -9,8 +9,9 @@ class ChannelEdited extends PureComponent {
         item: PropTypes.shape({
             id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
-            customData: PropTypes.string
+            customData: PropTypes.object
         }).isRequired,
+        selected: PropTypes.bool.isRequired,
         onCancelEditing: PropTypes.func.isRequired,
         onUpdate: PropTypes.func.isRequired
     }
@@ -69,6 +70,7 @@ class ChannelEdited extends PureComponent {
                 onUpdate={() => this.props.onUpdate(this.state.editedItem)}
                 onNameChange={this._onNameChange}
                 onHandleKey={this._handleEscEnterKey}
+                selected={this.props.selected}
             />
         )
     }

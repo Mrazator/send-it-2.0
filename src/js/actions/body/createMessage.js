@@ -24,5 +24,5 @@ export const createMessage = (channelId, messageText) =>
 
                 dispatch(saveMessage(message))
             })
-            .catch(console.log("post message error"))
+            .catch(error => console.log("post message error"))
     }

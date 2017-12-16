@@ -5,6 +5,14 @@
   padding: 1px 15px 0 8px;
   list-style: none;
 
+  &.selected {
+    cursor: pointer;
+    margin-left: -10px;
+    border-left: 2px solid rgba(0, 0, 0, 0.5);
+    color: black;
+    padding-left: 23px;
+  }
+
   input.name {
     width: 150px;
     padding: 10px 0 10px 5px;

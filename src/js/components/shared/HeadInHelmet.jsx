@@ -16,7 +16,7 @@ const convertRouteToTitle = (route) => {
             return 'Login';
 
         default:
-            return 'Unknown';
+            return 'Channel';
     }
 };
 

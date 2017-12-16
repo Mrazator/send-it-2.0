@@ -13,7 +13,7 @@ class Profile extends React.PureComponent {
         fetchDetails: PropTypes.func.isRequired,
     };
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchDetails();
     }
 

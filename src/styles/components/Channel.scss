@@ -5,7 +5,7 @@
   padding: 10px 15px;
   list-style: none;
 
-  &:hover {
+  &:hover, &.selected {
     cursor: pointer;
     margin-left: -10px;
     border-left: 2px solid $grey;
