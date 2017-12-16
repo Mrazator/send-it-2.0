@@ -394,8 +394,8 @@ body {
   min-width: 769px; }
   body .App {
     display: flex;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
     margin: 20px 0; }
     body .App a {
       text-decoration: none;
@@ -404,7 +404,16 @@ body {
 .Body {
   background-color: beige;
   flex-grow: 1;
-  padding: 0 25px; }
+  padding: 0 25px;
+  height: calc(100vh - 40px);
+  overflow-y: scroll; }
+
+.Body::-webkit-scrollbar {
+  width: 3px;
+  background: rgba(0, 0, 0, 0.3); }
+
+.Body::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2); }
 
 .Channel {
   display: flex;
@@ -421,7 +430,8 @@ body {
   .Channel span {
     cursor: text; }
   .Channel i {
-    font-size: 20px; }
+    font-size: 20px;
+    color: grey; }
     .Channel i:hover {
       color: indianred; }
     .Channel i.adding:before {
@@ -438,11 +448,16 @@ body {
     margin-left: -10px;
     border-left: 2px solid rgba(0, 0, 0, 0.5);
     color: black;
-    padding-left: 23px; }
+    padding-left: 17px; }
   .ChannelEdited input.name {
     width: 150px;
-    padding: 10px 0 10px 5px;
-    border: 2px solid rgba(0, 0, 0, 0.5); }
+    margin: 2px 0;
+    padding: 7px 0 7px 5px;
+    border: 1px solid lightgray;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important; }
+    .ChannelEdited input.name:focus {
+      outline: none; }
   .ChannelEdited i {
     font-size: 20px;
     cursor: pointer; }
@@ -453,7 +468,7 @@ body {
 
 .Channels {
   height: calc(100vh - 40px);
-  min-width: 260px;
+  min-width: 280px;
   padding-left: 20px;
   color: rgba(0, 0, 0, 0.5);
   overflow-y: scroll; }
@@ -479,10 +494,69 @@ body {
     min-height: calc(100vh - 100px);
     margin: 0;
     padding: 0; }
+    .Channels ul .AddUser .icon-ok {
+      -webkit-appearance: initial;
+      cursor: pointer;
+      font-size: 20px;
+      margin-left: 5px; }
+      .Channels ul .AddUser .icon-ok.icon-ok:hover {
+        color: black; }
+    .Channels ul .AddUser form {
+      padding: 0 15px 14px 15px;
+      margin-left: -10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      .Channels ul .AddUser form.selected {
+        border-left: 2px solid rgba(0, 0, 0, 0.5); }
+      .Channels ul .AddUser form .Select {
+        width: 100%; }
+      .Channels ul .AddUser form .Select div {
+        border-radius: 0;
+        outline: none; }
+      .Channels ul .AddUser form .Select--multi .Select-input {
+        margin-left: 5px;
+        font-family: 'Roboto', sans-serif !important;
+        font-weight: 300 !important; }
+      .Channels ul .AddUser form .Select.is-focused:not(.is-open) > .Select-control {
+        box-shadow: none !important;
+        border-color: lightgray; }
+      .Channels ul .AddUser form .Select-placeholder {
+        color: black;
+        padding-left: 5px; }
+      .Channels ul .AddUser form .Select-option.is-focused {
+        background: white;
+        color: black; }
+        .Channels ul .AddUser form .Select-option.is-focused:hover {
+          background: rgba(0, 0, 0, 0.1); }
+      .Channels ul .AddUser form .Select--multi .Select-value-icon {
+        border-right: 1px solid rgba(0, 0, 0, 0.5);
+        padding: 0 5px 1px;
+        position: relative;
+        top: -1px;
+        color: grey; }
+        .Channels ul .AddUser form .Select--multi .Select-value-icon:hover {
+          color: black;
+          background: white; }
+      .Channels ul .AddUser form .Select-clear {
+        display: none; }
+      .Channels ul .AddUser form .Select--multi .Select-value {
+        border-radius: 0;
+        color: black;
+        background-color: white;
+        border: 1px solid black;
+        margin-top: 6px; }
+        .Channels ul .AddUser form .Select--multi .Select-value .Select-value-label {
+          font-size: 10px;
+          padding: 2px 5px; }
+      .Channels ul .AddUser form .Select-control {
+        border-radius: 0; }
+        .Channels ul .AddUser form .Select-control .is-focused {
+          border-radius: 0; }
 
 .Channels::-webkit-scrollbar {
   width: 3px;
-  background: rgba(0, 0, 0, 0.5); }
+  background: rgba(0, 0, 0, 0.3); }
 
 .Channels::-webkit-scrollbar-thumb {
   background: indianred; }
@@ -495,7 +569,6 @@ body {
   display: flex;
   justify-content: center;
   width: 50px;
-  border-left: 2px solid rgba(0, 0, 0, 0.5);
   padding: 5px 0; }
   .Settings i.icon-user {
     color: rgba(0, 0, 0, 0.5);

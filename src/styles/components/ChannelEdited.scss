@@ -10,13 +10,20 @@
     margin-left: -10px;
     border-left: 2px solid rgba(0, 0, 0, 0.5);
     color: black;
-    padding-left: 23px;
+    padding-left: 17px;
   }
 
   input.name {
     width: 150px;
-    padding: 10px 0 10px 5px;
-    border: 2px solid $grey;
+    margin: 2px 0;
+    padding: 7px 0 7px 5px;
+    border: 1px solid lightgray;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   i {

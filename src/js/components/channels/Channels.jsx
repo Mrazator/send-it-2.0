@@ -14,7 +14,16 @@ class Channels extends React.PureComponent {
         editedItemId: PropTypes.string,
         selectedItemId: PropTypes.string,
         channelId: PropTypes.string,
-        onCreate: PropTypes.func.isRequired
+        users: PropTypes.array,
+        onCreate: PropTypes.func.isRequired,
+        getChannels: PropTypes.func.isRequired,
+        savingEnded: PropTypes.func.isRequired
+    }
+
+    componentWillUpdate(nextProps) {
+        if(this.props.users !== nextProps.users){
+            this.props.savingEnded()
+        }
     }
 
     componentDidMount() {
@@ -38,7 +47,11 @@ class Channels extends React.PureComponent {
             <div className="Channels">
                 <div className="channels-manage">
                     <Link to={ROOT}><h1>Channels.</h1></Link>
-                    <i className="icon-plus" onClick={this.props.onCreate}/>
+                    <i
+                        className="icon-plus"
+                        onClick={this.props.onCreate}
+                        title="create a new channel"
+                    />
                 </div>
                 <SavingStatus/>
                 <ul>{channelElements}</ul>

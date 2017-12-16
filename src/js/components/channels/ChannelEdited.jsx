@@ -20,10 +20,12 @@ const ChannelEdited = (props) => {
                     className="icon-ok"
                     onClick={props.onUpdate}
                     disabled={props.disabled}
+                    title="save"
                 />
                 <i
                     className="icon-cancel"
                     onClick={props.onCancelEditing}
+                    title="cancel"
                 />
             </div>
         </li>

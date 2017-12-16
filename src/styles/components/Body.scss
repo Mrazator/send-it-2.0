@@ -1,5 +1,20 @@
+@import '../config/base.scss';
+
 .Body {
   background-color: beige;
   flex-grow: 1;
   padding: 0 25px;
+  height: calc(100vh - 40px);
+  overflow-y: scroll;
+}
+
+//scrollbar for -webkit users
+
+.Body::-webkit-scrollbar {
+  width: 3px;
+  background: rgba(0, 0, 0, 0.3)
+}
+
+.Body::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2)
 }

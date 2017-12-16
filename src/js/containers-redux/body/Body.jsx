@@ -6,8 +6,7 @@ import {loadingEnded} from "../../actions/body/actionCreators";
 
 const mapStateToProps = (state) => ({
     itemId: state.channelManagement.selectedItemId,
-    messages: state.channelManagement.selectedChannel.Messages,
-    isAddingUser: state.channelManagement.isAddingUser
+    messages: state.channelManagement.selectedChannel.Messages
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

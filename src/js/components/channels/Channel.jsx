@@ -1,18 +1,41 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from "react-router-dom";
+import {AddUserRedux} from "../../containers-redux/channels/AddUser";
 
 const Channel = (props) => {
+    const addUserBox = <AddUserRedux channel={props.item}/>
+
     return (
-        <Link to={`/channels/${props.item.id}`}>
-            <li onClick={props.onSelect} className={props.selected ? "Channel selected" : "Channel"}>
-                <span onClick={props.onStartEditing}>{props.item.name}</span>
-                <div>
-                    <i className="icon-trash" onClick={props.onDelete}/>
-                    <i className={props.isAddingUser ? "icon-plus adding" : "icon-plus"} onClick={props.isAddingUser ? props.onAddUserCancel :props.onAddUser}/>
-                </div>
-            </li>
-        </Link>
+        <div>
+            <Link
+                to={`/channels/${props.item.id}`}
+                title="select channel"
+            >
+                <li
+                    onClick={props.onSelect}
+                    className={props.selected ? "Channel selected" : "Channel"}
+                >
+                    <span
+                        onClick={props.onStartEditing}
+                        title="edit channel">{props.item.name}
+                    </span>
+                    <div>
+                        <i
+                            className="icon-trash" onClick={props.onDelete}
+                            title="delete channel"
+                        />
+                        <i
+                            className={(props.isAddingUser && props.selected) ? "icon-plus adding" : "icon-plus"}
+                            onClick={(props.isAddingUser && props.selected) ? props.onAddUserCancel : props.onAddUser}
+                            title={(props.isAddingUser && props.selected) ? "close" : "add user"}
+                        />
+                    </div>
+                </li>
+            </Link>
+
+            {(props.isAddingUser && props.selected) && addUserBox}
+        </div>
     )
 }
 
@@ -29,7 +52,6 @@ Channel.propTypes = {
     onAddUser: PropTypes.func.isRequired,
     onAddUserCancel: PropTypes.func.isRequired,
     isAddingUser: PropTypes.bool.isRequired
-
 };
 
 export {Channel}

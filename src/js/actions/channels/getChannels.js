@@ -1,4 +1,4 @@
-import {savingStarted, updateChannels} from "./actionCreators";
+import {savingFinished, savingStarted, updateChannels} from "./actionCreators";
 import {API_CHANNEL_URI} from "../../constants/api";
 import {fetchReceive} from "../../utils/api/fetchReceive";
 import {convertFromServerChannels} from "../../utils/api/conversions/channel";
@@ -11,7 +11,7 @@ export const getChannels = () =>
         dispatch(savingStarted())
 
         return fetchReceive(requestUri, authToken)
-            .then(async (server) => {
+            .then((server) => {
                 const owner = getState().shared.email
 
                 return dispatch(updateChannels(convertFromServerChannels(server, owner)))

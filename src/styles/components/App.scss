@@ -5,8 +5,8 @@ body {
 
   .App {
     display: flex;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
     margin: 20px 0;
 
     a {

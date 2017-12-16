@@ -6,7 +6,12 @@ import {PROFILE} from "../../constants/routes"
 const Settings  = () => {
     return (
         <div className="Settings">
-            <Link to={PROFILE}><i className="icon-user"/></Link>
+            <Link to={PROFILE}>
+                <i
+                    className="icon-user"
+                    title="profile"
+                />
+            </Link>
         </div>
     )
 }

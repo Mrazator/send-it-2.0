@@ -12,8 +12,7 @@ class Body extends React.PureComponent {
         messages: PropTypes.instanceOf(Immutable.List),
         onLoadMessages: PropTypes.func.isRequired,
         onCreateMessage: PropTypes.func.isRequired,
-        onLoadedMessage: PropTypes.func.isRequired,
-        isAddingUser: PropTypes.bool.isRequired
+        onLoadedMessage: PropTypes.func.isRequired
     }
 
     constructor(props) {
@@ -48,16 +47,8 @@ class Body extends React.PureComponent {
             ? this.props.messages.map(x => <Message key={x.id} item={x}/>)
             : null
 
-        const InviteUser = this.props.isAddingUser
-            ? <div className="InviteUsers">
-                Invite these users:
-            </div>
-            : null
-
         return (
             <div className="Body">
-
-                {InviteUser}
 
                 <div className="Messages">
                     <ul>

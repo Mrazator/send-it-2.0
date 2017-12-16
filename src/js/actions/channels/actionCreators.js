@@ -45,6 +45,13 @@ export const addingUser = () => ({
     type: actions.CHANNELS_ADDING_USER
 })
 
+export const loadRegisteredUsers = (users) => ({
+    type: actions.CHANNELS_LOAD_USERS,
+    payload: {
+         users
+    }
+})
+
 export const cancelAddingUser = () => ({
     type: actions.CHANNELS_USER_ADDED_OR_STOPPED
 })
@@ -65,6 +72,6 @@ export const savingStarted = () => ({
 })
 
 export const savingFinished = () => ({
-    type: actions.CHANNELS_SAVING_FINISHED,
+    type: actions.CHANNELS_SAVING_FINISHED
 })
 
