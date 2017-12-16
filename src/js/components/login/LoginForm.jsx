@@ -37,7 +37,7 @@ class LoginForm extends React.PureComponent {
             <form>
                 <input
                     type="email"
-                    value={this.state.value}
+                    value={this.state.email}
                     id={loginId}
                     onChange={this._onNameChange}
                     placeholder="email@email.com"

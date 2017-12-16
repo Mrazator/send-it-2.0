@@ -14,6 +14,8 @@ export const loadMessages = (channelId) =>
             .then((server) => {
                 const messages = convertFromServer(server)
                 messages.sort((x,y) => x.createdAt > y.createdAt)
+
+
                 dispatch(saveMessages(messages))
             })
             .catch(console.log("load messages error"))

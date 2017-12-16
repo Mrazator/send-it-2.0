@@ -15,3 +15,12 @@ export const saveMessages = (messages) => ({
         messages
     }
 })
+
+export const saveMessage = (mess) => ({
+    type: actions.MESSAGES_CREATE,
+    payload: {
+        message: {
+            ...mess
+        }
+    }
+})

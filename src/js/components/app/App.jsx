@@ -7,11 +7,13 @@ import {Errors} from "../../containers-redux/shared/Errors";
 import {BodyRedux} from "../../containers-redux/body/Body";
 
 const App = ({computedMatch}) => {
+    const channelId = computedMatch.params.channelId
+
     return (
         <div className="App">
             <HeadInHelmet/>
             <ChannelsRedux/>
-            <BodyRedux channelId={computedMatch.params.channelId}/>
+            { channelId ? <BodyRedux channelId={channelId}/> : <div className="Body"><h2>Choose a channel</h2></div>}
             <Settings/>
             <Errors/>
         </div>

@@ -1,3 +1,4 @@
 .Body {
   background-color: beige;
-  flex-grow: 1; }
+  flex-grow: 1;
+  padding: 0 25px; }
