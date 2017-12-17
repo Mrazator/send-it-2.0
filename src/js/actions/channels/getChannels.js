@@ -1,4 +1,4 @@
-import {savingFinished, savingStarted, updateChannels} from "./actionCreators";
+import {savingStarted, updateChannels} from "./actionCreators";
 import {API_CHANNEL_URI} from "../../constants/api";
 import {fetchReceive} from "../../utils/api/fetchReceive";
 import {convertFromServerChannels} from "../../utils/api/conversions/channel";

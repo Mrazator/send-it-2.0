@@ -1,6 +1,4 @@
 import {savingStarted} from "./actionCreators";
-import {API_CHANNEL_URI} from "../../constants/api";
-import {convertToServerChannelEdit} from "../../utils/api/conversions/channel";
 
 export const uploadChannelUsers = (channel) =>
     (dispatch, getState) => {
