@@ -1,4 +1,4 @@
-import * as actions from '../../constants/actionTypes'
+import * as actions from '../../../constants/actionTypes'
 
 export const channelSelectedId = (previousState = null, action) => {
     switch (action.type) {

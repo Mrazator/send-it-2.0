@@ -1,22 +1,22 @@
 import {
-    failUploadingProfileAvatar,
-    startUploadingProfileAvatar,
+    profileFailUploadingProfileAvatar,
+    profileStartUploadingProfileAvatar,
 } from './actionCreators';
 import {
-    dismissError,
+    sharedDismissError,
 } from '../shared/actionCreators';
 import { performAuthorizedRequest } from './performAuthorizedRequest';
 import { fetchFileUpload } from '../../utils/api/fetchFileUpload';
-import { uploadUserDetails } from './uploadUserDetails';
+import { actionUploadUserDetails } from './actionUploadUserDetails';
 import {
     FAILED_UPDATE_AVATAR_MESSAGE,
     MILISECONDS_TO_AUTO_DISMISS_ERROR
 } from '../../constants/uiConstants';
-import {fetchUserAvatar} from "./fetchUserAvatar";
+import {actionLoadUserAvatar} from "./actionLoadUserAvatar";
 
-export const uploadUserAvatar = (file) =>
+export const actionUploadUserAvatar = (file) =>
     async (dispatch, getState) => {
-        dispatch(startUploadingProfileAvatar());
+        dispatch(profileStartUploadingProfileAvatar());
 
         const authToken = getState().shared.token;
 
@@ -41,13 +41,13 @@ export const uploadUserAvatar = (file) =>
                     }
                 }
 
-                await dispatch(uploadUserDetails(updatedDetails));
-                await dispatch(fetchUserAvatar(updatedDetails.customData.avatarId));
+                await dispatch(actionUploadUserDetails(updatedDetails));
+                await dispatch(actionLoadUserAvatar(updatedDetails.customData.avatarId));
             });
         }
         catch (error) {
-            const dispatchedAction = dispatch(failUploadingProfileAvatar(FAILED_UPDATE_AVATAR_MESSAGE, error));
-            setTimeout(() => dispatch(dismissError(dispatchedAction.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR);
+            const dispatchedAction = dispatch(profileFailUploadingProfileAvatar(FAILED_UPDATE_AVATAR_MESSAGE, error));
+            setTimeout(() => dispatch(sharedDismissError(dispatchedAction.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR);
             return dispatchedAction;
         }
     };

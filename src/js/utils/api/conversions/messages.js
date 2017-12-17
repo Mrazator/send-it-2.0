@@ -8,4 +8,4 @@ export const convertFromServerMessage = (server) => ({
     customData: JSON.parse(server.customData) || {}
 })
 
-export const convertFromServer = (server) => server.map(x => convertFromServerMessage(x))
+export const convertFromServerMessages = (server) => server.map(x => convertFromServerMessage(x))

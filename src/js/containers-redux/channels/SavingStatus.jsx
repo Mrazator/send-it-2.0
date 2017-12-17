@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 
 import {SavingStatus} from '../../components/channels/SavingStatus'
-import {saveChannels} from '../../actions/channels/saveChannels'
+import {actionSaveChannels} from '../../actions/channels/actionSaveChannels'
 
 const mapStateToProps = (state) => ({
     channels: state.channelManagement.channels,
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    save: () => dispatch(saveChannels())
+    save: () => dispatch(actionSaveChannels())
 })
 
 const enhancer = connect(mapStateToProps, mapDispatchToProps)

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { Avatar as AvatarComponent } from '../../components/profile/Avatar.jsx';
 import { AvatarLoader } from '../../components/profile/AvatarLoader.jsx';
 import { withOverlay } from '../../components/shared/withOverlay.jsx';
-import { uploadUserAvatar } from '../../actions/profile/uploadUserAvatar';
+import { actionUploadUserAvatar } from '../../actions/profile/actionUploadUserAvatar';
 
 const mapStateToProps = (state) => ({
     isUploading: state.profile.isUploadingAvatar,
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onUpload: (files) => dispatch(uploadUserAvatar(files[0]))
+    onUpload: (files) => dispatch(actionUploadUserAvatar(files[0]))
 });
 
 const AvatarWithOverlay = withOverlay(AvatarComponent, AvatarLoader);

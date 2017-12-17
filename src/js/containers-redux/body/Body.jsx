@@ -1,18 +1,18 @@
 import {connect} from 'react-redux'
 import Body from "../../components/body/Body";
-import {loadMessages} from "../../actions/body/loadMessages";
-import {createMessage} from "../../actions/body/createMessage";
-import {loadingEnded} from "../../actions/body/actionCreators";
+import {actionLoadMessages} from "../../actions/body/actionLoadMessages";
+import {actionPostMessage} from "../../actions/body/actionPostMessage";
+import {messagesLoadingFinished} from "../../actions/body/actionCreators";
 
 const mapStateToProps = (state) => ({
     itemId: state.channelManagement.selectedItemId,
-    messages: state.channelManagement.selectedChannel.Messages
+    messages: state.channelManagement.selectedChannel.messages
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onLoadMessages: (channelId) => dispatch(loadMessages(channelId)),
-    onCreateMessage: (channelId, text) => dispatch(createMessage(channelId, text)),
-    onLoadedMessage: () => dispatch(loadingEnded())
+    onLoadMessages: (channelId) => dispatch(actionLoadMessages(channelId)),
+    onCreateMessage: (channelId, text) => dispatch(actionPostMessage(channelId, text)),
+    onLoadedMessage: () => dispatch(messagesLoadingFinished())
 })
 
 

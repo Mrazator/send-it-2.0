@@ -2,14 +2,14 @@ import {combineReducers} from 'redux';
 
 import {details} from './details';
 import {avatarUri} from './avatarUri';
-import {isFetchingDetails} from './isFetchingDetails';
-import {isFetchingAvatar} from './isFetchingAvatar';
+import {isLoadingDetails} from './isLoadingDetails';
+import {isLoadingAvatar} from './isLoadingAvatar';
 import {isUploadingAvatar} from './isUploadingAvatar';
 
 export const profile = combineReducers({
     details,
     avatarUri,
-    isFetchingDetails,
-    isFetchingAvatar,
+    isLoadingDetails,
+    isLoadingAvatar,
     isUploadingAvatar,
 });

@@ -3,14 +3,14 @@ import {
     stopSubmit
 } from 'redux-form';
 import {
-    updateProfileDetails,
-    failUploadingProfileDetails,
+    profileUpdateProfileDetails,
+    profileFailUploadingProfileDetails,
 } from './actionCreators';
 import {
-    apiUserEmail
+    createapiUserEmail
 } from '../../constants/api';
 import {
-    dismissError
+    sharedDismissError
 } from '../shared/actionCreators';
 import {fetchRequest} from '../../utils/api/fetchRequest';
 import {
@@ -25,26 +25,24 @@ import {
 } from '../../constants/uiConstants';
 import {performAuthorizedRequest} from "./performAuthorizedRequest";
 
-export const uploadUserDetails = (details) =>
+export const actionUploadUserDetails = (details) =>
     async (dispatch, getState) => {
         dispatch(startSubmit(DETAILS_FORM_NAME));
 
-        console.log(details)
         const authToken = getState().shared.token;
-        const requestUri = apiUserEmail(details.email);
+        const requestUri = createapiUserEmail(details.email);
         const serverDetails = details.customData;
 
         try {
             await performAuthorizedRequest(dispatch, async () => {
-
                 const receivedServerDetails = await fetchRequest(requestUri, authToken, "PUT", JSON.stringify(serverDetails));
                 const updatedDetails = convertFromServerDetails(receivedServerDetails);
-                return dispatch(updateProfileDetails(updatedDetails.email, updatedDetails.customData));
+                return dispatch(profileUpdateProfileDetails(updatedDetails.email, updatedDetails.customData));
             });
         }
         catch (error) {
-            const dispatchedAction = dispatch(failUploadingProfileDetails(FAILED_UPDATE_DETAILS_MESSAGE, error));
-            setTimeout(() => dispatch(dismissError(dispatchedAction.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR);
+            const dispatchedAction = dispatch(profileFailUploadingProfileDetails(FAILED_UPDATE_DETAILS_MESSAGE, error));
+            setTimeout(() => dispatch(sharedDismissError(dispatchedAction.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR);
         }
 
         return dispatch(stopSubmit(DETAILS_FORM_NAME));

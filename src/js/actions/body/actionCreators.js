@@ -1,26 +1,26 @@
 import * as actions from "../../constants/actionTypes"
 
-export const loadingStarted = () => ({
+export const messagesLoadingStarted = () => ({
     type: actions.MESSAGES_LOADING_STARTED
 })
 
 
-export const loadingEnded = () => ({
+export const messagesLoadingFinished = () => ({
     type: actions.MESSAGES_LOADING_ENDED
 })
 
-export const saveMessages = (messages) => ({
+export const messagesSave = (messages) => ({
     type: actions.MESSAGES_LOAD,
     payload: {
         messages
     }
 })
 
-export const saveMessage = (mess) => ({
+export const messageSave = (message) => ({
     type: actions.MESSAGES_CREATE,
     payload: {
         message: {
-            ...mess
+            ...message
         }
     }
-    })
+})

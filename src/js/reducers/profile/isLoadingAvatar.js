@@ -3,7 +3,7 @@ import {
     PROFILE_UPDATE_AVATAR,
 } from '../../constants/actionTypes';
 
-export const isFetchingAvatar = (prevState = false, action) => {
+export const isLoadingAvatar = (prevState = false, action) => {
     switch (action.type) {
         case PROFILE_AVATAR_FETCHING_STARTED:
             return true;

@@ -1,8 +1,10 @@
-import {Messages} from "./Messages";
+import {messages} from "./messages";
 import {combineReducers} from "redux";
 import {isLoading} from "./isLoading";
+import {channelSelectedId} from "./channelSelectedId";
 
 export const selectedChannel = combineReducers({
-    Messages,
+    id: channelSelectedId,
+    messages,
     isLoading
 })

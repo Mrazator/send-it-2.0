@@ -1,9 +1,9 @@
 import {connect} from 'react-redux'
 import {LogoutButton} from '../../components/profile/LogoutBtn'
-import {logoutUser} from '../../actions/shared/logoutUser'
+import {sharedLogoutUser} from '../../actions/shared/sharedLogoutUser'
 
 const mapDispatchToProps = (dispatch) => ({
-    onClick: () => dispatch(logoutUser())
+    onClick: () => dispatch(sharedLogoutUser())
 });
 
 const enhancer = connect(undefined, mapDispatchToProps)

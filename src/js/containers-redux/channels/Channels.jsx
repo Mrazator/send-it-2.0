@@ -1,9 +1,9 @@
 import {connect} from 'react-redux'
 import {Channels} from "../../components/channels/Channels"
 
-import {createChannel} from "../../actions/channels/createChannel";
-import {getChannels} from "../../actions/channels/getChannels";
-import {savingFinished} from "../../actions/channels/actionCreators";
+import {actionCreateChannel} from "../../actions/channels/actionCreateChannel";
+import {actionLoadChannels} from "../../actions/channels/actionLoadChannels";
+import {channelsSavingFinished} from "../../actions/channels/actionCreators";
 
 const mapStateToProps = (state, ownProps) => ({
     channels: state.channelManagement.channels,
@@ -13,9 +13,9 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onCreate: () => dispatch(createChannel()),
-    getChannels: () => dispatch(getChannels()),
-    savingEnded: () => dispatch(savingFinished())
+    onCreate: () => dispatch(actionCreateChannel()),
+    getChannels: () => dispatch(actionLoadChannels()),
+    savingEnded: () => dispatch(channelsSavingFinished())
 })
 
 const enhancer = connect(mapStateToProps, mapDispatchToProps)

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { Profile } from '../../components/profile/Profile.jsx';
-import { fetchUserDetails } from '../../actions/profile/fetchUserDetails';
+import { actionLoadUserDetails } from '../../actions/profile/actionLoadUserDetails';
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchDetails: () => dispatch(fetchUserDetails())
+    fetchDetails: () => dispatch(actionLoadUserDetails())
 });
 
 const stateEnhancer = connect(undefined, mapDispatchToProps);

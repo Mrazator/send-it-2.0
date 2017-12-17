@@ -3,7 +3,7 @@ import {
     PROFILE_UPDATE_DETAILS,
 } from '../../constants/actionTypes';
 
-export const isFetchingDetails = (prevState = false, action) => {
+export const isLoadingDetails = (prevState = false, action) => {
     switch (action.type) {
         case PROFILE_FETCHING_STARTED:
             return true;

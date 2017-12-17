@@ -1,9 +1,9 @@
 import {push} from 'connected-react-router'
 import * as keys from "../../constants/localStorageKeys"
-import {dismissError, receiveValidEmail, receiveValidToken} from './actionCreators'
+import {sharedDismissError, sharedReceiveValidEmail, sharedReceiveValidToken} from './actionCreators'
 import {
     failAuthentication,
-    startAuthentication
+    sharedStartAuthentication
 } from './actionCreators'
 import {fetchAuthToken} from '../../utils/api/fetchAuthToken';
 import {
@@ -11,22 +11,22 @@ import {
     FAILED_AUTHENTICATION_MESSAGE
 } from '../../constants/uiConstants'
 import {API_USER_URI} from "../../constants/api";
-import {updateProfileDetails} from "../profile/actionCreators";
+import {profileUpdateProfileDetails} from "../profile/actionCreators";
 import {fetchPostUser} from "../../utils/api/fetchPostUser";
 
-export const authenticateUser = (destinationLocation, userEmail) =>
+export const sharedAuthenticateUser = (destinationLocation, userEmail) =>
     (dispatch) => {
-        dispatch(startAuthentication());
+        dispatch(sharedStartAuthentication());
 
         return fetchPostUser(API_USER_URI, userEmail)
             .then((response) => {
                     if (response) {
                         fetchAuthToken(userEmail)
                             .then((token) => {
-                                dispatch(receiveValidEmail(userEmail))
-                                dispatch(receiveValidToken(token));
+                                dispatch(sharedReceiveValidEmail(userEmail))
+                                dispatch(sharedReceiveValidToken(token));
                                 dispatch(push(destinationLocation));
-                                dispatch(updateProfileDetails(userEmail, {
+                                dispatch(profileUpdateProfileDetails(userEmail, {
                                     nickName: userEmail.slice(0, userEmail.indexOf("@")),
                                     avatarId: ""
                                 }))
@@ -40,7 +40,7 @@ export const authenticateUser = (destinationLocation, userEmail) =>
             )
             .catch((error) => {
                 const dispatchedAction = dispatch(failAuthentication(FAILED_AUTHENTICATION_MESSAGE, error));
-                setTimeout(() => dispatch(dismissError(dispatchedAction.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR);
+                setTimeout(() => dispatch(sharedDismissError(dispatchedAction.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR);
             })
     };
 

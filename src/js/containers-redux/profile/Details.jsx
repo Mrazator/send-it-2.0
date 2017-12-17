@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 import {reduxForm} from 'redux-form'
 import {Details} from '../../components/profile/Details.jsx'
 
-import {uploadUserDetails} from '../../actions/profile/uploadUserDetails';
+import {actionUploadUserDetails} from '../../actions/profile/actionUploadUserDetails';
 import {DETAILS_FORM_NAME} from '../../constants/formNames';
 
 const mapStateToProps = (state) => ({
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onSubmit: (details) => dispatch(uploadUserDetails(details))
+    onSubmit: (details) => dispatch(actionUploadUserDetails(details))
 })
 
 const formConfig = {

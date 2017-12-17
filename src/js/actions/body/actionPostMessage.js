@@ -1,14 +1,14 @@
-import {loadingStarted, saveMessage} from "./actionCreators";
-import {API_MESSAGES_URI} from "../../constants/api";
+import {messagesLoadingStarted, messageSave} from "./actionCreators";
+import {createMessageUri} from "../../constants/api";
 import {fetchRequest} from "../../utils/api/fetchRequest";
 import {convertFromServerMessage} from "../../utils/api/conversions/messages";
 
-export const createMessage = (channelId, messageText) =>
+export const actionPostMessage = (channelId, messageText) =>
     (dispatch, getState) => {
-        dispatch(loadingStarted())
+        dispatch(messagesLoadingStarted())
 
         const authToken = getState().shared.token
-        const requestUri = API_MESSAGES_URI(channelId)
+        const requestUri = createMessageUri(channelId)
         const bodyJson = {
             value: messageText,
             customData: JSON.stringify([
@@ -20,9 +20,7 @@ export const createMessage = (channelId, messageText) =>
 
         return fetchRequest(requestUri, authToken, "POST", bodyJson)
             .then((server) => {
-                const message = convertFromServerMessage(server)
-
-                dispatch(saveMessage(message))
+                dispatch(messageSave(convertFromServerMessage(server)))
             })
-            .catch(error => console.log("post message error"))
+            .catch(error => console.log("actionPostMessage - Failed"))
     }

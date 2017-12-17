@@ -1,9 +1,9 @@
 import {
-    savingFinished
+    channelsSavingFinished
 } from './actionCreators'
 
-export const saveChannels = () =>
+export const actionSaveChannels = () =>
     (dispatch) => {
         // localStorage.setItem('channels', JSON.stringify(getState().channelManagement.channels.toJS()))
-        dispatch(savingFinished())
+        dispatch(channelsSavingFinished())
     }

@@ -1,19 +1,17 @@
 import {combineReducers} from 'redux'
 
-import {channels} from "./Channels"
-import {channelEditedId} from "./ChannelEdited"
+import {channels} from "./channels"
+import {editingChannelId} from "./editingChannelId"
 import {isSaving} from "./IsSaving";
-import {channelSelectedId} from './ChannelSelected'
 import {selectedChannel} from "./messages/selectedChannel";
 import {isAddingUser} from "./IsAddingUser";
-import {users} from "./Users";
+import {users} from "./users";
 
 export const channelManagement = combineReducers({
     channels,
     users,
     isSaving,
     isAddingUser,
-    editedItemId: channelEditedId,
-    selectedItemId: channelSelectedId,
+    editingChannelId,
     selectedChannel
 })

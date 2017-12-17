@@ -2,13 +2,13 @@ import {connect} from 'react-redux'
 
 import {ChannelEdited} from '../../containers/channels/ChannelEdited.jsx'
 import {
-    cancelEditingItem
+    channelsCancelEditingChannel
 } from '../../actions/channels/actionCreators'
-import {editChannel} from "../../actions/channels/editChannel";
+import {actionEditChannel} from "../../actions/channels/actionEditChannel";
 
 const mapDispatchToProps = (dispatch) => ({
-    onUpdate: (item) => dispatch(editChannel(item)),
-    onCancelEditing: () => dispatch(cancelEditingItem())
+    onUpdate: (item) => dispatch(actionEditChannel(item)),
+    onCancelEditing: () => dispatch(channelsCancelEditingChannel())
 })
 
 const enhancer = connect(undefined, mapDispatchToProps)

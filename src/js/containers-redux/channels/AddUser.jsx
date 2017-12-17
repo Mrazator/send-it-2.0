@@ -1,8 +1,8 @@
 import {connect} from "react-redux"
 import {reduxForm} from 'redux-form'
 import {AddUser} from "../../components/channels/AddUser"
-import {loadUsers} from "../../actions/channels/loadUsers";
-import {uploadChannelUsers} from "../../actions/channels/uploadChannelUsers";
+import {actionLoadUsers} from "../../actions/channels/actionLoadUsers";
+import {actionUploadChannelUsers} from "../../actions/channels/actionUploadChannelUsers";
 import PropTypes from 'prop-types'
 import Immutable from 'immutable'
 
@@ -13,8 +13,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onLoadUsers: () => dispatch(loadUsers()),
-    onSubmit: (channel) => dispatch(uploadChannelUsers(channel))
+    onLoadUsers: () => dispatch(actionLoadUsers()),
+    onSubmit: (channel) => dispatch(actionUploadChannelUsers(channel))
 })
 
 const formConfig = {

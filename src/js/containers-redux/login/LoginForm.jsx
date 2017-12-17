@@ -2,10 +2,10 @@ import * as PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { LoginForm } from '../../components/login/LoginForm.jsx'
-import { authenticateUser } from '../../actions/shared/authenticateUser'
+import { sharedAuthenticateUser } from '../../actions/shared/sharedAuthenticateUser'
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onSubmit: (userEmail) => dispatch(authenticateUser(ownProps.from, userEmail))
+    onSubmit: (userEmail) => dispatch(sharedAuthenticateUser(ownProps.from, userEmail))
 })
 
 const enhancer = connect(undefined, mapDispatchToProps)

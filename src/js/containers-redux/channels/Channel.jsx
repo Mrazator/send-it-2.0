@@ -2,21 +2,21 @@ import {connect} from 'react-redux'
 
 import {Channel} from '../../components/channels/Channel'
 import {
-    startEditingItem,
-    selectChannel, addingUser, cancelAddingUser
+    channelsStartEditingChannel,
+    channelsSelectChannel, channelsAddingUser, channelsAddingUserCancel
 } from '../../actions/channels/actionCreators'
-import {deleteChannel} from "../../actions/channels/deleteChannel";
+import {actionDeleteChannel} from "../../actions/channels/actionDeleteChannel";
 
 const mapStateToProps = (state, ownProps) => ({
     isAddingUser: state.channelManagement.isAddingUser
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onDelete: () => dispatch(deleteChannel(ownProps.item.id)),
-    onStartEditing: () => dispatch(startEditingItem(ownProps.item.id)),
-    onSelect: () => dispatch(selectChannel(ownProps.item.id)),
-    onAddUser: () => dispatch(addingUser()),
-    onAddUserCancel: () => dispatch(cancelAddingUser())
+    onDelete: () => dispatch(actionDeleteChannel(ownProps.item.id)),
+    onStartEditing: () => dispatch(channelsStartEditingChannel(ownProps.item.id)),
+    onSelect: () => dispatch(channelsSelectChannel(ownProps.item.id)),
+    onAddUser: () => dispatch(channelsAddingUser()),
+    onAddUserCancel: () => dispatch(channelsAddingUserCancel())
 });
 
 const enhancer = connect(mapStateToProps, mapDispatchToProps);

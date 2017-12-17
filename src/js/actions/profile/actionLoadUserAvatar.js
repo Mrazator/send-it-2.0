@@ -1,16 +1,16 @@
 import {
-    startFetchingProfileAvatar,
-    failFetchingProfileAvatar,
-    updateProfileAvatar
+    profileStartFetchingProfileAvatar,
+    profileFailFetchingProfileAvatar,
+    profileUpdateProfileAvatar
 } from './actionCreators';
 import { createApiFilerUri } from '../../constants/api';
 import { fetchReceive } from '../../utils/api/fetchReceive';
 import { FAILED_FETCH_AVATAR_MESSAGE } from '../../constants/uiConstants';
 import { performAuthorizedRequest } from './performAuthorizedRequest';
 
-export const fetchUserAvatar = (avatarId) =>
+export const actionLoadUserAvatar = (avatarId) =>
     async (dispatch, getState) => {
-        dispatch(startFetchingProfileAvatar());
+        dispatch(profileStartFetchingProfileAvatar());
 
         const authToken = getState().shared.token;
         const requestUri = createApiFilerUri(avatarId);
@@ -18,10 +18,10 @@ export const fetchUserAvatar = (avatarId) =>
         try {
             return await performAuthorizedRequest(dispatch, async () => {
                 const avatarUri = await fetchReceive(requestUri, authToken);
-                dispatch(updateProfileAvatar(avatarUri));
+                dispatch(profileUpdateProfileAvatar(avatarUri));
             });
         }
         catch (error) {
-            return dispatch(failFetchingProfileAvatar(FAILED_FETCH_AVATAR_MESSAGE, error));
+            return dispatch(profileFailFetchingProfileAvatar(FAILED_FETCH_AVATAR_MESSAGE, error));
         }
     };

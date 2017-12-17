@@ -1,23 +1,22 @@
 import * as actions from "../../constants/actionTypes";
 
-export const updateChannels = (channels) => {
+export const channelsUpdate = (channels) => {
     return {
         type: actions.CHANNELS_UPDATE,
         payload: {
             channels
         }
-
     }
 }
 
-export const selectChannel = (id) => ({
+export const channelsSelectChannel = (channelId) => ({
     type: actions.CHANNELS_ITEM_SELECT,
     payload: {
-        id
+        id: channelId
     }
 })
 
-export const addChannel = (channel) => ({
+export const channelsAddChannel = (channel) => ({
     type: actions.CHANNELS_ITEM_CREATE,
     payload: {
         channel: {
@@ -26,52 +25,51 @@ export const addChannel = (channel) => ({
     }
 })
 
-export const removeChannel = (id) => ({
+export const channelsRemoveChannel = (id) => ({
     type: actions.CHANNELS_ITEM_DELETE,
     payload: {
         id
     }
 })
 
-export const updateChannel = (channel) => ({
+export const channelsUpdateChannel = (channel) => ({
     type: actions.CHANNELS_ITEM_UPDATE,
     payload: {
         channel
     }
 })
 
-
-export const addingUser = () => ({
+export const channelsAddingUser = () => ({
     type: actions.CHANNELS_ADDING_USER
 })
 
-export const loadRegisteredUsers = (users) => ({
+export const channelsLoadRegisteredUsers = (users) => ({
     type: actions.CHANNELS_LOAD_USERS,
     payload: {
          users
     }
 })
 
-export const cancelAddingUser = () => ({
+export const channelsAddingUserCancel = () => ({
     type: actions.CHANNELS_USER_ADDED_OR_STOPPED
 })
 
-export const startEditingItem = (id) => ({
+export const channelsStartEditingChannel = (channeldId) => ({
     type: actions.CHANNELS_ITEM_START_EDITING,
     payload: {
-        id
+        id: channeldId
     }
 })
 
-export const cancelEditingItem = () => ({
+export const channelsCancelEditingChannel = () => ({
     type: actions.CHANNELS_ITEM_CANCEL_EDITING
 })
 
-export const savingStarted = () => ({
+export const channelsSavingStarted = () => ({
     type: actions.CHANNELS_SAVING_STARTED,
 })
 
-export const savingFinished = () => ({
+export const channelsSavingFinished = () => ({
     type: actions.CHANNELS_SAVING_FINISHED
 })
 

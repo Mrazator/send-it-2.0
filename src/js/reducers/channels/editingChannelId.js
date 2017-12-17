@@ -1,6 +1,6 @@
 import * as actions from '../../constants/actionTypes'
 
-export const channelEditedId = (previousState = null, action) => {
+export const editingChannelId = (previousState = null, action) => {
     switch (action.type) {
         case actions.CHANNELS_ITEM_START_EDITING:
             return action.payload.id;
