@@ -1,17 +1,17 @@
 import {
-    PROFILE_AVATAR_FETCHING_STARTED,
-    PROFILE_UPDATE_AVATAR,
-} from '../../constants/actionTypes';
+  PROFILE_AVATAR_FETCHING_STARTED,
+  PROFILE_UPDATE_AVATAR
+} from '../../constants/actionTypes'
 
 export const isLoadingAvatar = (prevState = false, action) => {
-    switch (action.type) {
-        case PROFILE_AVATAR_FETCHING_STARTED:
-            return true;
+  switch (action.type) {
+    case PROFILE_AVATAR_FETCHING_STARTED:
+      return true
 
-        case PROFILE_UPDATE_AVATAR:
-            return false;
+    case PROFILE_UPDATE_AVATAR:
+      return false
 
-        default:
-            return prevState;
-    }
-};
+    default:
+      return prevState
+  }
+}

@@ -1,19 +1,19 @@
-import {PROFILE_UPDATE_DETAILS} from '../../constants/actionTypes'
+import { PROFILE_UPDATE_DETAILS } from '../../constants/actionTypes'
 
 const defaultDetails = {
-    "email": "",
-    "customData": {
-        "nickName": "",
-        "avatarId": ""
-    }
+  email: '',
+  customData: {
+    nickName: '',
+    avatarId: ''
+  }
 }
 
 export const details = (prevState = defaultDetails, action) => {
-    switch (action.type) {
-        case PROFILE_UPDATE_DETAILS:
-            return action.payload
+  switch (action.type) {
+    case PROFILE_UPDATE_DETAILS:
+      return action.payload
 
-        default:
-            return prevState
-    }
+    default:
+      return prevState
+  }
 }

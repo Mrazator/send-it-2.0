@@ -1,17 +1,15 @@
 export const validateResponseLogin = (response) => {
-    if (response.status === 200 || response.status === 201) {
-        return true
-    }
-    else if(response.status === 400){
-        console.log("User already exists  - just login")
-        return true
-    }
-    else {
-        const errorMessge = response.statusText || `Something went wrong (ending up in ${response.status})`
+  if (response.status === 200 || response.status === 201) {
+    return true
+  } else if (response.status === 400) {
+    console.log('User already exists  - just login')
+    return true
+  }
 
-        const error = new Error(errorMessge)
-        error.statusCode = response.status
+  const errorMessge = response.statusText || `Something went wrong (ending up in ${response.status})`
 
-        throw error
-    }
+  const error = new Error(errorMessge)
+  error.statusCode = response.status
+
+  throw error
 }

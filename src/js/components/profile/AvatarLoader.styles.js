@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const AvatarLoaderPane = styled.div`
     position: relative;
     height: 100%;
     min-height: 100%;
-    cursor: ${(props) => props.isUploading ? 'progress' : 'pointer'};
+    cursor: ${props => (props.isUploading ? 'progress' : 'pointer')};
     
     & > .dropzone {
         width: 100%;
@@ -19,4 +19,4 @@ export const AvatarLoaderPane = styled.div`
         font-size: 5em;
         color: #ccc; 
     }
-`;
+`
