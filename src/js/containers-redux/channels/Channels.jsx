@@ -1,21 +1,21 @@
 import {connect} from 'react-redux'
 import {Channels} from "../../components/channels/Channels"
 
-import {actionCreateChannel} from "../../actions/channels/actionCreateChannel";
-import {actionLoadChannels} from "../../actions/channels/actionLoadChannels";
-import {channelsSavingFinished} from "../../actions/channels/actionCreators";
+import {actionCreateChannel} from "../../actions/channels/actionCreateChannel"
+import {actionLoadChannels} from "../../actions/channels/actionLoadChannels"
+import {channelsUsersSavingFinished} from "../../actions/channels/actionCreators"
 
 const mapStateToProps = (state, ownProps) => ({
     channels: state.channelManagement.channels,
     users: state.channelManagement.users,
-    editedItemId: state.channelManagement.editedItemId,
-    selectedItemId: state.channelManagement.selectedItemId
+    editingChannelId: state.channelManagement.editingChannelId,
+    selectedChannelId: state.channelManagement.selectedChannel.id
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onCreate: () => dispatch(actionCreateChannel()),
-    getChannels: () => dispatch(actionLoadChannels()),
-    savingEnded: () => dispatch(channelsSavingFinished())
+    onCreateChannel: () => dispatch(actionCreateChannel()),
+    onLoadChannels: () => dispatch(actionLoadChannels()),
+    onSavingUsersFinished: () => dispatch(channelsUsersSavingFinished())
 })
 
 const enhancer = connect(mapStateToProps, mapDispatchToProps)

@@ -5,7 +5,7 @@ export const isAddingUser = (previousState = false, action) => {
         case actions.CHANNELS_ADDING_USER:
             return true
 
-        case actions.CHANNELS_USER_ADDED_OR_STOPPED:
+        case actions.CHANNELS_USER_ADDED_OR_CANCELED:
             return false
 
         default:

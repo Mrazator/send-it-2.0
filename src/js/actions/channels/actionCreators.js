@@ -51,7 +51,7 @@ export const channelsLoadRegisteredUsers = (users) => ({
 })
 
 export const channelsAddingUserCancel = () => ({
-    type: actions.CHANNELS_USER_ADDED_OR_STOPPED
+    type: actions.CHANNELS_USER_ADDED_OR_CANCELED
 })
 
 export const channelsStartEditingChannel = (channeldId) => ({
@@ -68,8 +68,13 @@ export const channelsCancelEditingChannel = () => ({
 export const channelsSavingStarted = () => ({
     type: actions.CHANNELS_SAVING_STARTED,
 })
-
 export const channelsSavingFinished = () => ({
     type: actions.CHANNELS_SAVING_FINISHED
+})
+export const channelsUsersSavingStarted = () => ({
+    type: actions.CHANNELS_USERS_SAVING_STARTED
+})
+export const channelsUsersSavingFinished = () => ({
+    type: actions.CHANNELS_USERS_SAVING_FINISHED
 })
 

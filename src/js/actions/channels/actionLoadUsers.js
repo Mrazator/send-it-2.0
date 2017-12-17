@@ -1,5 +1,8 @@
 import {API_USER_URI} from "../../constants/api";
-import {channelsLoadRegisteredUsers, channelsSavingStarted} from "./actionCreators";
+import {
+    channelsLoadRegisteredUsers, channelsSavingStarted, channelsUsersSavingFinished,
+    channelsUsersSavingStarted
+} from "./actionCreators";
 import {fetchReceive} from "../../utils/api/fetchReceive";
 import {convertFromServerUsers} from "../../utils/api/conversions/users";
 
@@ -8,7 +11,7 @@ export const actionLoadUsers = () =>
         const authToken = getState().shared.token
         const requestUri = API_USER_URI
 
-        dispatch(channelsSavingStarted())
+        dispatch(channelsUsersSavingStarted())
 
         return fetchReceive(requestUri, authToken)
             .then((server) => {

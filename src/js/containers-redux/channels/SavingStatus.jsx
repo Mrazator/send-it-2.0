@@ -5,7 +5,7 @@ import {actionSaveChannels} from '../../actions/channels/actionSaveChannels'
 
 const mapStateToProps = (state) => ({
     channels: state.channelManagement.channels,
-    isSaving: state.channelManagement.isSaving,
+    isSavingChannels: state.channelManagement.isSavingChannels,
 })
 
 const mapDispatchToProps = (dispatch) => ({

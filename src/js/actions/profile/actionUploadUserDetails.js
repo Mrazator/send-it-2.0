@@ -7,7 +7,7 @@ import {
     profileFailUploadingProfileDetails,
 } from './actionCreators';
 import {
-    createapiUserEmail
+    createApiUser
 } from '../../constants/api';
 import {
     sharedDismissError
@@ -30,7 +30,7 @@ export const actionUploadUserDetails = (details) =>
         dispatch(startSubmit(DETAILS_FORM_NAME));
 
         const authToken = getState().shared.token;
-        const requestUri = createapiUserEmail(details.email);
+        const requestUri = createApiUser(details.email);
         const serverDetails = details.customData;
 
         try {

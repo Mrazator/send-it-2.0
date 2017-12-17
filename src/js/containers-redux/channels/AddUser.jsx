@@ -9,7 +9,7 @@ import Immutable from 'immutable'
 const mapStateToProps = (state, ownProps) => ({
     channel: ownProps.channel,
     users: state.channelManagement.users,
-    selected: ownProps.channel.id === state.channelManagement.selectedItemId
+    selected: ownProps.channel.id === state.channelManagement.selectedChannel.id
 })
 
 const mapDispatchToProps = (dispatch) => ({

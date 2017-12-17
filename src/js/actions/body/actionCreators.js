@@ -6,7 +6,7 @@ export const messagesLoadingStarted = () => ({
 
 
 export const messagesLoadingFinished = () => ({
-    type: actions.MESSAGES_LOADING_ENDED
+    type: actions.MESSAGES_LOADING_FINISHED
 })
 
 export const messagesSave = (messages) => ({

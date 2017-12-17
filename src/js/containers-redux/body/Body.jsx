@@ -5,7 +5,7 @@ import {actionPostMessage} from "../../actions/body/actionPostMessage";
 import {messagesLoadingFinished} from "../../actions/body/actionCreators";
 
 const mapStateToProps = (state) => ({
-    itemId: state.channelManagement.selectedItemId,
+    itemId: state.channelManagement.selectedChannel.id,
     messages: state.channelManagement.selectedChannel.messages
 })
 

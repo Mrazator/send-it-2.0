@@ -1,6 +1,6 @@
 import * as actions from '../../constants/actionTypes'
 
-export const isSaving = (prevState = false, action) => {
+export const isSavingChannels = (prevState = false, action) => {
     switch (action.type) {
         case actions.CHANNELS_SAVING_STARTED:
             return true

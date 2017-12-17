@@ -3,6 +3,7 @@ export const validateResponseLogin = (response) => {
         return true
     }
     else if(response.status === 400){
+        console.log("User already exists  - just login")
         return true
     }
     else {
