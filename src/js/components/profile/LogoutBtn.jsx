@@ -1,18 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const LogoutButton = ({onClick}) => (
-    <button
-        type="button"
-        className="btn btn-danger btn-md"
-        onClick={onClick}
-    >
+const LogoutButton = ({ onClick }) => (
+  <button
+    type="button"
+    className="btn btn-danger btn-md"
+    onClick={onClick}
+  >
         Logout
-    </button>
+  </button>
 )
 
 LogoutButton.propTypes = {
-    onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
 }
 
-export {LogoutButton}
+export { LogoutButton }

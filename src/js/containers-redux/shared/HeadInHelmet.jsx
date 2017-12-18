@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 
-import { HeadInHelmet} from '../../components/shared/HeadInHelmet.jsx'
+import { HeadInHelmet } from '../../components/shared/HeadInHelmet.jsx'
 
-const mapStateToProps = (state) => ({
-    route: state.router.location.pathname
+const mapStateToProps = state => ({
+  route: state.router.location.pathname
 })
 
 const enhancer = connect(mapStateToProps)

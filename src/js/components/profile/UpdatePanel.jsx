@@ -11,7 +11,7 @@ const NoChangedDetails = () => (
   >
     Details outdated? Make a change…
   </div>
-);
+)
 
 const InvalidDetails = () => (
   <div
@@ -20,7 +20,7 @@ const InvalidDetails = () => (
   >
     Fix red fields to allow update…
   </div>
-);
+)
 
 const SubmitDetails = () => (
   <button
@@ -32,35 +32,35 @@ const SubmitDetails = () => (
 )
 
 const UploadingDetails = () => (
-    <div
-        className="well-sm alert-warning text-center"
-        role="alert"
-    >
-      <SavingSpinner />
-    </div>
-);
+  <div
+    className="well-sm alert-warning text-center"
+    role="alert"
+  >
+    <SavingSpinner />
+  </div>
+)
 
 const UpdatePane = ({ formState }) => {
-    switch (formState) {
-        case formStates.NOT_CHANGED:
-            return <NoChangedDetails />;
+  switch (formState) {
+    case formStates.NOT_CHANGED:
+      return <NoChangedDetails />
 
-        case formStates.INVALID:
-            return <InvalidDetails />;
+    case formStates.INVALID:
+      return <InvalidDetails />
 
-        case formStates.SAVEAVBLE:
-            return <SubmitDetails />;
+    case formStates.SAVEAVBLE:
+      return <SubmitDetails />
 
-        case formStates.SAVING_NOW:
-            return <UploadingDetails />;
+    case formStates.SAVING_NOW:
+      return <UploadingDetails />
 
-        default:
-            throw new Error(`Unknown form state "${formState}"`);
-    }
-};
+    default:
+      throw new Error(`Unknown form state "${formState}"`)
+  }
+}
 
 UpdatePane.propTypes = {
   formState: PropTypes.string.isRequired
 }
 
-export {UpdatePane}
+export { UpdatePane }
