@@ -42,8 +42,7 @@ class Body extends React.PureComponent {
   }
 
   _onTextChange(event) {
-    const { target: value } = event
-
+    const { target: { value } } = event
     this.setState({ text: value })
   }
 

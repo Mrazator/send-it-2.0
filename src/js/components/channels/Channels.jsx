@@ -20,14 +20,14 @@ class Channels extends React.PureComponent {
       onSavingUsersFinished: PropTypes.func.isRequired
     }
 
+    async componentDidMount() {
+      await this.props.onLoadChannels()
+    }
+
     componentWillUpdate(nextProps) {
       if (this.props.users !== nextProps.users) {
         this.props.onSavingUsersFinished()
       }
-    }
-
-    async componentDidMount() {
-      await this.props.onLoadChannels()
     }
 
     render() {

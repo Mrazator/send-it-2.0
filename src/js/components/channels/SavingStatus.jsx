@@ -11,7 +11,7 @@ export class SavingStatus extends React.PureComponent {
     };
 
     componentWillUpdate(nextProps) {
-      if (this.props.channels !== nextProps.channels) {
+      if (this.props.channels !== nextProps.channels || nextProps.channels.length === 0) {
         this.props.save()
       }
     }
