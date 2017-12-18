@@ -21,7 +21,8 @@
       outline: none; }
   .ChannelEdited i {
     font-size: 20px;
-    cursor: pointer; }
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.5); }
     .ChannelEdited i.icon-cancel:hover {
       color: indianred; }
     .ChannelEdited i.icon-ok:hover {

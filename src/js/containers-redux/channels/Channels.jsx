@@ -8,8 +8,8 @@ import {channelsSavingFinished} from "../../actions/channels/actionCreators";
 const mapStateToProps = (state, ownProps) => ({
     channels: state.channelManagement.channels,
     users: state.channelManagement.users,
-    editedItemId: state.channelManagement.editedItemId,
-    selectedItemId: state.channelManagement.selectedItemId
+    editedItemId: state.channelManagement.editingChannelId,
+    selectedItemId: state.channelManagement.selectedChannel.id
 })
 
 const mapDispatchToProps = (dispatch) => ({
