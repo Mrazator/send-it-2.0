@@ -21,7 +21,7 @@ export const actionUploadChannelUsers = (values, channel) => (dispatch, getState
   const bodyJson = convertToServerEditChannel(newChannel)
 
   return fetchRequest(requestUri, authToken, 'PATCH', bodyJson)
-    .then(dispatch(channelsUpdateChannel(channel)))
-    .then(dispatch(channelsAddingUserAdded()))
+    .then(() => dispatch(channelsUpdateChannel(channel)))
+    .then(() => dispatch(channelsAddingUserAdded()))
     .catch(error => console.log('actionUploadChannelUsers - Failed', error))
 }

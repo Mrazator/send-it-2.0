@@ -12,7 +12,7 @@ const ChannelEdited = props => (
       value={props.item.name}
       onChange={props.onNameChange}
       onKeyDown={props.onHandleKey}
-      ref={input => titleInput = input}
+      ref={(input) => { titleInput = input }}
     />
     <div>
       <i
@@ -40,7 +40,8 @@ ChannelEdited.propTypes = {
   onNameChange: PropTypes.func.isRequired,
   onCancelEditing: PropTypes.func.isRequired,
   onUpdate: PropTypes.func.isRequired,
-  onHandleKey: PropTypes.func.isRequired
+  onHandleKey: PropTypes.func.isRequired,
+  selected: PropTypes.bool.isRequired
 }
 
 export { ChannelEdited, getTitleInput }

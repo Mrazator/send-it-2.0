@@ -12,6 +12,6 @@ export const actionDeleteChannel = channelId =>
     const bodyJson = convertToServerDeleteChannel(channelId)
 
     return fetchRequest(requestUri, authToken, 'PATCH', bodyJson)
-      .then(dispatch(channelsRemoveChannel(channelId)))
+      .then(() => dispatch(channelsRemoveChannel(channelId)))
       .catch(error => console.log(error, 'actionDeleteChannel - Failed'))
   }
