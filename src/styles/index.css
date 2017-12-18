@@ -452,7 +452,7 @@ body {
   .ChannelEdited input.name {
     width: 150px;
     margin: 4px 0;
-    padding: 7px 0 7px 5px;
+    padding: 7px 0 7px 6px;
     border: 1px solid lightgray;
     font-family: 'Roboto', sans-serif !important;
     font-weight: 300 !important; }
@@ -513,7 +513,7 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 15px 14px 15px;
+      padding: 0 15px 14px 16px;
       margin-left: -10px; }
       .Channels ul .AddUser form.selected {
         border-left: 2px solid rgba(0, 0, 0, 0.5); }
@@ -525,7 +525,7 @@ body {
       .Channels ul .AddUser form .Select--multi .Select-input {
         font-family: 'Roboto', sans-serif !important;
         font-weight: 300 !important;
-        margin-left: 5px; }
+        margin-left: 6px; }
       .Channels ul .AddUser form .Select--multi .Select-value-icon {
         border-right: 1px solid rgba(0, 0, 0, 0.5);
         padding: 0 5px 1px;
@@ -537,7 +537,7 @@ body {
         box-shadow: none !important;
         border-color: lightgray; }
       .Channels ul .AddUser form .Select-placeholder {
-        padding-left: 5px;
+        padding-left: 6px;
         color: lightgray; }
       .Channels ul .AddUser form .Select-option.is-focused {
         color: black;
@@ -548,6 +548,7 @@ body {
         margin-left: 10px; }
       .Channels ul .AddUser form .Select--multi .Select-value {
         margin-top: 6px;
+        margin-left: 6px;
         color: black;
         background-color: white;
         border: 1px solid rgba(0, 0, 0, 0.5);
