@@ -469,7 +469,8 @@ body {
 
 .Channels {
   height: calc(100vh - 40px);
-  min-width: 280px;
+  min-width: 300px;
+  max-width: 600px;
   padding-left: 20px;
   color: rgba(0, 0, 0, 0.5);
   overflow-y: scroll; }

@@ -47,8 +47,8 @@ export const convertToServerDeleteChannel = channelId =>
     }
   ]
 
-export const convertToServerEditChannel = channel =>
-  [
+export const convertToServerEditChannel = channel => {
+  return [
     {
       path: `/channels/${channel.id}`,
       op: 'replace',
@@ -60,4 +60,5 @@ export const convertToServerEditChannel = channel =>
         })
       }
     }
-  ]
+  ];
+}

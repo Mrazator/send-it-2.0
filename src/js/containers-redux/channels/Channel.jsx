@@ -7,7 +7,7 @@ import {
 } from '../../actions/channels/actionCreators'
 import { actionDeleteChannel } from '../../actions/channels/actionDeleteChannel'
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   isAddingUser: state.channelManagement.isAddingUser
 })
 

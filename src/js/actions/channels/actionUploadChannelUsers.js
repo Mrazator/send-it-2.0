@@ -1,24 +1,27 @@
-import { channelsSavingStarted } from './actionCreators'
+import { API_CHANNEL_URI } from '../../constants/api'
 
-export const actionUploadChannelUsers = channel =>
-  (dispatch, getState) => {
-    dispatch(channelsSavingStarted())
-    console.log(channel)
-    //
-    // const authToken = getState().shared.token
-    // const requestUri = API_CHANNEL_URI()
-    // const bodyJson = convertToServerEditChannel(channel)
-    // console.log(channel)
-    // console.log(bodyJson)
+import {
+  channelsAddingUserAdded,
+  channelsSavingStarted,
+  channelsUpdateChannel
+} from './actionCreators'
+import { convertToServerEditChannel } from '../../utils/api/conversions/channel'
+import { fetchRequest } from '../../utils/api/fetchRequest'
 
-    // return fetchRequest(requestUri, authToken, "PATCH", bodyJson)
-    //     .then((server) => dispatch(channelsUpdateChannel(channel)))
-    //     .catch((error) => {
-    //         if (error.statusCode === 401) {
-    //             dispatch(sharedInvalidateToken());
-    //             return dispatch(failAuthentication(EXPIRED_AUTHENTICATION_MESSAGE));
-    //         }
-    //         throw error
-    //     })
-    //     .catch((error) => dispatch(profileFailFetchingProfileDetails(FAILED_FETCH_DETAILS_MESSAGE, error)))
-  }
+export const actionUploadChannelUsers = (values, channel) => (dispatch, getState) => {
+  dispatch(channelsSavingStarted())
+  const { users } = values
+
+  const newChannel = channel
+  newChannel.customData.users = users.map(x => x.value)
+
+  const authToken = getState().shared.token
+  const requestUri = API_CHANNEL_URI
+
+  const bodyJson = convertToServerEditChannel(newChannel)
+
+  return fetchRequest(requestUri, authToken, 'PATCH', bodyJson)
+    .then(dispatch(channelsUpdateChannel(channel)))
+    .then(dispatch(channelsAddingUserAdded()))
+    .catch(error => console.log('actionUploadChannelUsers - Failed', error))
+}

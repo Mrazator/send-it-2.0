@@ -38,7 +38,7 @@ export const channelsUpdateChannel = channel => ({
 })
 
 export const channelsAddingUser = () => ({
-  type: actions.CHANNELS_ADDING_USER
+  type: actions.CHANNELS_ADDING_USER_STARTED
 })
 
 export const channelsLoadRegisteredUsers = users => ({
@@ -49,7 +49,11 @@ export const channelsLoadRegisteredUsers = users => ({
 })
 
 export const channelsAddingUserCancel = () => ({
-  type: actions.CHANNELS_USER_ADDED_OR_CANCELED
+  type: actions.CHANNELS_ADDING_USERS_CANCELED
+})
+
+export const channelsAddingUserAdded = () => ({
+  type: actions.CHANNELS_ADDING_USERS_ADDED
 })
 
 export const channelsStartEditingChannel = channeldId => ({

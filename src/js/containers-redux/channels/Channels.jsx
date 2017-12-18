@@ -5,7 +5,7 @@ import { actionCreateChannel } from '../../actions/channels/actionCreateChannel'
 import { actionLoadChannels } from '../../actions/channels/actionLoadChannels'
 import { channelsUsersSavingFinished } from '../../actions/channels/actionCreators'
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   channels: state.channelManagement.channels,
   users: state.channelManagement.users,
   editingChannelId: state.channelManagement.editingChannelId,

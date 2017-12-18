@@ -2,7 +2,8 @@
 
 .Channels {
   height: calc(100vh - 40px);
-  min-width: 280px;
+  min-width: 300px;
+  max-width: 600px;
   padding-left: 20px;
   color: $grey;
   overflow-y: scroll;

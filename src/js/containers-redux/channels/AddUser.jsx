@@ -3,8 +3,7 @@ import { reduxForm } from 'redux-form'
 import { AddUser } from '../../components/channels/AddUser'
 import { actionLoadUsers } from '../../actions/channels/actionLoadUsers'
 import { actionUploadChannelUsers } from '../../actions/channels/actionUploadChannelUsers'
-import PropTypes from 'prop-types'
-import Immutable from 'immutable'
+import { channelsAddingUserCancel } from '../../actions/channels/actionCreators'
 
 const mapStateToProps = (state, ownProps) => ({
   channel: ownProps.channel,
@@ -12,9 +11,11 @@ const mapStateToProps = (state, ownProps) => ({
   selected: ownProps.channel.id === state.channelManagement.selectedChannel.id
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   onLoadUsers: () => dispatch(actionLoadUsers()),
-  onSubmit: channel => dispatch(actionUploadChannelUsers(channel))
+  onSubmit: values => (Object.keys(values).length !== 0
+    ? dispatch(actionUploadChannelUsers(values, ownProps.channel))
+    : dispatch(channelsAddingUserCancel()))
 })
 
 const formConfig = {
@@ -27,10 +28,4 @@ const stateEnhancer = connect(mapStateToProps, mapDispatchToProps)
 const formEnhancer = reduxForm(formConfig)
 const connectedComponent = stateEnhancer(formEnhancer(AddUser))
 
-connectedComponent.propTypes = {
-  channel: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    users: PropTypes.instanceOf(Immutable.List())
-  }).isRequired
-}
 export { connectedComponent as AddUserRedux }

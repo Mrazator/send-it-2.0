@@ -9,6 +9,7 @@ export const actionAddUserToChannel = channel =>
     const authToken = getState().shared.token
     const requestUri = API_CHANNEL_URI
     const bodyJson = convertToServerEditChannel(channel)
+    console.log(channel)
 
     // return fetchRequest(requestUri, authToken, "PATCH", bodyJson)
     //     .then((server) => dispatch(channelsUpdateChannel(channel)))

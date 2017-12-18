@@ -18,17 +18,26 @@ export class AddUser extends React.PureComponent {
     }
 
     render() {
-      const options = this.props.users.map(x => ({ value: x.email, label: x.email })).toArray()
+      const options = this.props.users
+        .filter(x => x.email !== this.props.channel.customData.owner)
+        .map(x => ({ value: x.email, label: x.email }))
+        .toArray()
+
+      const initialValues = this.props.channel.customData.users.length !== 0
+        ? this.props.channel.customData.users.map(x => ({ value: x, label: x }))
+        : null
 
       return (
         <div className="AddUser">
           <form onSubmit={this.props.handleSubmit} className={this.props.selected && 'selected'}>
             <Field
+              id="users"
               name="users"
               multi
               options={options}
               placeholder="Select users"
               component={SelectComponent}
+              initialValues={{ users: initialValues }}
             />
 
             <button
