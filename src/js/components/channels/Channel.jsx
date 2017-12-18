@@ -17,7 +17,7 @@ const Channel = (props) => {
           className={props.selected ? 'Channel selected' : 'Channel'}
         >
           <span
-            onClick={props.onStartEditing}
+            onDoubleClick={props.onStartEditing}
             title="edit channel"
           >{props.item.name}
           </span>

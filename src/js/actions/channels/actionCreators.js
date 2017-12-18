@@ -56,10 +56,10 @@ export const channelsAddingUserAdded = () => ({
   type: actions.CHANNELS_ADDING_USERS_ADDED
 })
 
-export const channelsStartEditingChannel = channeldId => ({
+export const channelsStartEditingChannel = channelId => ({
   type: actions.CHANNELS_ITEM_START_EDITING,
   payload: {
-    id: channeldId
+    id: channelId
   }
 })
 

@@ -1,9 +1,9 @@
 import Immutable from 'immutable'
 
-import {API_CHANNEL_URI} from '../../constants/api'
-import {channelsSavingFinished, channelsSavingStarted, channelsUpdate} from './actionCreators'
-import {fetchReceive} from '../../utils/api/fetchReceive'
-import {convertFromServerChannels} from '../../utils/api/conversions/channel'
+import { API_CHANNEL_URI } from '../../constants/api'
+import { channelsSavingFinished, channelsSavingStarted, channelsUpdate } from './actionCreators'
+import { fetchReceive } from '../../utils/api/fetchReceive'
+import { convertFromServerChannels } from '../../utils/api/conversions/channel'
 
 export const actionLoadChannels = () =>
   (dispatch, getState) => {
