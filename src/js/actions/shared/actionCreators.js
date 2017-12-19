@@ -19,6 +19,10 @@ export const sharedInvalidateToken = () => ({
   type: actions.SHARED_INVALIDATE_TOKEN
 })
 
+export const resetState = () => ({
+  type: actions.SHARED_USER_LOGOUT
+})
+
 export const sharedStartAuthentication = () => ({
   type: actions.SHARED_AUTHENTICATION_STARTED
 })

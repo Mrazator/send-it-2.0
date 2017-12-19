@@ -7,6 +7,7 @@ import { Channel } from '../../containers-redux/channels/Channel'
 import { ChannelEdited } from '../../containers-redux/channels/ChannelEdited'
 import { SavingStatus } from '../../containers-redux/channels/SavingStatus'
 import { ROOT } from '../../constants/routes'
+import Settings from '../settings/Settings'
 
 class Channels extends React.Component {
   static propTypes = {
@@ -59,6 +60,8 @@ class Channels extends React.Component {
         </div>
         <SavingStatus />
         <ul>{channelElements}</ul>
+
+        <Settings />
       </div>
     )
   }

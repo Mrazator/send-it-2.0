@@ -2,12 +2,16 @@
 
 .Settings {
   display: flex;
-  justify-content: center;
-  width: 50px;
-  padding: 5px 0;
+  justify-content: flex-end;
+  padding-right: 15px;
+  padding-top: 10px;
 
   i.icon-user {
     color: $grey;
     font-size: 27px;
+
+    &:hover {
+      color: black;
+    }
   }
 }

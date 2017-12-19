@@ -1,11 +1,5 @@
 import { uuid } from '../../uuid'
 
-export const convertFromServerChannels = (server, owner) =>
-  server.channels
-    .map(x => convertFromServerChannel(x))
-    .filter(x => x.customData.owner === owner) // || x.customData.users.filter(x => x === owner) !== []
-
-
 export const convertFromServerChannel = (channel) => {
   const custom = JSON.parse(channel.customData)
 
@@ -18,6 +12,10 @@ export const convertFromServerChannel = (channel) => {
     }
   }
 }
+
+export const convertFromServerChannels = (server, owner) => server.channels
+  .map(x => convertFromServerChannel(x))
+  .filter(x => x.customData.owner === owner || x.customData.users.filter(y => y === owner).length !== 0)
 
 export const getFromServerLastChannel = serverChannel => ({
   ...serverChannel.channels[serverChannel.channels.length - 1]
@@ -47,18 +45,16 @@ export const convertToServerDeleteChannel = channelId =>
     }
   ]
 
-export const convertToServerEditChannel = channel => {
-  return [
-    {
-      path: `/channels/${channel.id}`,
-      op: 'replace',
-      value: {
-        ...channel,
-        customData: JSON.stringify({
-          owner: channel.customData.owner,
-          users: JSON.stringify(channel.customData.users)
-        })
-      }
+export const convertToServerEditChannel = channel => [
+  {
+    path: `/channels/${channel.id}`,
+    op: 'replace',
+    value: {
+      ...channel,
+      customData: JSON.stringify({
+        owner: channel.customData.owner,
+        users: JSON.stringify(channel.customData.users)
+      })
     }
-  ];
-}
+  }
+]

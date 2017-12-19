@@ -1,4 +1,5 @@
 .Channels {
+  position: relative;
   height: calc(100vh - 40px);
   min-width: 330px;
   max-width: 600px;
@@ -24,7 +25,7 @@
       .Channels .channels-manage i:hover {
         color: black; }
   .Channels ul {
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 173px);
     margin: 0;
     padding: 0; }
     .Channels ul .AddUser .icon-ok {
@@ -103,8 +104,8 @@
         background-color: white;
         border: 1px solid rgba(0, 0, 0, 0.5);
         border-radius: 0; }
-        .Channels ul .AddUser form .Select--multi .Select-value:last-of-type {
-          margin-bottom: 0; }
+        .Channels ul .AddUser form .Select--multi .Select-value:first-of-type {
+          margin-top: 4px; }
         .Channels ul .AddUser form .Select--multi .Select-value .Select-value-label {
           padding: 5px 8px;
           font-size: 10px; }

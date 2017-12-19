@@ -1,4 +1,4 @@
-import { sharedInvalidateToken } from './actionCreators'
+import { resetState, sharedInvalidateToken } from './actionCreators'
 import * as keys from '../../constants/localStorageKeys'
 
 export const sharedLogoutUser = () =>
@@ -7,4 +7,5 @@ export const sharedLogoutUser = () =>
     localStorage.removeItem(keys.SHARED_TOKEN_TIMESTAMP)
 
     dispatch(sharedInvalidateToken())
+    dispatch(resetState())
   }

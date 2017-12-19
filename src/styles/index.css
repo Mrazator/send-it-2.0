@@ -394,6 +394,7 @@ body {
   min-width: 769px; }
   body .App {
     display: flex;
+    justify-content: center;
     font-family: 'Roboto', sans-serif !important;
     font-weight: 300 !important;
     margin: 20px 0; }
@@ -402,14 +403,18 @@ body {
       color: black; }
 
 .Body {
-  flex-grow: 1;
-  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: calc(100vh - 40px);
-  overflow-y: scroll; }
+  padding: 0 0 0 25px;
+  flex-grow: 1;
+  max-width: 1100px; }
   .Body .header .channel-name h2 {
-    margin-top: 8px; }
+    margin-top: 7px; }
   .Body .header .channel-users {
     display: flex;
+    align-items: flex-start;
     flex-wrap: wrap;
     font-size: 10px; }
     .Body .header .channel-users .channel-user {
@@ -417,36 +422,34 @@ body {
       padding: 6px 8px;
       border: 1px solid rgba(0, 0, 0, 0.5);
       word-wrap: break-word; }
-  .Body .send-it form {
-    display: flex;
-    align-items: center; }
-    .Body .send-it form input {
-      font-family: 'Roboto', sans-serif !important;
-      font-weight: 300 !important;
-      width: 100%;
-      padding: 7px 5px 7px 0;
-      text-indent: 5px;
-      border: 1px solid lightgrey; }
-      .Body .send-it form input:focus {
-        outline: none; }
-    .Body .send-it form .icon-chat {
-      -webkit-appearance: initial;
-      color: grey;
-      background-color: transparent;
-      cursor: pointer;
-      padding: 5px;
-      font-size: 21px; }
-      .Body .send-it form .icon-chat:hover {
-        color: black; }
-      .Body .send-it form .icon-chat:focus {
-        outline: none; }
-
-.Body::-webkit-scrollbar {
-  width: 3px;
-  background: rgba(0, 0, 0, 0.3); }
-
-.Body::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2); }
+      .Body .header .channel-users .channel-user.admin {
+        background: lightgray; }
+  .Body .send-it {
+    padding-bottom: 25px;
+    padding-right: 25px; }
+    .Body .send-it form {
+      display: flex;
+      align-items: center; }
+      .Body .send-it form input {
+        font-family: 'Roboto', sans-serif !important;
+        font-weight: 300 !important;
+        width: 100%;
+        padding: 7px 5px 7px 0;
+        text-indent: 5px;
+        border: 1px solid lightgrey; }
+        .Body .send-it form input:focus {
+          outline: none; }
+      .Body .send-it form .icon-chat {
+        -webkit-appearance: initial;
+        color: grey;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 5px;
+        font-size: 21px; }
+        .Body .send-it form .icon-chat:hover {
+          color: black; }
+        .Body .send-it form .icon-chat:focus {
+          outline: none; }
 
 .Channel {
   display: flex;
@@ -504,6 +507,7 @@ body {
         color: black; }
 
 .Channels {
+  position: relative;
   height: calc(100vh - 40px);
   min-width: 330px;
   max-width: 600px;
@@ -529,7 +533,7 @@ body {
       .Channels .channels-manage i:hover {
         color: black; }
   .Channels ul {
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 173px);
     margin: 0;
     padding: 0; }
     .Channels ul .AddUser .icon-ok {
@@ -608,8 +612,8 @@ body {
         background-color: white;
         border: 1px solid rgba(0, 0, 0, 0.5);
         border-radius: 0; }
-        .Channels ul .AddUser form .Select--multi .Select-value:last-of-type {
-          margin-bottom: 0; }
+        .Channels ul .AddUser form .Select--multi .Select-value:first-of-type {
+          margin-top: 4px; }
         .Channels ul .AddUser form .Select--multi .Select-value .Select-value-label {
           padding: 5px 8px;
           font-size: 10px; }
@@ -627,12 +631,14 @@ body {
 
 .Settings {
   display: flex;
-  justify-content: center;
-  width: 50px;
-  padding: 5px 0; }
+  justify-content: flex-end;
+  padding-right: 15px;
+  padding-top: 10px; }
   .Settings i.icon-user {
     color: rgba(0, 0, 0, 0.5);
     font-size: 27px; }
+    .Settings i.icon-user:hover {
+      color: black; }
 
 .Profile {
   display: flex;
@@ -694,3 +700,49 @@ form.Details {
     transform: translate(-50%, -50%);
     font-size: 5em;
     color: #ccc; }
+
+.Messages {
+  display: flex;
+  flex-direction: column-reverse;
+  height: calc(100vh - 240px);
+  margin: 10px 0 0;
+  padding-right: 15px;
+  overflow-y: scroll; }
+  .Messages ul {
+    margin: 0;
+    padding: 0; }
+    .Messages ul .Message {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      max-width: 350px;
+      margin-bottom: 15px; }
+      .Messages ul .Message.logged-in-user {
+        justify-content: flex-end;
+        max-width: 100%;
+        margin-left: 300px;
+        text-align: right; }
+        .Messages ul .Message.logged-in-user .profile-img {
+          display: none;
+          order: 1; }
+      .Messages ul .Message .profile-img {
+        height: 25px;
+        min-width: 25px;
+        margin: 5px 10px 5px 0;
+        background-color: #005580;
+        border-radius: 50%; }
+      .Messages ul .Message .body {
+        margin: 5px 10px 5px 0; }
+        .Messages ul .Message .body .user-name {
+          margin-bottom: 5px;
+          font-size: 12px;
+          color: rgba(0, 0, 0, 0.5); }
+        .Messages ul .Message .body .text {
+          word-break: break-word; }
+
+.Messages::-webkit-scrollbar {
+  width: 3px;
+  background: rgba(0, 0, 0, 0.3); }
+
+.Messages::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2); }

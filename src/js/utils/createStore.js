@@ -5,7 +5,7 @@ import {
 } from 'redux'
 import logger from 'redux-logger'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
-import { app } from '../reducers/app'
+import { rootReducer } from '../reducers/app'
 import { getInitialState } from './getInitialState'
 
 const thunk = require('redux-thunk').default
@@ -17,7 +17,7 @@ export const createStore = (history) => {
   const middleware = [router, thunk, logger]
 
   return createReduxStore(
-    connectRouter(history)(app),
+    connectRouter(history)(rootReducer),
     getInitialState(),
     composeEnhancers(applyMiddleware(...middleware))
   )

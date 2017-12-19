@@ -111,8 +111,10 @@
       border: 1px solid $grey;
       border-radius: 0;
 
-      &:last-of-type {
-        margin-bottom: 0;
+
+
+      &:first-of-type {
+        margin-top: 4px;
       }
 
       .Select-value-label {

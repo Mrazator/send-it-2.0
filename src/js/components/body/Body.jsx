@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import 'react-router-dom'
 import Immutable from 'immutable'
 
-import { Message } from './Message'
+import { MessageRedux } from '../../containers-redux/body/Message'
 
 class Body extends React.PureComponent {
   static propTypes = {
@@ -38,6 +38,7 @@ class Body extends React.PureComponent {
     }
 
     this._onTextChange = this._onTextChange.bind(this)
+    this._handleEnterKey = this._handleEnterKey.bind(this)
   }
 
   async componentDidMount() {
@@ -56,6 +57,12 @@ class Body extends React.PureComponent {
     this.setState({ text: value })
   }
 
+  _handleEnterKey(e) {
+    if (e.keyCode === 13) { // Enter key
+      this.props.onCreateMessage(this.props.channelId, this.state.text)
+    }
+  }
+
   render() {
     const channelName = this.props.channel !== undefined
       && (
@@ -68,13 +75,22 @@ class Body extends React.PureComponent {
       && this.props.channel.customData.users.map(x => <span key={x} className="channel-user">{x}</span>)
 
     const messageElements = this.props.selectedChannel.messages !== []
-      && this.props.selectedChannel.messages.map(x => <Message key={x.id} item={x} />)
+      && this.props.selectedChannel.messages.map(x => <MessageRedux key={x.id} item={x} />)
+
+    const admin = this.props.channel !== undefined &&
+      <span
+        key={this.props.channel.customData.owner}
+        className="channel-user admin"
+      >
+        admin | {this.props.channel.customData.owner}
+      </span>
 
     return (
       <div className="Body">
         <div className="header">
           {channelName}
           <div className="channel-users">
+            {admin}
             {users}
           </div>
         </div>
@@ -91,6 +107,7 @@ class Body extends React.PureComponent {
               type="text"
               value={this.state.text}
               onChange={this._onTextChange}
+              onKeyDown={this._handleEnterKey}
               placeholder="Type a message..."
             />
             <i

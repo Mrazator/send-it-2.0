@@ -2,6 +2,7 @@ body {
   min-width: 769px; }
   body .App {
     display: flex;
+    justify-content: center;
     font-family: 'Roboto', sans-serif !important;
     font-weight: 300 !important;
     margin: 20px 0; }

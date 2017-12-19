@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Settings from '../settings/Settings'
 import { ChannelsRedux } from '../../containers-redux/channels/Channels'
 import { HeadInHelmet } from '../../containers-redux/shared/HeadInHelmet'
 import { Errors } from '../../containers-redux/shared/Errors'
@@ -15,7 +14,6 @@ const App = ({ computedMatch }) => {
       <HeadInHelmet />
       <ChannelsRedux channelId={channelId} />
       { channelId ? <BodyRedux channelId={channelId} /> : <div className="Body"><h2>Choose a channel or create one</h2></div>}
-      <Settings />
       <Errors />
     </div>
   )
