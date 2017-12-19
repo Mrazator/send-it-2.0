@@ -29,6 +29,19 @@
           display: none;
           order: 1;
         }
+
+        .body {
+          margin-right: 0;
+        }
+
+        .delete {
+          margin-bottom: 3px;
+          i {
+            @include icon-btn();
+            padding: 5px;
+            font-size: 20px;
+          }
+        }
       }
 
       .profile-img {

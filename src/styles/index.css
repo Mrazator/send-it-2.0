@@ -730,6 +730,21 @@ form.Details {
         .Messages ul .Message.logged-in-user .profile-img {
           display: none;
           order: 1; }
+        .Messages ul .Message.logged-in-user .body {
+          margin-right: 0; }
+        .Messages ul .Message.logged-in-user .delete {
+          margin-bottom: 3px; }
+          .Messages ul .Message.logged-in-user .delete i {
+            -webkit-appearance: initial;
+            color: grey;
+            background-color: transparent;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 20px; }
+            .Messages ul .Message.logged-in-user .delete i:hover {
+              color: black; }
+            .Messages ul .Message.logged-in-user .delete i:focus {
+              outline: none; }
       .Messages ul .Message .profile-img {
         height: 25px;
         min-width: 25px;

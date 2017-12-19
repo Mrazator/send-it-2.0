@@ -9,4 +9,5 @@ export const API_USER_URI = `${API_URI}/${API_ID}/user`
 export const API_FILE_URI = `${API_URI}/file`
 export const createApiUser = email => `${API_URI}/${API_ID}/user/${email}`
 export const createApiFilerUri = fileId => `${API_URI}//file/${fileId}/download-link`
-export const createMessageUri = channelId => `${API_URI}/app/${API_ID}/channel/${channelId}/message`
+export const createMessagesUri = channelId => `${API_URI}/app/${API_ID}/channel/${channelId}/message`
+export const createMessageUri = (channelId, messageId) => `${API_URI}/app/${API_ID}/channel/${channelId}/message/${messageId}`

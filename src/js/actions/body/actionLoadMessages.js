@@ -1,6 +1,6 @@
 import Immutable from 'immutable'
 import { fetchReceive } from '../../utils/api/fetchReceive'
-import { createMessageUri } from '../../constants/api'
+import { createMessagesUri } from '../../constants/api'
 import { convertFromServerMessages } from '../../utils/api/conversions/messages'
 import { messagesLoadingStarted, messagesSave } from './actionCreators'
 import { channelsSelectChannel } from '../channels/actionCreators'
@@ -10,7 +10,7 @@ export const actionLoadMessages = channelId =>
     dispatch(messagesLoadingStarted())
 
     const authToken = getState().shared.token
-    const requestUri = createMessageUri(channelId)
+    const requestUri = createMessagesUri(channelId)
 
     return fetchReceive(requestUri, authToken)
       .then((server) => {

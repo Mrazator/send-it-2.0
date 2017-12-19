@@ -1,5 +1,5 @@
 import {messagesLoadingStarted, messageSave, messagesLoadingFinished} from './actionCreators'
-import { createMessageUri } from '../../constants/api'
+import { createMessagesUri } from '../../constants/api'
 import { fetchRequest } from '../../utils/api/fetchRequest'
 import { convertFromServerMessage } from '../../utils/api/conversions/messages'
 
@@ -8,7 +8,7 @@ export const actionPostMessage = (channelId, messageText) =>
     dispatch(messagesLoadingStarted())
 
     const authToken = getState().shared.token
-    const requestUri = createMessageUri(channelId)
+    const requestUri = createMessagesUri(channelId)
     const bodyJson = {
       value: messageText,
       customData: JSON.stringify([

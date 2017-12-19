@@ -75,7 +75,7 @@ class Body extends React.PureComponent {
       && this.props.channel.customData.users.map(x => <span key={x} className="channel-user">{x}</span>)
 
     const messageElements = this.props.selectedChannel.messages !== []
-      && this.props.selectedChannel.messages.map(x => <MessageRedux key={x.id} item={x} />)
+      && this.props.selectedChannel.messages.map(x => <MessageRedux key={x.id} item={x} selectedChannelId={this.props.channelId} />)
 
     const admin = this.props.channel !== undefined &&
       <span

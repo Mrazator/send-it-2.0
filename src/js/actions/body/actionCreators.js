@@ -9,6 +9,13 @@ export const messagesLoadingFinished = () => ({
   type: actions.MESSAGES_LOADING_FINISHED
 })
 
+export const messagesRemoveMessage = messageId => ({
+  type: actions.MESSAGES_DELETE_MESSAGE,
+  payload: {
+    messageId
+  }
+})
+
 export const messagesSave = messages => ({
   type: actions.MESSAGES_LOAD,
   payload: {

@@ -8,12 +8,12 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onDeleteMessage: channelId => dispatch(actionDeleteMessage(channelId, ownProps.item.id)),
-  onVoteMessage: channelId => dispatch(actionVoteMessage(channelId, ownProps.item.id))
+  onDeleteMessage: () => dispatch(actionDeleteMessage(ownProps.selectedChannelId, ownProps.item.id)),
+  onVoteMessage: (channelId, messageId) => () => dispatch(() => actionVoteMessage(channelId, messageId))
 })
 
 
-const enhancer = connect(mapStateToProps, mapDispatchToProps())
+const enhancer = connect(mapStateToProps, mapDispatchToProps)
 const connectedComponent = enhancer(Message)
 
 export { connectedComponent as MessageRedux }
