@@ -35,6 +35,21 @@
         border-color: lightgray;
       }
 
+      //scrollbar for -webkit users
+
+      .Select-menu::-webkit-scrollbar {
+        width: 3px;
+        background: rgba(0, 0, 0, 0.3)
+      }
+
+      .Select-menu::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2)
+      }
+
+      .Select-menu::-webkit-scrollbar:horizontal {
+        height: 3px;
+      }
+
       .Select-placeholder {
         padding-left: 6px;
         color: grey;
@@ -105,17 +120,11 @@
     }
 
     .Select--multi .Select-value {
-      margin: 3px 6px 3px 0;
+      margin: 4px 7px 3px 0;
       color: black;
       background-color: white;
       border: 1px solid $grey;
       border-radius: 0;
-
-
-
-      &:first-of-type {
-        margin-top: 4px;
-      }
 
       .Select-value-label {
         padding: 5px 8px;
