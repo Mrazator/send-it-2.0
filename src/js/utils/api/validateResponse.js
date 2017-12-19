@@ -1,6 +1,8 @@
 export const validateResponse = (response) => {
   if (response.status >= 200 && response.status < 300) {
     return response.json()
+  } else if (response.status === 401) {
+    return false
   }
 
   const errorMessge = response.statusText || `Something went wrong (ending up in ${response.status})`

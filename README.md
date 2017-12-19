@@ -7,7 +7,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - prototype: https://www.fluidui.com/editor/live/preview/cF82N211bDdjMER4Y0F3UERBWFdsT1RMOWxxdVAwSFUzTQ==
 
 ## TODOs
-- perform auhorizationRequest
 - delete send message - owner
 - message up/down voting
 - profile picture next to each message
@@ -16,5 +15,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - loading spinner for message body
 - style login and profile
 - DI, refactoring
+- delete email from local storage -> use redux-persist (keep redux state after refresh)
 
 

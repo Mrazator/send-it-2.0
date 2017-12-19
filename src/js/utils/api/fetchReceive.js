@@ -1,4 +1,4 @@
-import { validateResponse } from './validateResponse'
+import {validateResponse} from './validateResponse'
 
 export const fetchReceive = (uri, token) =>
   fetch(
@@ -11,5 +11,4 @@ export const fetchReceive = (uri, token) =>
         Accept: 'application/json'
       }
     }
-  )
-    .then(validateResponse)
+  ).then(validateResponse)

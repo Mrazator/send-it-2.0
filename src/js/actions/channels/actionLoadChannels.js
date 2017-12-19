@@ -1,9 +1,10 @@
 import Immutable from 'immutable'
 
-import { API_CHANNEL_URI } from '../../constants/api'
+import { API_CHANNEL_URI, API_USER_URI, createApiUser } from '../../constants/api'
 import { channelsSavingFinished, channelsSavingStarted, channelsUpdate } from './actionCreators'
 import { fetchReceive } from '../../utils/api/fetchReceive'
 import { convertFromServerChannels } from '../../utils/api/conversions/channel'
+import { sharedLogoutUser } from '../shared/sharedLogoutUser'
 
 export const actionLoadChannels = () =>
   (dispatch, getState) => {
@@ -12,7 +13,7 @@ export const actionLoadChannels = () =>
 
     dispatch(channelsSavingStarted())
     return fetchReceive(requestUri, authToken)
-      .then((server) => {
+      .then(async (server) => {
         const owner = getState().shared.email
         const converted = convertFromServerChannels(server, owner)
 
