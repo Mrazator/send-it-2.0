@@ -402,11 +402,44 @@ body {
       color: black; }
 
 .Body {
-  background-color: beige;
   flex-grow: 1;
   padding: 0 25px;
   height: calc(100vh - 40px);
   overflow-y: scroll; }
+  .Body .header .channel-name h2 {
+    margin-top: 8px; }
+  .Body .header .channel-users {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 10px; }
+    .Body .header .channel-users .channel-user {
+      margin: 0 6px 6px 0;
+      padding: 6px 8px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      word-wrap: break-word; }
+  .Body .send-it form {
+    display: flex;
+    align-items: center; }
+    .Body .send-it form input {
+      font-family: 'Roboto', sans-serif !important;
+      font-weight: 300 !important;
+      width: 100%;
+      padding: 7px 5px 7px 0;
+      text-indent: 5px;
+      border: 1px solid lightgrey; }
+      .Body .send-it form input:focus {
+        outline: none; }
+    .Body .send-it form .icon-chat {
+      -webkit-appearance: initial;
+      color: grey;
+      background-color: transparent;
+      cursor: pointer;
+      padding: 5px;
+      font-size: 21px; }
+      .Body .send-it form .icon-chat:hover {
+        color: black; }
+      .Body .send-it form .icon-chat:focus {
+        outline: none; }
 
 .Body::-webkit-scrollbar {
   width: 3px;
@@ -441,7 +474,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1px 15px 0 8px;
+  padding: 0 15px 0 8px;
   list-style: none; }
   .ChannelEdited.selected {
     cursor: pointer;
@@ -450,26 +483,29 @@ body {
     color: black;
     padding-left: 17px; }
   .ChannelEdited input.name {
-    width: 150px;
-    margin: 4px 0;
-    padding: 7px 0 7px 6px;
+    width: 100%;
+    margin: 4px 0 5px;
+    padding: 7px 0 7px 5px;
     border: 1px solid lightgray;
     font-family: 'Roboto', sans-serif !important;
     font-weight: 300 !important; }
     .ChannelEdited input.name:focus {
       outline: none; }
-  .ChannelEdited i {
-    font-size: 20px;
-    cursor: pointer;
-    color: rgba(0, 0, 0, 0.5); }
-    .ChannelEdited i.icon-cancel:hover {
-      color: indianred; }
-    .ChannelEdited i.icon-ok:hover {
-      color: black; }
+  .ChannelEdited > div {
+    min-width: 56px;
+    margin-left: 5px; }
+    .ChannelEdited > div i {
+      font-size: 20px;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.5); }
+      .ChannelEdited > div i.icon-cancel:hover {
+        color: indianred; }
+      .ChannelEdited > div i.icon-ok:hover {
+        color: black; }
 
 .Channels {
   height: calc(100vh - 40px);
-  min-width: 300px;
+  min-width: 330px;
   max-width: 600px;
   padding-left: 20px;
   color: rgba(0, 0, 0, 0.5);
@@ -498,13 +534,13 @@ body {
     padding: 0; }
     .Channels ul .AddUser .icon-ok {
       -webkit-appearance: initial;
+      color: grey;
+      background-color: transparent;
+      cursor: pointer;
       font-size: 20px;
       margin-left: 5px;
       padding: 0;
-      color: grey;
-      background-color: white;
-      border-style: none;
-      cursor: pointer; }
+      border-style: none; }
       .Channels ul .AddUser .icon-ok:hover {
         color: black; }
       .Channels ul .AddUser .icon-ok:focus {
@@ -513,7 +549,7 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 15px 14px 16px;
+      padding: 0 15px 11px 16px;
       margin-left: -10px; }
       .Channels ul .AddUser form.selected {
         border-left: 2px solid rgba(0, 0, 0, 0.5); }
@@ -522,10 +558,37 @@ body {
         .Channels ul .AddUser form .Select div {
           border-radius: 0;
           outline: none; }
+        .Channels ul .AddUser form .Select.is-focused:not(.is-open) > .Select-control {
+          box-shadow: none !important;
+          border-color: lightgray; }
+        .Channels ul .AddUser form .Select .Select-placeholder {
+          padding-left: 6px;
+          color: grey; }
+        .Channels ul .AddUser form .Select .Select-option.is-focused {
+          color: black;
+          background: white; }
+          .Channels ul .AddUser form .Select .Select-option.is-focused:hover {
+            background: rgba(0, 0, 0, 0.1); }
+        .Channels ul .AddUser form .Select .Select-clear {
+          margin-left: 10px; }
       .Channels ul .AddUser form .Select--multi .Select-input {
-        font-family: 'Roboto', sans-serif !important;
-        font-weight: 300 !important;
-        margin-left: 6px; }
+        margin-left: 0; }
+        .Channels ul .AddUser form .Select--multi .Select-input input {
+          font-family: 'Roboto', sans-serif !important;
+          font-weight: 300 !important; }
+          .Channels ul .AddUser form .Select--multi .Select-input input:focus {
+            outline: none; }
+      .Channels ul .AddUser form .Select--multi .Select-value {
+        margin: 3px 6px 3px 0;
+        color: black;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 0; }
+        .Channels ul .AddUser form .Select--multi .Select-value:last-of-type {
+          margin-bottom: 0; }
+        .Channels ul .AddUser form .Select--multi .Select-value .Select-value-label {
+          padding: 5px 8px;
+          font-size: 10px; }
       .Channels ul .AddUser form .Select--multi .Select-value-icon {
         border-right: 1px solid rgba(0, 0, 0, 0.5);
         padding: 0 5px 1px;
@@ -533,33 +596,23 @@ body {
         .Channels ul .AddUser form .Select--multi .Select-value-icon:hover {
           color: black;
           background: transparent; }
-      .Channels ul .AddUser form .Select.is-focused:not(.is-open) > .Select-control {
-        box-shadow: none !important;
-        border-color: lightgray; }
-      .Channels ul .AddUser form .Select-placeholder {
-        padding-left: 6px;
-        color: lightgray; }
-      .Channels ul .AddUser form .Select-option.is-focused {
-        color: black;
-        background: white; }
-        .Channels ul .AddUser form .Select-option.is-focused:hover {
-          background: rgba(0, 0, 0, 0.1); }
-      .Channels ul .AddUser form .Select-clear {
-        margin-left: 10px; }
+      .Channels ul .AddUser form .Select--multi .Select-multi-value-wrapper {
+        padding: 0 5px 0; }
+      .Channels ul .AddUser form .Select--multi .Select-control {
+        border-radius: 0; }
+        .Channels ul .AddUser form .Select--multi .Select-control .is-focused {
+          border-radius: 0; }
       .Channels ul .AddUser form .Select--multi .Select-value {
-        margin-top: 6px;
-        margin-left: 6px;
+        margin: 3px 6px 3px 0;
         color: black;
         background-color: white;
         border: 1px solid rgba(0, 0, 0, 0.5);
         border-radius: 0; }
+        .Channels ul .AddUser form .Select--multi .Select-value:last-of-type {
+          margin-bottom: 0; }
         .Channels ul .AddUser form .Select--multi .Select-value .Select-value-label {
-          padding: 2px 5px;
+          padding: 5px 8px;
           font-size: 10px; }
-      .Channels ul .AddUser form .Select-control {
-        border-radius: 0; }
-        .Channels ul .AddUser form .Select-control .is-focused {
-          border-radius: 0; }
 
 .Channels::-webkit-scrollbar {
   width: 3px;

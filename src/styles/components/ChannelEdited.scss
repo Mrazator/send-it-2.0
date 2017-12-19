@@ -2,7 +2,7 @@
 
 .ChannelEdited {
   @include flex-between-center();
-  padding: 1px 15px 0 8px;
+  padding: 0 15px 0 8px;
   list-style: none;
 
   &.selected {
@@ -14,9 +14,9 @@
   }
 
   input.name {
-    width: 150px;
-    margin: 4px 0;
-    padding: 7px 0 7px 6px;
+    width: 100%;
+    margin: 4px 0 5px;
+    padding: 7px 0 7px 5px;
     border: 1px solid lightgray;
     font-family: 'Roboto', sans-serif !important;
     font-weight: 300 !important;
@@ -26,17 +26,22 @@
     }
   }
 
-  i {
-    font-size: 20px;
-    cursor: pointer;
-    color: $grey;
+  & > div {
+    min-width: 56px;
+    margin-left: 5px;
 
-    &.icon-cancel:hover {
-      color: $buttons;
-    }
+    i {
+      font-size: 20px;
+      cursor: pointer;
+      color: $grey;
 
-    &.icon-ok:hover {
-      color: $black;
+      &.icon-cancel:hover {
+        color: $buttons;
+      }
+
+      &.icon-ok:hover {
+        color: $black;
+      }
     }
   }
 }

@@ -18,7 +18,7 @@ const Channel = (props) => {
         >
           <span
             onDoubleClick={props.onStartEditing}
-            title="edit channel"
+            title="doubleclick - edit channel"
           >{props.item.name}
           </span>
           <div>

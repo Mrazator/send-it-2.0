@@ -1,7 +1,15 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 
-export const Message = props => <div>{props.item.value}</div>
+export class Message extends React.PureComponent {
+  render() {
+    return (
+      <div className="Message">
+        {this.props.item.value}
+      </div>
+    )
+  }
+}
 
 Message.propTypes = PropTypes.shape({
   id: PropTypes.string.isRequired,

@@ -1,11 +1,54 @@
 @import '../config/base.scss';
 
 .Body {
-  background-color: beige;
   flex-grow: 1;
   padding: 0 25px;
   height: calc(100vh - 40px);
   overflow-y: scroll;
+
+  .header {
+    .channel-name {
+      h2 {
+        margin-top: 8px;
+      }
+    }
+
+    .channel-users {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 10px;
+
+      .channel-user {
+        margin: 0 6px 6px 0;
+        padding: 6px 8px;
+        border: 1px solid $grey;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+  .send-it {
+    form {
+      display: flex;
+      align-items: center;
+
+      input {
+        @include input();
+
+        width: 100%;
+        padding: 7px 5px 7px 0;
+        text-indent: 5px;
+        border: 1px solid lightgrey;
+      }
+
+      .icon-chat {
+        @include icon-btn();
+
+        padding: 5px;
+        font-size: 21px;
+      }
+    }
+  }
 }
 
 //scrollbar for -webkit users

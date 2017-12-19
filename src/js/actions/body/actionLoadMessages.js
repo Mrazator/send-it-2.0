@@ -3,6 +3,7 @@ import { fetchReceive } from '../../utils/api/fetchReceive'
 import { createMessageUri } from '../../constants/api'
 import { convertFromServerMessages } from '../../utils/api/conversions/messages'
 import { messagesLoadingStarted, messagesSave } from './actionCreators'
+import { channelsSelectChannel } from '../channels/actionCreators'
 
 export const actionLoadMessages = channelId =>
   (dispatch, getState) => {
@@ -17,6 +18,7 @@ export const actionLoadMessages = channelId =>
           ? convertFromServerMessages(server).sort((x, y) => x.createdAt > y.createdAt)
           : Immutable.List()
 
+        dispatch(channelsSelectChannel(channelId))
         dispatch(messagesSave(messages))
       })
       .catch(error => console.log(error, 'actionLoadMessages - Failed'))

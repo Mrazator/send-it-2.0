@@ -1,17 +1,17 @@
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import Body from '../../components/body/Body'
-import { actionLoadMessages } from '../../actions/body/actionLoadMessages'
-import { actionPostMessage } from '../../actions/body/actionPostMessage'
-import { messagesLoadingFinished } from '../../actions/body/actionCreators'
+import {actionLoadMessages} from '../../actions/body/actionLoadMessages'
+import {actionPostMessage} from '../../actions/body/actionPostMessage'
+import {messagesLoadingFinished} from '../../actions/body/actionCreators'
 
-const mapStateToProps = state => ({
-  itemId: state.channelManagement.selectedChannel.id,
-  messages: state.channelManagement.selectedChannel.messages
+const mapStateToProps = (state, ownProps) => ({
+  channel: state.channelManagement.channels.filter(x => x.id === ownProps.channelId).first(),
+  selectedChannel: state.channelManagement.selectedChannel
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = dispatch => ({
   onLoadMessages: channelId => dispatch(actionLoadMessages(channelId)),
-  onCreateMessage: (channelId, text) => dispatch(actionPostMessage(channelId, text)),
+  onCreateMessage: (channelId, text) => text && dispatch(actionPostMessage(channelId, text)),
   onLoadedMessage: () => dispatch(messagesLoadingFinished())
 })
 
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 const enhancer = connect(mapStateToProps, mapDispatchToProps)
 const connectedComponent = enhancer(Body)
 
-export { connectedComponent as BodyRedux }
+export {connectedComponent as BodyRedux}

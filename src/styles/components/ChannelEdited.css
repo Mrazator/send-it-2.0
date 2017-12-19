@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1px 15px 0 8px;
+  padding: 0 15px 0 8px;
   list-style: none; }
   .ChannelEdited.selected {
     cursor: pointer;
@@ -11,19 +11,22 @@
     color: black;
     padding-left: 17px; }
   .ChannelEdited input.name {
-    width: 150px;
-    margin: 4px 0;
-    padding: 7px 0 7px 6px;
+    width: 100%;
+    margin: 4px 0 5px;
+    padding: 7px 0 7px 5px;
     border: 1px solid lightgray;
     font-family: 'Roboto', sans-serif !important;
     font-weight: 300 !important; }
     .ChannelEdited input.name:focus {
       outline: none; }
-  .ChannelEdited i {
-    font-size: 20px;
-    cursor: pointer;
-    color: rgba(0, 0, 0, 0.5); }
-    .ChannelEdited i.icon-cancel:hover {
-      color: indianred; }
-    .ChannelEdited i.icon-ok:hover {
-      color: black; }
+  .ChannelEdited > div {
+    min-width: 56px;
+    margin-left: 5px; }
+    .ChannelEdited > div i {
+      font-size: 20px;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.5); }
+      .ChannelEdited > div i.icon-cancel:hover {
+        color: indianred; }
+      .ChannelEdited > div i.icon-ok:hover {
+        color: black; }

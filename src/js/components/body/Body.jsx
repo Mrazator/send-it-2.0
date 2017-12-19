@@ -1,23 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Immutable from 'immutable'
 import 'react-router-dom'
+import Immutable from 'immutable'
 
 import { Message } from './Message'
 
 class Body extends React.PureComponent {
   static propTypes = {
-    itemId: PropTypes.string,
+    channel: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      customData: PropTypes.shape({
+        owner: PropTypes.string.isRequired,
+        users: PropTypes.array.isRequired
+      })
+    }),
+    selectedChannel: PropTypes.shape({
+      id: PropTypes.string,
+      isLoading: PropTypes.bool.isRequired,
+      messages: PropTypes.instanceOf(Immutable.List).isRequired
+    }).isRequired,
     channelId: PropTypes.string.isRequired,
-    messages: PropTypes.instanceOf(Immutable.List),
     onLoadMessages: PropTypes.func.isRequired,
     onCreateMessage: PropTypes.func.isRequired,
     onLoadedMessage: PropTypes.func.isRequired
   }
 
   static defaultProps = {
-    itemId: 0,
-    messages: Immutable.List()
+    channel: undefined
   }
 
   constructor(props) {
@@ -36,7 +46,7 @@ class Body extends React.PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.messages !== nextProps.messages) {
+    if (this.props.selectedChannel.messages !== nextProps.selectedChannel.messages) {
       this.setState({ text: '' })
     }
   }
@@ -47,12 +57,27 @@ class Body extends React.PureComponent {
   }
 
   render() {
-    const messageElements = this.props.messages !== []
-      ? this.props.messages.map(x => <Message key={x.id} item={x} />)
-      : null
+    const channelName = this.props.channel !== undefined
+      && (
+        <div className="channel-name">
+          <h2>{this.props.channel.name}</h2>
+        </div>
+      )
+
+    const users = this.props.channel !== undefined
+      && this.props.channel.customData.users.map(x => <span key={x} className="channel-user">{x}</span>)
+
+    const messageElements = this.props.selectedChannel.messages !== []
+      && this.props.selectedChannel.messages.map(x => <Message key={x.id} item={x} />)
 
     return (
       <div className="Body">
+        <div className="header">
+          {channelName}
+          <div className="channel-users">
+            {users}
+          </div>
+        </div>
 
         <div className="Messages">
           <ul>
@@ -60,25 +85,22 @@ class Body extends React.PureComponent {
           </ul>
         </div>
 
-        <div className="MessageManagement">
-          <div className="SendText">
-            <form>
-              <input
-                type="text"
-                value={this.state.text}
-                onChange={this._onTextChange}
-                placeholder="Type a message..."
-              />
-              <button onClick={() => this.props.onCreateMessage(this.props.channelId, this.state.text)}>
-                                send it
-              </button>
-            </form>
-          </div>
+        <div className="send-it">
+          <form>
+            <input
+              type="text"
+              value={this.state.text}
+              onChange={this._onTextChange}
+              placeholder="Type a message..."
+            />
+            <i
+              className="icon-chat"
+              title="send it."
+              onClick={() =>
+                this.props.onCreateMessage(this.props.channelId, this.state.text)}
+            />
+          </form>
         </div>
-
-                1.{this.props.itemId}
-        <br />
-                2.{this.props.channelId}
       </div>
     )
   }
