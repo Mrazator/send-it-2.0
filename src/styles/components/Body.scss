@@ -9,11 +9,12 @@
   flex-grow: 1;
   max-width: 1100px;
 
+  h2 {
+    margin-top: 7px;
+  }
+
   .header {
     .channel-name {
-      h2 {
-        margin-top: 7px;
-      }
     }
 
     .channel-users {

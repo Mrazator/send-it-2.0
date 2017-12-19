@@ -2,15 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { AddUserRedux } from '../../containers-redux/channels/AddUser'
+import { ROOT } from '../../constants/routes'
 
 const Channel = (props) => {
   const addUserBox = <AddUserRedux channel={props.item} />
   const deleteBtn = props.item.customData.owner === props.loggedInUserEmail && (
-    <i
-      className="icon-trash"
-      onClick={props.onDelete}
-      title="delete channel"
-    />
+    <Link to={ROOT}>
+      <i
+        className="icon-trash"
+        onClick={props.onDelete}
+        title="delete channel"
+      />
+    </Link>
   )
 
   return (

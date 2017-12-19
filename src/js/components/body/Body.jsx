@@ -39,17 +39,16 @@ class Body extends React.PureComponent {
 
     this._onTextChange = this._onTextChange.bind(this)
     this._handleEnterKey = this._handleEnterKey.bind(this)
+    this._LoadMessages = this._LoadMessages.bind(this)
   }
 
   async componentDidMount() {
-    await this.props.onLoadMessages(this.props.channelId)
-    this.props.onLoadedMessage()
+    await this._LoadMessages()
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.selectedChannel.messages !== nextProps.selectedChannel.messages) {
-      this.setState({ text: '' })
-    }
+  async _LoadMessages() {
+    await this.props.onLoadMessages(this.props.channelId)
+    this.props.onLoadedMessage()
   }
 
   _onTextChange(event) {
@@ -57,9 +56,10 @@ class Body extends React.PureComponent {
     this.setState({ text: value })
   }
 
-  _handleEnterKey(e) {
+  async _handleEnterKey(e) {
     if (e.keyCode === 13) { // Enter key
-      this.props.onCreateMessage(this.props.channelId, this.state.text)
+      await this.props.onCreateMessage(this.props.channelId, this.state.text)
+      this.setState({ text: '' })
     }
   }
 
