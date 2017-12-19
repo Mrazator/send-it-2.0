@@ -8,7 +8,8 @@ import {
 import { actionDeleteChannel } from '../../actions/channels/actionDeleteChannel'
 
 const mapStateToProps = state => ({
-  isAddingUser: state.channelManagement.isAddingUser
+  isAddingUser: state.channelManagement.isAddingUser,
+  loggedInUserEmail: state.shared.email
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

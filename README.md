@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - prototype: https://www.fluidui.com/editor/live/preview/cF82N211bDdjMER4Y0F3UERBWFdsT1RMOWxxdVAwSFUzTQ==
 
 ## TODOs
-- delete existing channel - only owner
+- perform auhorizationRequest
 - delete send message - owner
 - message up/down voting
 - profile picture next to each message

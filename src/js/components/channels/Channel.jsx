@@ -5,6 +5,13 @@ import { AddUserRedux } from '../../containers-redux/channels/AddUser'
 
 const Channel = (props) => {
   const addUserBox = <AddUserRedux channel={props.item} />
+  const deleteBtn = props.item.customData.owner === props.loggedInUserEmail && (
+    <i
+      className="icon-trash"
+      onClick={props.onDelete}
+      title="delete channel"
+    />
+  )
 
   return (
     <div>
@@ -22,11 +29,7 @@ const Channel = (props) => {
           >{props.item.name}
           </span>
           <div>
-            <i
-              className="icon-trash"
-              onClick={props.onDelete}
-              title="delete channel"
-            />
+            {deleteBtn}
             <i
               className={(props.isAddingUser && props.selected) ? 'icon-plus adding' : 'icon-plus'}
               onClick={(props.isAddingUser && props.selected) ? props.onAddUserCancel : props.onAddUser}
@@ -47,6 +50,7 @@ Channel.propTypes = {
     name: PropTypes.string.isRequired,
     customData: PropTypes.object
   }).isRequired,
+  loggedInUserEmail: PropTypes.string.isRequired,
   selected: PropTypes.bool.isRequired,
   onDelete: PropTypes.func.isRequired,
   onStartEditing: PropTypes.func.isRequired,
