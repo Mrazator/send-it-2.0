@@ -2,9 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## React-redux messaging app baseo on RESTful API.
 
-API: https://pv247messaging.azurewebsites.net/help/
-github API: https://github.com/KenticoAcademy/PV247-2017
-prototype: https://www.fluidui.com/editor/live/preview/cF82N211bDdjMER4Y0F3UERBWFdsT1RMOWxxdVAwSFUzTQ==
+- API: https://pv247messaging.azurewebsites.net/help/
+- github API: https://github.com/KenticoAcademy/PV247-2017
+- prototype: https://www.fluidui.com/editor/live/preview/cF82N211bDdjMER4Y0F3UERBWFdsT1RMOWxxdVAwSFUzTQ==
 
 ## TODOs
 - delete existing channel - only owner
