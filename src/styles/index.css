@@ -754,8 +754,9 @@ form.Details {
           height: 25px;
           min-width: 25px;
           margin: 5px 10px 5px 0;
-          background-color: #005580;
-          border-radius: 50%; }
+          border-radius: 50%;
+          background: no-repeat center;
+          background-size: cover; }
         .Messages ul .Message .col-1 .vote-number {
           margin-right: 10px;
           margin-bottom: 5px;

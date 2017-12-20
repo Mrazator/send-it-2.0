@@ -51,13 +51,21 @@ export class Message extends React.PureComponent {
       </div>
     )
 
+    // console.log(this.props.item.customData.avatarUri)
+    const style = this.props.item.customData.avatarUri
+      ? { backgroundImage: `url("${this.props.item.customData.avatarUri}")` }
+      : { backgroundColor: '#005580' }
+
     return (
       <div
         className={isLoggedIn ? 'Message logged-in-user' : 'Message'}
       >
         <div className="col-1">
           {voteNmb}
-          <div className="profile-img" />
+          <div
+            className="profile-img"
+            style={style}
+          />
         </div>
         <div className="body">
           <div className="user-name">

@@ -1,6 +1,6 @@
 import Immutable from 'immutable'
 
-import { API_CHANNEL_URI, API_USER_URI, createApiUser } from '../../constants/api'
+import { API_CHANNEL_URI, API_USER_URI, createUserUri } from '../../constants/api'
 import { channelsSavingFinished, channelsSavingStarted, channelsUpdate } from './actionCreators'
 import { fetchReceive } from '../../utils/api/fetchReceive'
 import { convertFromServerChannels } from '../../utils/api/conversions/channel'

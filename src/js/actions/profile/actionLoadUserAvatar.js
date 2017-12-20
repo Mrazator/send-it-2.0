@@ -3,7 +3,7 @@ import {
   profileFailFetchingProfileAvatar,
   profileUpdateProfileAvatar
 } from './actionCreators'
-import { createApiFilerUri } from '../../constants/api'
+import { createFileUri } from '../../constants/api'
 import { fetchReceive } from '../../utils/api/fetchReceive'
 import { FAILED_FETCH_AVATAR_MESSAGE } from '../../constants/uiConstants'
 import { performAuthorizedRequest } from './performAuthorizedRequest'
@@ -13,7 +13,7 @@ export const actionLoadUserAvatar = avatarId =>
     dispatch(profileStartFetchingProfileAvatar())
 
     const authToken = getState().shared.token
-    const requestUri = createApiFilerUri(avatarId)
+    const requestUri = createFileUri(avatarId)
 
     try {
       return await performAuthorizedRequest(dispatch, async () => {
