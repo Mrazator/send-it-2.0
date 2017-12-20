@@ -1,4 +1,4 @@
-import {messagesLoadingStarted, messageSave, messagesLoadingFinished} from './actionCreators'
+import { messagesLoadingStarted, messageSave, messagesLoadingFinished } from './actionCreators'
 import { createMessagesUri } from '../../constants/api'
 import { fetchRequest } from '../../utils/api/fetchRequest'
 import { convertFromServerMessage } from '../../utils/api/conversions/messages'
@@ -11,11 +11,10 @@ export const actionPostMessage = (channelId, messageText) =>
     const requestUri = createMessagesUri(channelId)
     const bodyJson = {
       value: messageText,
-      customData: JSON.stringify([
-        'somedata',
-        'willbehere',
-        'inthefuture'
-      ])
+      customData: JSON.stringify({
+        avatarUri: '',
+        vote: 0
+      })
     }
 
     return fetchRequest(requestUri, authToken, 'POST', bodyJson)

@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onDeleteMessage: () => dispatch(actionDeleteMessage(ownProps.selectedChannelId, ownProps.item.id)),
-  onVoteMessage: (channelId, messageId) => () => dispatch(() => actionVoteMessage(channelId, messageId))
+  onVoteMessage: () => dispatch(actionVoteMessage(ownProps.selectedChannelId, ownProps.item))
 })
 
 

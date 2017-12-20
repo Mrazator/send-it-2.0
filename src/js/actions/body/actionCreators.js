@@ -31,3 +31,13 @@ export const messageSave = message => ({
     }
   }
 })
+
+export const messageVote = message => ({
+  type: actions.MESSAGES_VOTE,
+  payload: {
+    message: {
+      ...message
+    }
+  }
+})
+
