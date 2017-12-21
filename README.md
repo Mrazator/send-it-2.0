@@ -8,7 +8,6 @@
 - prototype: https://www.fluidui.com/editor/live/preview/cF82N211bDdjMER4Y0F3UERBWFdsT1RMOWxxdVAwSFUzTQ==
 
 ## TODOs
-- message pagination
 - redux-form validation
 - DI, refactoring
 - tests

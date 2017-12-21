@@ -83,7 +83,7 @@ class Body extends React.Component {
       )
       : (
         <button
-          onClick={() => this._LoadMessages(this.props.selectedChannel.messages.size + 3)}
+          onClick={() => this._LoadMessages(this.props.selectedChannel.messages.size + 10)}
         >
           Load more
         </button>
