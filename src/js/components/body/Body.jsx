@@ -46,14 +46,14 @@ class Body extends React.Component {
     await this._LoadMessages()
   }
 
-  shouldComponentUpdate(nextProps, nextState){
-    return this.state.text !== nextState.text
-      || this.props.channel !== nextProps.channel
-      || this.props.selectedChannel.messages !== nextProps.selectedChannel.messages
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return this.state.text !== nextState.text
+  //     || this.props.channel !== nextProps.channel
+  //     || this.props.selectedChannel.messages !== nextProps.selectedChannel.messages
+  // }
 
-  async _LoadMessages() {
-    await this.props.onLoadMessages(this.props.channelId)
+  async _LoadMessages(lastN) {
+    await this.props.onLoadMessages(this.props.channelId, lastN)
     this.props.onLoadedMessage()
   }
 
@@ -77,11 +77,27 @@ class Body extends React.Component {
         </div>
       )
 
+    const loadMoreBtn = this.props.selectedChannel.isLoading
+      ? (
+        <span>loading...</span>
+      )
+      : (
+        <button
+          onClick={() => this._LoadMessages(this.props.selectedChannel.messages.size + 3)}
+        >
+          Load more
+        </button>
+      )
+
     const users = this.props.channel !== undefined
       && this.props.channel.customData.users.map(x => <span key={x} className="channel-user">{x}</span>)
 
     const messageElements = this.props.selectedChannel.messages !== []
-      && this.props.selectedChannel.messages.map(x => <MessageRedux key={x.id} item={x} selectedChannelId={this.props.channelId} />)
+      && this.props.selectedChannel.messages.map(x => (<MessageRedux
+        key={x.id}
+        item={x}
+        selectedChannelId={this.props.channelId}
+      />))
 
     const admin = this.props.channel !== undefined &&
       <span
@@ -100,11 +116,15 @@ class Body extends React.Component {
             {users}
           </div>
         </div>
-
-        <div className="Messages">
-          <ul>
-            {messageElements}
-          </ul>
+        <div className="messages-container">
+          <div className="btn-load-more">
+            {loadMoreBtn}
+          </div>
+          <div className="Messages">
+            <ul>
+              {messageElements}
+            </ul>
+          </div>
         </div>
 
         <div className="send-it">

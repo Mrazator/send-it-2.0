@@ -1,10 +1,15 @@
 import Immutable from 'immutable'
-import { MESSAGES_CREATE, MESSAGES_DELETE_MESSAGE, MESSAGES_LOAD, MESSAGES_VOTE } from '../../../constants/actionTypes'
+import {
+  MESSAGES_CREATE, MESSAGES_DELETE_MESSAGE, MESSAGES_LOAD, MESSAGES_VOTE
+} from '../../../constants/actionTypes'
 
 export const messages = (prevState = Immutable.List(), action) => {
   switch (action.type) {
     case MESSAGES_LOAD:
       return Immutable.List(action.payload.messages)
+
+    // case MESSAGES_LOAD_MORE:
+    //   return prevState.push(action.payload.messages)
 
     case MESSAGES_CREATE:
       return prevState.push({ ...action.payload.message })
@@ -15,13 +20,11 @@ export const messages = (prevState = Immutable.List(), action) => {
     case MESSAGES_VOTE:
       const item = prevState.findIndex(x => x.id === action.payload.message.id)
 
-      if (item >= 0) {
-        return prevState.updateIn([item], () => ({ ...action.payload.message }))
-      }
+      return item >= 0
+        ? prevState.updateIn([item], () => ({ ...action.payload.message }))
+        : prevState
 
+    default:
       return prevState
-
-
-    default: return prevState
   }
 }

@@ -769,8 +769,6 @@ form.Details {
   form.Details input {
     font-family: 'Roboto', sans-serif !important;
     font-weight: 300 !important;
-    font-family: 'Roboto', sans-serif !important;
-    font-weight: 300 !important;
     margin: 4px 0 5px;
     padding: 7px 0 7px 5px;
     border: 1px solid lightgray;
@@ -813,94 +811,113 @@ form.Details {
     font-size: 5em;
     color: #ccc; }
 
-.Messages {
+.messages-container .btn-load-more {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5); }
+  .messages-container .btn-load-more button {
+    -webkit-appearance: initial;
+    color: grey;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid lightgray;
+    padding: 7px; }
+    .messages-container .btn-load-more button:hover {
+      color: black; }
+    .messages-container .btn-load-more button:focus {
+      outline: none; }
+    .messages-container .btn-load-more button:hover {
+      border-color: grey; }
+
+.messages-container .Messages {
   display: flex;
   flex-direction: column-reverse;
-  height: calc(100vh - 240px);
   margin: 10px 0 0;
   padding-right: 25px;
+  height: calc(100vh - 280px);
   overflow-y: scroll; }
-  .Messages ul {
+  .messages-container .Messages ul {
     margin: 0;
     padding: 0; }
-    .Messages ul .Message {
+    .messages-container .Messages ul .Message {
       display: flex;
       align-items: flex-end;
       justify-content: flex-start;
       padding-right: 300px;
       margin-bottom: 15px; }
-      .Messages ul .Message.logged-in-user {
+      .messages-container .Messages ul .Message.logged-in-user {
         justify-content: flex-end;
         max-width: 100%;
         padding-left: 300px;
         padding-right: 0;
         text-align: right; }
-        .Messages ul .Message.logged-in-user .profile-img {
+        .messages-container .Messages ul .Message.logged-in-user .profile-img {
           display: none;
           order: 1; }
-        .Messages ul .Message.logged-in-user .body {
+        .messages-container .Messages ul .Message.logged-in-user .body {
           margin-right: 0; }
-        .Messages ul .Message.logged-in-user .delete {
+        .messages-container .Messages ul .Message.logged-in-user .delete {
           margin-bottom: 3px; }
-          .Messages ul .Message.logged-in-user .delete i {
+          .messages-container .Messages ul .Message.logged-in-user .delete i {
             -webkit-appearance: initial;
             color: grey;
             background-color: transparent;
             cursor: pointer;
             padding: 5px 3px 5px 5px;
             font-size: 20px; }
-            .Messages ul .Message.logged-in-user .delete i:hover {
+            .messages-container .Messages ul .Message.logged-in-user .delete i:hover {
               color: black; }
-            .Messages ul .Message.logged-in-user .delete i:focus {
+            .messages-container .Messages ul .Message.logged-in-user .delete i:focus {
               outline: none; }
-      .Messages ul .Message .col-1 {
+      .messages-container .Messages ul .Message .col-1 {
         display: flex;
         flex-direction: column;
         align-items: center; }
-        .Messages ul .Message .col-1 .profile-img {
+        .messages-container .Messages ul .Message .col-1 .profile-img {
           height: 25px;
           min-width: 25px;
           margin: 5px 10px 5px 0;
           border-radius: 50%;
           background: no-repeat center;
           background-size: cover; }
-        .Messages ul .Message .col-1 .vote-number {
+        .messages-container .Messages ul .Message .col-1 .vote-number {
           margin-right: 10px;
           margin-bottom: 5px;
           font-size: 12px;
           color: rgba(0, 0, 0, 0.5); }
-      .Messages ul .Message .body {
+      .messages-container .Messages ul .Message .body {
         background: whitesmoke;
         padding: 15px 20px;
         border-radius: 20px;
         border-bottom-right-radius: 0; }
-        .Messages ul .Message .body:hover {
+        .messages-container .Messages ul .Message .body:hover {
           background: gainsboro; }
-        .Messages ul .Message .body .user-name {
+        .messages-container .Messages ul .Message .body .user-name {
           margin-bottom: 5px;
           font-size: 12px;
           color: rgba(0, 0, 0, 0.5); }
-        .Messages ul .Message .body .text {
+        .messages-container .Messages ul .Message .body .text {
           word-break: break-word; }
-      .Messages ul .Message .vote {
+      .messages-container .Messages ul .Message .vote {
         position: relative;
         right: 20px;
         top: 8px; }
-        .Messages ul .Message .vote i.icon-heart {
+        .messages-container .Messages ul .Message .vote i.icon-heart {
           -webkit-appearance: initial;
           color: grey;
           background-color: transparent;
           cursor: pointer; }
-          .Messages ul .Message .vote i.icon-heart:hover {
+          .messages-container .Messages ul .Message .vote i.icon-heart:hover {
             color: black; }
-          .Messages ul .Message .vote i.icon-heart:focus {
+          .messages-container .Messages ul .Message .vote i.icon-heart:focus {
             outline: none; }
-          .Messages ul .Message .vote i.icon-heart:before {
+          .messages-container .Messages ul .Message .vote i.icon-heart:before {
             margin-left: 0; }
 
-.Messages::-webkit-scrollbar {
+.messages-container .Messages::-webkit-scrollbar {
   width: 3px;
   background: rgba(0, 0, 0, 0.3); }
 
-.Messages::-webkit-scrollbar-thumb {
+.messages-container .Messages::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.2); }
