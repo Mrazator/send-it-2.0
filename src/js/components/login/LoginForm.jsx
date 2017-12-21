@@ -1,31 +1,26 @@
 import * as React from 'react'
 import * as PropTypes from 'prop-types'
+import { Field } from 'redux-form'
 import { uuid } from '../../utils/uuid'
 
 class LoginForm extends React.PureComponent {
     static propTypes = {
-      onSubmit: PropTypes.func.isRequired
+      handleSubmit: PropTypes.func.isRequired,
+      submitting: PropTypes.bool.isRequired,
+      pristine: PropTypes.bool.isRequired,
+      valid: PropTypes.bool.isRequired
     }
 
     constructor(props) {
       super(props)
 
       this.state = {
-        componentId: 0,
-        email: ''
+        componentId: 0
       }
-
-      this._onNameChange = this._onNameChange.bind(this)
     }
 
     componentWillMount() {
       this.setState(() => ({ componentId: uuid() }))
-    }
-
-    _onNameChange(event) {
-      const value = event.target.value
-
-      this.setState({ email: value })
     }
 
     render() {
@@ -33,17 +28,18 @@ class LoginForm extends React.PureComponent {
       const loginId = `${componentId}_login`
 
       return (
-        <form>
-          <input
+        <form onSubmit={this.props.handleSubmit}>
+          <Field
             type="email"
-            value={this.state.email}
+            name="email"
             id={loginId}
-            onChange={this._onNameChange}
             placeholder="email@email.com"
+            component="input"
           />
+
           <button
             type="submit"
-            onClick={() => this.props.onSubmit(this.state.email)}
+            disabled={this.props.submitting || this.props.pristine || !this.props.valid}
           >
                     Log in
           </button>

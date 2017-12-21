@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: details => dispatch(actionUploadUserDetails(details))
+  onSubmit: details => details.customData.nickName && dispatch(actionUploadUserDetails(details))
 })
 
 const formConfig = {

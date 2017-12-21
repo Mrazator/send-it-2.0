@@ -49,7 +49,7 @@ class ChannelEdited extends PureComponent {
   }
 
   _onNameChange(event) {
-    const value = event.target.value
+    const { target: { value } } = event
 
     this.setState(previousState => ({
       editedItem: {
@@ -65,9 +65,9 @@ class ChannelEdited extends PureComponent {
         item={this.state.editedItem}
         onCancelEditing={this.props.onCancelEditing}
         disabled={this.props.item === this.state.editedItem}
-        onUpdate={() => this.props.onUpdate(this.state.editedItem)}
+        onUpdate={() => this.state.editedItem.name && this.props.onUpdate(this.state.editedItem)}
         onNameChange={this._onNameChange}
-        onHandleKey={this._handleEscEnterKey}
+        onHandleKey={this.state.editedItem.name && this._handleEscEnterKey}
         selected={this.props.selected}
       />
     )
