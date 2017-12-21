@@ -13,5 +13,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - redux-form validation
 - DI, refactoring
 - delete email from local storage -> use redux-persist (keep redux state after refresh)
+- tests
 
 
