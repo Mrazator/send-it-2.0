@@ -6,6 +6,14 @@ import {ROOT} from '../../constants/routes'
 
 const Channel = (props) => {
   const addUserBox = <AddUserRedux channel={props.item}/>
+  const addUserBtn = props.selected &&
+    (
+      <i
+        className={(props.isAddingUser && props.selected) ? 'icon-plus adding' : 'icon-plus'}
+        onClick={(props.isAddingUser && props.selected) ? props.onAddUserCancel : props.onAddUser}
+        title={(props.isAddingUser && props.selected) ? 'close' : 'add user'}
+      />
+    )
   const deleteBtn = props.item.customData.owner === props.loggedInUserEmail && (
     <Link to={ROOT}>
       <i
@@ -36,11 +44,7 @@ const Channel = (props) => {
         </Link>
         <div>
           {deleteBtn}
-          <i
-            className={(props.isAddingUser && props.selected) ? 'icon-plus adding' : 'icon-plus'}
-            onClick={(props.isAddingUser && props.selected) ? props.onAddUserCancel : props.onAddUser}
-            title={(props.isAddingUser && props.selected) ? 'close' : 'add user'}
-          />
+          {addUserBtn}
         </div>
       </div>
       {(props.isAddingUser && props.selected) && addUserBox}
