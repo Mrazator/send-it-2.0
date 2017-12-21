@@ -38,6 +38,7 @@ export class Message extends React.PureComponent {
     && (
       <div className="vote">
         <i
+          title="like"
           className="icon-heart"
           onClick={this.props.onVoteMessage}
         />

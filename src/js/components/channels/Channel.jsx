@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-import { AddUserRedux } from '../../containers-redux/channels/AddUser'
-import { ROOT } from '../../constants/routes'
+import {Link} from 'react-router-dom'
+import {AddUserRedux} from '../../containers-redux/channels/AddUser'
+import {ROOT} from '../../constants/routes'
 
 const Channel = (props) => {
-  const addUserBox = <AddUserRedux channel={props.item} />
+  const addUserBox = <AddUserRedux channel={props.item}/>
   const deleteBtn = props.item.customData.owner === props.loggedInUserEmail && (
     <Link to={ROOT}>
       <i
@@ -17,31 +17,32 @@ const Channel = (props) => {
   )
 
   return (
-    <div className="channel">
-      <Link
-        to={`/channels/${props.item.id}`}
-        title="select channel"
-      >
-        <li
-          onClick={props.onSelect}
-          className={props.selected ? 'Channel selected' : 'Channel'}
+    <div>
+      <div className="channel">
+        <Link
+          to={`/channels/${props.item.id}`}
+          title="select channel"
         >
+          <li
+            onClick={props.onSelect}
+            className={props.selected ? 'Channel selected' : 'Channel'}
+          >
           <span
             onDoubleClick={props.onStartEditing}
             title="doubleclick - edit channel"
           >{props.item.name}
           </span>
-        </li>
-      </Link>
-      <div>
-        {deleteBtn}
-        <i
-          className={(props.isAddingUser && props.selected) ? 'icon-plus adding' : 'icon-plus'}
-          onClick={(props.isAddingUser && props.selected) ? props.onAddUserCancel : props.onAddUser}
-          title={(props.isAddingUser && props.selected) ? 'close' : 'add user'}
-        />
+          </li>
+        </Link>
+        <div>
+          {deleteBtn}
+          <i
+            className={(props.isAddingUser && props.selected) ? 'icon-plus adding' : 'icon-plus'}
+            onClick={(props.isAddingUser && props.selected) ? props.onAddUserCancel : props.onAddUser}
+            title={(props.isAddingUser && props.selected) ? 'close' : 'add user'}
+          />
+        </div>
       </div>
-
       {(props.isAddingUser && props.selected) && addUserBox}
     </div>
   )
@@ -63,4 +64,4 @@ Channel.propTypes = {
   isAddingUser: PropTypes.bool.isRequired
 }
 
-export { Channel }
+export {Channel}

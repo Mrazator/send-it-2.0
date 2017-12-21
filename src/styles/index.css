@@ -573,6 +573,11 @@ body {
         .Channels ul .AddUser form .Select.is-focused:not(.is-open) > .Select-control {
           box-shadow: none !important;
           border-color: lightgray; }
+        .Channels ul .AddUser form .Select .Select-control,
+        .Channels ul .AddUser form .Select .Select-clear-zone,
+        .Channels ul .AddUser form .Select .Select-arrow-zone,
+        .Channels ul .AddUser form .Select .Select-arrow {
+          position: static; }
         .Channels ul .AddUser form .Select .Select-menu::-webkit-scrollbar {
           width: 3px;
           background: rgba(0, 0, 0, 0.3); }
