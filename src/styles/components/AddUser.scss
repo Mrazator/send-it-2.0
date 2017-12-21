@@ -36,13 +36,6 @@
       }
 
       //scrollbar for -webkit users
-      .Select-control,
-      .Select-clear-zone,
-      .Select-arrow-zone,
-      .Select-arrow {
-        position: static;
-      }
-
       .Select-menu::-webkit-scrollbar {
         width: 3px;
         background: rgba(0, 0, 0, 0.3)
@@ -112,8 +105,17 @@
         }
       }
 
+      .Select-clear-zone,
+      .Select-arrow
+      {
+        position: relative;
+        top: 3px;
+      }
+
       .Select-multi-value-wrapper {
         padding: 0 5px 0;
+        position: relative;
+        top: 3px;
       }
 
       .Select-control {
