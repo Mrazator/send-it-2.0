@@ -11,10 +11,10 @@ const LoadingMessage = () => (
   </div>
 )
 
-const Loader = ({ children, isLoading}) => (
+const Loader = ({ children, isLoading }) => (
   <AdvancedLoader
     show={isLoading}
-    message={<LoadingMessage/>}
+    message={<LoadingMessage />}
     hideContentOnLoad
   >
     {children}
@@ -23,7 +23,7 @@ const Loader = ({ children, isLoading}) => (
 
 Loader.propTypes = {
   children: PropTypes.node.isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired
 }
 
 export { Loader }

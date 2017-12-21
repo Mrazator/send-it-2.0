@@ -1,25 +1,18 @@
 @import '../config/base.scss';
+.channel {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-right: 14px;
 
-.Channel {
-  @include flex-between-center();
-  padding: 10px 15px;
-  list-style: none;
-
-  &:hover, &.selected {
-    cursor: pointer;
-    margin-left: -10px;
-    border-left: 2px solid $grey;
-    color: $black;
-    padding-left: 23px;
-  }
-
-  span {
-    cursor: text;
+  & > a {
+    width: calc(100% - 70px);
   }
 
   i {
     font-size: 20px;
     color: grey;
+    cursor: pointer;
 
     &:hover {
       color: $buttons;
@@ -29,6 +22,23 @@
       &:before {
         transform: rotate(45deg);
       }
+    }
+  }
+
+  .Channel {
+    padding: 10px 15px;
+    list-style: none;
+
+    &:hover, &.selected {
+      cursor: pointer;
+      margin-left: -10px;
+      border-left: 2px solid $grey;
+      color: $black;
+      padding-left: 23px;
+    }
+
+    span {
+      cursor: text;
     }
   }
 }

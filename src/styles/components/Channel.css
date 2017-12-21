@@ -1,21 +1,26 @@
-.Channel {
+.channel {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
-  padding: 10px 15px;
-  list-style: none; }
-  .Channel:hover, .Channel.selected {
-    cursor: pointer;
-    margin-left: -10px;
-    border-left: 2px solid rgba(0, 0, 0, 0.5);
-    color: black;
-    padding-left: 23px; }
-  .Channel span {
-    cursor: text; }
-  .Channel i {
+  padding-right: 14px; }
+  .channel > a {
+    width: calc(100% - 70px); }
+  .channel i {
     font-size: 20px;
-    color: grey; }
-    .Channel i:hover {
+    color: grey;
+    cursor: pointer; }
+    .channel i:hover {
       color: indianred; }
-    .Channel i.adding:before {
+    .channel i.adding:before {
       transform: rotate(45deg); }
+  .channel .Channel {
+    padding: 10px 15px;
+    list-style: none; }
+    .channel .Channel:hover, .channel .Channel.selected {
+      cursor: pointer;
+      margin-left: -10px;
+      border-left: 2px solid rgba(0, 0, 0, 0.5);
+      color: black;
+      padding-left: 23px; }
+    .channel .Channel span {
+      cursor: text; }

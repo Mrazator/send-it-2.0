@@ -17,7 +17,7 @@ const Channel = (props) => {
   )
 
   return (
-    <div>
+    <div className="channel">
       <Link
         to={`/channels/${props.item.id}`}
         title="select channel"
@@ -31,16 +31,16 @@ const Channel = (props) => {
             title="doubleclick - edit channel"
           >{props.item.name}
           </span>
-          <div>
-            {deleteBtn}
-            <i
-              className={(props.isAddingUser && props.selected) ? 'icon-plus adding' : 'icon-plus'}
-              onClick={(props.isAddingUser && props.selected) ? props.onAddUserCancel : props.onAddUser}
-              title={(props.isAddingUser && props.selected) ? 'close' : 'add user'}
-            />
-          </div>
         </li>
       </Link>
+      <div>
+        {deleteBtn}
+        <i
+          className={(props.isAddingUser && props.selected) ? 'icon-plus adding' : 'icon-plus'}
+          onClick={(props.isAddingUser && props.selected) ? props.onAddUserCancel : props.onAddUser}
+          title={(props.isAddingUser && props.selected) ? 'close' : 'add user'}
+        />
+      </div>
 
       {(props.isAddingUser && props.selected) && addUserBox}
     </div>

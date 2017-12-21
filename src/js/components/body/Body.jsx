@@ -5,7 +5,7 @@ import Immutable from 'immutable'
 
 import { MessageRedux } from '../../containers-redux/body/Message'
 
-class Body extends React.PureComponent {
+class Body extends React.Component {
   static propTypes = {
     channel: PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -44,6 +44,12 @@ class Body extends React.PureComponent {
 
   async componentDidMount() {
     await this._LoadMessages()
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    return this.state.text !== nextState.text
+      || this.props.channel !== nextProps.channel
+      || this.props.selectedChannel.messages !== nextProps.selectedChannel.messages
   }
 
   async _LoadMessages() {

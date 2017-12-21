@@ -16,7 +16,7 @@ export const withOverlay = (PreviewComponent, OverlayComponent) =>
           return (
             <Loader
               show={this.state.showOverlay}
-              backgroundStyle={{ borderRadius: '6px' }}
+              backgroundStyle={{ borderRadius: '50%' }}
               message={(
                 <OverlayComponent
                   toggleOverlay={this._toggleOverlay}
