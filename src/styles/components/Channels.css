@@ -97,14 +97,8 @@
         .Channels ul .AddUser form .Select--multi .Select-value-icon:hover {
           color: black;
           background: transparent; }
-      .Channels ul .AddUser form .Select--multi .Select-clear-zone,
-      .Channels ul .AddUser form .Select--multi .Select-arrow {
-        position: relative;
-        top: 3px; }
       .Channels ul .AddUser form .Select--multi .Select-multi-value-wrapper {
-        padding: 0 5px 0;
-        position: relative;
-        top: 3px; }
+        padding: 0 5px 0; }
       .Channels ul .AddUser form .Select--multi .Select-control {
         border-radius: 0; }
         .Channels ul .AddUser form .Select--multi .Select-control .is-focused {
