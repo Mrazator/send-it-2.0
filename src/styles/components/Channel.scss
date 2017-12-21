@@ -6,7 +6,7 @@
   padding-right: 14px;
 
   & > a {
-    width: calc(100% - 70px);
+    flex-grow: 1;
   }
 
   i {

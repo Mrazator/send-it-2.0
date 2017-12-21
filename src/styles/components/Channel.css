@@ -4,7 +4,7 @@
   justify-content: space-between;
   padding-right: 14px; }
   .channel > a {
-    width: calc(100% - 70px); }
+    flex-grow: 1; }
   .channel i {
     font-size: 20px;
     color: grey;
