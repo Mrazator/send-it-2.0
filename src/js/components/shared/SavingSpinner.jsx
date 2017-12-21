@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 const SavingSpinner = () => (
-  <span>saving...</span>
+  <span>loading...</span>
 )
 
 export { SavingSpinner }

@@ -91,9 +91,10 @@
 
       .vote {
         position: relative;
-        right: 17px;
+        right: 20px;
+        top: 8px;
 
-        .icon-plus {
+        i.icon-heart {
           @include icon-btn();
 
           &:before {

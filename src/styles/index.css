@@ -436,7 +436,8 @@ body {
         margin: 4px 0 5px;
         padding: 7px 0 7px 5px;
         border: 1px solid lightgray;
-        width: 100%; }
+        width: 100%;
+        margin: 0; }
         .Body .send-it form input:focus {
           outline: none;
           border-color: grey; }
@@ -878,17 +879,18 @@ form.Details {
           word-break: break-word; }
       .Messages ul .Message .vote {
         position: relative;
-        right: 17px; }
-        .Messages ul .Message .vote .icon-plus {
+        right: 20px;
+        top: 8px; }
+        .Messages ul .Message .vote i.icon-heart {
           -webkit-appearance: initial;
           color: grey;
           background-color: transparent;
           cursor: pointer; }
-          .Messages ul .Message .vote .icon-plus:hover {
+          .Messages ul .Message .vote i.icon-heart:hover {
             color: black; }
-          .Messages ul .Message .vote .icon-plus:focus {
+          .Messages ul .Message .vote i.icon-heart:focus {
             outline: none; }
-          .Messages ul .Message .vote .icon-plus:before {
+          .Messages ul .Message .vote i.icon-heart:before {
             margin-left: 0; }
 
 .Messages::-webkit-scrollbar {

@@ -32,7 +32,8 @@
         margin: 4px 0 5px;
         padding: 7px 0 7px 5px;
         border: 1px solid lightgray;
-        width: 100%; }
+        width: 100%;
+        margin: 0; }
         .Body .send-it form input:focus {
           outline: none;
           border-color: grey; }
