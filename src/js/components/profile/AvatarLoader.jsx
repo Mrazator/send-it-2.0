@@ -35,6 +35,7 @@ class AvatarLoader extends React.PureComponent {
           isUploading={isUploading}
           onMouseLeave={this._hideLoader}
           onDragLeave={this._hideLoader}
+          title="upload profile image"
         >
           <Dropzone
             accept="image/gif, image/png, image/jpeg, image/bmp"

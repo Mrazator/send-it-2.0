@@ -10,8 +10,12 @@ const Login = ({ from = { pathname: ROOT } }) => (
   <div className="Login">
     <HeadInHelmet />
     <Loader stateLoadingSelector={state => state.shared.isAuthenticating}>
-      <h1>Login page</h1>
-      <LoginForm from={from} />
+      <div className="left-col">
+        <h1>Login page</h1>
+      </div>
+      <div className="right-col">
+        <LoginForm from={from} />
+      </div>
     </Loader>
   </div>
 )

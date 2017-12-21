@@ -4,9 +4,10 @@ import img from '../../../assets/profile-img.png'
 export const AvatarImage = styled.div`
     background-image: url('${props => props.src || img}'); 
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center; 
-    height: 197px;
+    background-size: cover;
+    background-position: center;
+    height: 170px;
+    width: 170px;
     overflow: hidden;
-    margin: 10px 5px;
+    border-radius: 50%;
 `

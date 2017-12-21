@@ -79,8 +79,6 @@
         .Channels ul .AddUser form .Select--multi .Select-input input {
           font-family: 'Roboto', sans-serif !important;
           font-weight: 300 !important; }
-          .Channels ul .AddUser form .Select--multi .Select-input input:focus {
-            outline: none; }
       .Channels ul .AddUser form .Select--multi .Select-value {
         margin: 3px 6px 3px 0;
         color: black;

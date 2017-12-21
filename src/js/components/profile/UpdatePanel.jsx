@@ -25,10 +25,9 @@ const InvalidDetails = () => (
 const SubmitDetails = () => (
   <button
     type="submit"
-    className="submit-details"
-  >
-    Update details
-  </button>
+    className="icon-ok"
+    title="change nickname"
+  />
 )
 
 const UploadingDetails = () => (

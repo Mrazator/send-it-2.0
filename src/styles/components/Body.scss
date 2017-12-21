@@ -45,12 +45,8 @@
       align-items: center;
 
       input {
-        @include input();
-
+        @include input-form();
         width: 100%;
-        padding: 7px 5px 7px 0;
-        text-indent: 5px;
-        border: 1px solid lightgrey;
       }
 
       .icon-chat {

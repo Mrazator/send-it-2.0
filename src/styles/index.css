@@ -433,12 +433,13 @@ body {
       .Body .send-it form input {
         font-family: 'Roboto', sans-serif !important;
         font-weight: 300 !important;
-        width: 100%;
-        padding: 7px 5px 7px 0;
-        text-indent: 5px;
-        border: 1px solid lightgrey; }
+        margin: 4px 0 5px;
+        padding: 7px 0 7px 5px;
+        border: 1px solid lightgray;
+        width: 100%; }
         .Body .send-it form input:focus {
-          outline: none; }
+          outline: none;
+          border-color: grey; }
       .Body .send-it form .icon-chat {
         -webkit-appearance: initial;
         color: grey;
@@ -487,13 +488,14 @@ body {
     padding-left: 17px; }
   .ChannelEdited input.name {
     width: 100%;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
     margin: 4px 0 5px;
     padding: 7px 0 7px 5px;
-    border: 1px solid lightgray;
-    font-family: 'Roboto', sans-serif !important;
-    font-weight: 300 !important; }
+    border: 1px solid lightgray; }
     .ChannelEdited input.name:focus {
-      outline: none; }
+      outline: none;
+      border-color: grey; }
   .ChannelEdited > div {
     min-width: 56px;
     margin-left: 5px; }
@@ -587,8 +589,6 @@ body {
         .Channels ul .AddUser form .Select--multi .Select-input input {
           font-family: 'Roboto', sans-serif !important;
           font-weight: 300 !important; }
-          .Channels ul .AddUser form .Select--multi .Select-input input:focus {
-            outline: none; }
       .Channels ul .AddUser form .Select--multi .Select-value {
         margin: 3px 6px 3px 0;
         color: black;
@@ -650,38 +650,139 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  flex-direction: column; }
-  .Profile h1 {
-    margin-top: 0; }
-  .Profile .profile-img {
-    width: 200px; }
-  .Profile .profile-picture {
-    height: 150px;
-    width: 150px;
-    background: greenyellow; }
-
-.Login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  flex-direction: column; }
-  .Login h1 {
-    margin-top: 0; }
-  .Login form {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important; }
+  .Profile .go-back {
+    position: absolute;
+    top: 50px;
+    left: 50px; }
+    .Profile .go-back button {
+      -webkit-appearance: initial;
+      color: grey;
+      background-color: transparent;
+      cursor: pointer;
+      border: 1px solid lightgray;
+      padding: 7px; }
+      .Profile .go-back button:hover {
+        color: black; }
+      .Profile .go-back button:focus {
+        outline: none; }
+      .Profile .go-back button:hover {
+        border-color: grey; }
+  .Profile .left-col {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 60px; }
+    align-items: center;
+    margin-right: 50px; }
+    .Profile .left-col h1 {
+      margin-top: 0; }
+    .Profile .left-col button {
+      -webkit-appearance: initial;
+      color: grey;
+      background-color: transparent;
+      cursor: pointer;
+      border: 1px solid lightgray;
+      padding: 7px; }
+      .Profile .left-col button:hover {
+        color: black; }
+      .Profile .left-col button:focus {
+        outline: none; }
+      .Profile .left-col button:hover {
+        border-color: grey; }
+  .Profile .user-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 50px;
+    border-left: 1px solid rgba(0, 0, 0, 0.5); }
+    .Profile .user-options .profile-img {
+      margin-bottom: 20px; }
+    .Profile .user-options .profile-picture {
+      height: 150px;
+      width: 150px;
+      background: greenyellow; }
+
+.Login {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important; }
+  .Login .Loader__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; }
+  .Login .left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 50px; }
+    .Login .left-col h1 {
+      margin-top: 0; }
+  .Login .right-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 50px;
+    border-left: 1px solid rgba(0, 0, 0, 0.5); }
+    .Login .right-col form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: 100px;
+      padding: 30px 0; }
+      .Login .right-col form input {
+        font-family: 'Roboto', sans-serif !important;
+        font-weight: 300 !important;
+        margin: 4px 0 5px;
+        padding: 7px 0 7px 5px;
+        border: 1px solid lightgray; }
+        .Login .right-col form input:focus {
+          outline: none;
+          border-color: grey; }
+      .Login .right-col form button {
+        -webkit-appearance: initial;
+        color: grey;
+        background-color: transparent;
+        cursor: pointer;
+        border: 1px solid lightgray;
+        padding: 7px; }
+        .Login .right-col form button:hover {
+          color: black; }
+        .Login .right-col form button:focus {
+          outline: none; }
+        .Login .right-col form button:hover {
+          border-color: grey; }
 
 form.Details {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  width: 250px;
   height: 125px;
   margin-bottom: 25px; }
   form.Details input {
-    width: calc(100% - 4px); }
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
+    margin: 4px 0 5px;
+    padding: 7px 0 7px 5px;
+    border: 1px solid lightgray;
+    width: calc(100% - 8px); }
+    form.Details input:focus {
+      outline: none;
+      border-color: grey; }
+  form.Details button.icon-ok {
+    -webkit-appearance: initial;
+    color: grey;
+    background-color: transparent;
+    cursor: pointer;
+    -webkit-appearance: button-bevel;
+    border: none; }
+    form.Details button.icon-ok:hover {
+      color: black; }
+    form.Details button.icon-ok:focus {
+      outline: none; }
 
 .Avatar {
   background-size: contain;

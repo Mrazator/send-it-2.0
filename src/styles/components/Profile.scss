@@ -2,18 +2,41 @@
 
 .Profile {
   @include full-page();
+  @include font();
 
-  h1 {
-    margin-top: 0;
+  .go-back {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+
+    button {
+      @include btn-primary();
+    }
   }
 
-  .profile-img {
-    width: 200px;
+  .left-col {
+    @include full-page-left-col();
+
+    h1 {
+      margin-top: 0;
+    }
+
+    button {
+      @include btn-primary();
+    }
   }
 
-  .profile-picture {
-    height: 150px;
-    width: 150px;
-    background: greenyellow;
+  .user-options {
+    @include full-page-right-col();
+
+    .profile-img {
+      margin-bottom: 20px;
+    }
+
+    .profile-picture {
+      height: 150px;
+      width: 150px;
+      background: greenyellow;
+    }
   }
 }
