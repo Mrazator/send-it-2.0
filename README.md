@@ -14,5 +14,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - DI, refactoring
 - delete email from local storage -> use redux-persist (keep redux state after refresh)
 - tests
+- try catch - dont show console.log but custom errors
 
 
