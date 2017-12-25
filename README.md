@@ -8,8 +8,8 @@
 - prototype: https://www.fluidui.com/editor/live/preview/cF82N211bDdjMER4Y0F3UERBWFdsT1RMOWxxdVAwSFUzTQ==
 
 ## TODOs
-- DI, refactoring
 - tests
+- DI, refactoring
 - try catch - dont show console.log but custom errors
 
 

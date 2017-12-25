@@ -814,6 +814,8 @@ form.Details {
 .messages-container .btn-load-more {
   display: flex;
   justify-content: center;
+  height: 29px;
+  line-height: 29px;
   font-size: 12px;
   color: rgba(0, 0, 0, 0.5); }
   .messages-container .btn-load-more button {
