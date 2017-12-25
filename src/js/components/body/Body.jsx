@@ -76,17 +76,18 @@ class Body extends React.Component {
         </div>
       )
 
-    const loadMoreBtn = this.props.selectedChannel.isLoading
-      ? (
-        <span>loading...</span>
-      )
-      : (
-        <button
-          onClick={() => this._LoadMessages(this.props.selectedChannel.messages.size + 10)}
-        >
-          Load more
-        </button>
-      )
+    //load more btn
+    // const loadMoreBtn = this.props.selectedChannel.isLoading
+    //   ? (
+    //     <span>loading...</span>
+    //   )
+    //   : (
+    //     <button
+    //       onClick={() => this._LoadMessages(this.props.selectedChannel.messages.size + 10)}
+    //     >
+    //       Load more
+    //     </button>
+    //   )
 
     const users = this.props.channel !== undefined
       && this.props.channel.customData.users.map(x => <span key={x} className="channel-user">{x}</span>)
@@ -116,9 +117,9 @@ class Body extends React.Component {
           </div>
         </div>
         <div className="messages-container">
-          <div className="btn-load-more">
-            {loadMoreBtn}
-          </div>
+          {/*<div className="btn-load-more">*/}
+            {/*{loadMoreBtn}*/}
+          {/*</div>*/}
           <div className="Messages">
             <ul>
               {messageElements}

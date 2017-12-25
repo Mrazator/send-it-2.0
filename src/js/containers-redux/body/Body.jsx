@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onLoadMessages: (channelId, lastN = 10) => dispatch(actionLoadMessages(channelId, lastN)),
+  onLoadMessages: (channelId, lastN) => dispatch(actionLoadMessages(channelId, lastN)),
   onCreateMessage: (channelId, text) => text && dispatch(actionPostMessage(channelId, text)),
   onLoadedMessage: () => dispatch(messagesLoadingFinished())
 })
