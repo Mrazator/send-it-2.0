@@ -8,9 +8,6 @@ export const messages = (prevState = Immutable.List(), action) => {
     case MESSAGES_LOAD:
       return Immutable.List(action.payload.messages)
 
-    // case MESSAGES_LOAD_MORE:
-    //   return prevState.push(action.payload.messages)
-
     case MESSAGES_CREATE:
       return prevState.push({ ...action.payload.message })
 

@@ -1,0 +1,10 @@
+.Settings {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+  padding-top: 10px; }
+  .Settings i.icon-user {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 27px; }
+    .Settings i.icon-user:hover {
+      color: black; }

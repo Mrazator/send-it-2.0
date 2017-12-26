@@ -1,0 +1,85 @@
+.AddUser .icon-ok {
+  -webkit-appearance: initial;
+  color: grey;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 5px;
+  padding: 0;
+  border-style: none; }
+  .AddUser .icon-ok:hover {
+    color: black; }
+  .AddUser .icon-ok:focus {
+    outline: none; }
+
+.AddUser form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px 11px 16px;
+  margin-left: -10px; }
+  .AddUser form.selected {
+    border-left: 2px solid rgba(0, 0, 0, 0.5); }
+  .AddUser form .Select {
+    width: 100%; }
+    .AddUser form .Select div {
+      border-radius: 0;
+      outline: none; }
+    .AddUser form .Select.is-focused:not(.is-open) > .Select-control {
+      box-shadow: none !important;
+      border-color: lightgray; }
+    .AddUser form .Select .Select-menu::-webkit-scrollbar {
+      width: 3px;
+      background: rgba(0, 0, 0, 0.3); }
+    .AddUser form .Select .Select-menu::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2); }
+    .AddUser form .Select .Select-menu::-webkit-scrollbar:horizontal {
+      height: 3px; }
+    .AddUser form .Select .Select-placeholder {
+      padding-left: 6px;
+      color: grey; }
+    .AddUser form .Select .Select-option.is-focused {
+      color: black;
+      background: white; }
+      .AddUser form .Select .Select-option.is-focused:hover {
+        background: rgba(0, 0, 0, 0.1); }
+    .AddUser form .Select .Select-clear {
+      margin-left: 10px; }
+  .AddUser form .Select--multi .Select-input {
+    margin-left: 0; }
+    .AddUser form .Select--multi .Select-input input {
+      font-family: 'Roboto', sans-serif !important;
+      font-weight: 300 !important; }
+  .AddUser form .Select--multi .Select-value {
+    margin: 3px 6px 3px 0;
+    color: black;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 0; }
+    .AddUser form .Select--multi .Select-value:last-of-type {
+      margin-bottom: 0; }
+    .AddUser form .Select--multi .Select-value .Select-value-label {
+      padding: 5px 8px;
+      font-size: 10px; }
+  .AddUser form .Select--multi .Select-value-icon {
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 0 5px 1px;
+    color: grey; }
+    .AddUser form .Select--multi .Select-value-icon:hover {
+      color: black;
+      background: transparent; }
+  .AddUser form .Select--multi .Select-multi-value-wrapper {
+    padding: 0 5px 0; }
+  .AddUser form .Select--multi .Select-control {
+    border-radius: 0; }
+    .AddUser form .Select--multi .Select-control .is-focused {
+      border-radius: 0; }
+  .AddUser form .Select--multi .Select-value {
+    margin: 4px 7px 3px 0;
+    color: black;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 0; }
+    .AddUser form .Select--multi .Select-value .Select-value-label {
+      padding: 5px 8px;
+      font-size: 10px; }
