@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import Immutable from 'immutable'
 import {
   MESSAGES_CREATE, MESSAGES_DELETE_MESSAGE, MESSAGES_LOAD, MESSAGES_VOTE

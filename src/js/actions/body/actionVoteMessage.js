@@ -1,5 +1,5 @@
 import { createMessageUri } from '../../constants/api'
-import {messageVote} from './actionCreators'
+import { messageVote } from './actionCreators'
 import { convertFromServerMessage } from '../../utils/api/conversions/messages'
 import { fetchRequest } from '../../utils/api/fetchRequest'
 

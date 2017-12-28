@@ -6,8 +6,9 @@ import { channelsAddChannel, channelsSavingStarted } from './actionCreators'
 import {
   convertFromServerChannel,
   getFromServerLastChannel,
-  convertToServerCreateChannel
+  convertToServerCreateChannelFactory
 } from '../../utils/api/conversions/channel'
+import { uuid } from '../../utils/uuid'
 
 export const actionCreateChannel = () =>
   (dispatch, getState) => {
@@ -15,7 +16,8 @@ export const actionCreateChannel = () =>
 
     const authToken = getState().shared.token
     const requestUri = API_CHANNEL_URI
-    const bodyJson = convertToServerCreateChannel(getState().shared.email, Immutable.List())
+    const id = uuid()
+    const bodyJson = convertToServerCreateChannelFactory(id)(getState().shared.email, Immutable.List())
 
     return fetchRequest(requestUri, authToken, 'PATCH', bodyJson)
       .then(server => dispatch(channelsAddChannel(convertFromServerChannel(getFromServerLastChannel(server)))))

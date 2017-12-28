@@ -13,7 +13,7 @@ export const channels = (previousState = Immutable.List(), action) => {
       return previousState.filterNot(item => item.id === action.payload.id)
 
     case actions.CHANNELS_ITEM_UPDATE: {
-      const channel = action.payload.channel
+      const { payload: { channel } } = action
       const itemIndex = previousState.findIndex(i => i.id === channel.id)
       return itemIndex >= 0 && channel.name.length > 0
         ? previousState.update(itemIndex, previousItem => ({ ...previousItem, ...channel }))

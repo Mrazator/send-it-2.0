@@ -1,4 +1,4 @@
-import {validateResponse} from './validateResponse'
+import { validateResponse } from './validateResponse'
 
 export const fetchReceive = (uri, token) =>
   fetch(

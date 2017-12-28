@@ -1,5 +1,5 @@
-import {isLoadingAvatar} from "./isLoadingAvatar";
-import {profileStartFetchingProfileAvatar, profileUpdateProfileAvatar} from "../../actions/profile/actionCreators";
+import { isLoadingAvatar } from './isLoadingAvatar'
+import { profileStartFetchingProfileAvatar, profileUpdateProfileAvatar } from '../../actions/profile/actionCreators'
 
 describe('isLoadingAvatar reducer', () => {
   test('avatar fetching started update', () => {

@@ -1,5 +1,3 @@
-import { uuid } from '../../uuid'
-
 export const convertFromServerChannel = (channel) => {
   const custom = JSON.parse(channel.customData)
 
@@ -17,17 +15,17 @@ export const convertFromServerChannels = (server, owner) => server.channels
   .map(x => convertFromServerChannel(x))
   .filter(x => x.customData.owner === owner || x.customData.users.filter(y => y === owner).length !== 0)
 
-export const getFromServerLastChannel = serverChannel => ({
-  ...serverChannel.channels[serverChannel.channels.length - 1]
+export const getFromServerLastChannel = serverChannels => ({
+  ...serverChannels.channels[serverChannels.channels.length - 1]
 })
 
-export const convertToServerCreateChannel = (owner, users) =>
+export const convertToServerCreateChannelFactory = id => (owner, users) =>
   [
     {
       path: '/channels/-',
       op: 'add',
       value: {
-        id: uuid(),
+        id,
         name: 'New channel',
         customData: JSON.stringify({
           owner,

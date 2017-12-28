@@ -7,7 +7,9 @@ $grey: rgba(0, 0, 0, 0.5);
 $breakpoint-sm: 500px !default;
 $breakpoint-md: 769px !default;
 $breakpoint-lg: 1025px !default;
-$breakpoint-xl: 2000px !default//mixins
+$breakpoint-xl: 2000px !default
+
+//mixins
 @mixin font() {
   font-family: 'Roboto', sans-serif !important;
   font-weight: 300 !important;
