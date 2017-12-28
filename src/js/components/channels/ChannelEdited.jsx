@@ -18,7 +18,6 @@ const ChannelEdited = props => (
       <i
         className="icon-ok"
         onClick={props.onUpdate}
-        disabled={props.disabled}
         title="save"
       />
       <i

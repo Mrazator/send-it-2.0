@@ -8,8 +8,8 @@
 - prototype: https://www.fluidui.com/editor/live/preview/cF82N211bDdjMER4Y0F3UERBWFdsT1RMOWxxdVAwSFUzTQ==
 
 ## TODOs
-- tests
-- DI, refactoring
+- action tests
 - try catch - dont show console.log but custom errors
 
-
+## Questions
+- when using redux, is it good idea to have component separated in component and container file? Personally i don't like the idea that i have my component in three different files (too messy)
