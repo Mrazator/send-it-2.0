@@ -1,4 +1,5 @@
 import * as Immutable from 'immutable'
+import { LOCATION_CHANGE } from 'connected-react-router'
 import {
   SHARED_DISMISS_ERROR,
   SHARED_AUTHENTICATION_FAILED,
@@ -7,7 +8,6 @@ import {
   PROFILE_AVATAR_UPLOADING_FAILED,
   PROFILE_AVATAR_FETCHING_FAILED
 } from '../../constants/actionTypes'
-import { LOCATION_CHANGE } from 'connected-react-router'
 
 export const errors = (previousState = Immutable.OrderedMap(), action) => {
   switch (action.type) {

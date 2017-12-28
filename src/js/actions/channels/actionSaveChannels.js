@@ -3,7 +3,7 @@ import {
 } from './actionCreators'
 
 export const actionSaveChannels = () =>
-  (dispatch) => {
-    // localStorage.setItem('channels', JSON.stringify(getState().channelManagement.channels.toJS()))
+  (dispatch, getState) => {
+    localStorage.setItem('channels', JSON.stringify(getState().channelManagement.channels.toJS()))
     dispatch(channelsSavingFinished())
   }

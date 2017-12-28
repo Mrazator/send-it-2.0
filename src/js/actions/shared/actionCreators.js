@@ -34,4 +34,4 @@ export const sharedDismissError = errorId => ({
   }
 })
 
-export const failAuthentication = errorActionFactory(actions.SHARED_AUTHENTICATION_FAILED)
+export const failAuthentication = id => errorActionFactory(id, actions.SHARED_AUTHENTICATION_FAILED)

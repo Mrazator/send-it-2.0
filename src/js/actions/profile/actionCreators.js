@@ -28,10 +28,10 @@ export const profileStartUploadingProfileAvatar = () => ({
   type: actions.PROFILE_AVATAR_UPLOADING_STARTED
 })
 
-export const profileFailFetchingProfileDetails = errorActionFactory(actions.PROFILE_FETCHING_FAILED)
+export const profileFailFetchingProfileDetails = id => errorActionFactory(id, actions.PROFILE_FETCHING_FAILED)
 
-export const profileFailUploadingProfileDetails = errorActionFactory(actions.PROFILE_UPLOADING_FAILED)
+export const profileFailUploadingProfileDetails = id => errorActionFactory(id, actions.PROFILE_UPLOADING_FAILED)
 
-export const profileFailUploadingProfileAvatar = errorActionFactory(actions.PROFILE_AVATAR_UPLOADING_FAILED)
+export const profileFailUploadingProfileAvatar = id => errorActionFactory(id, actions.PROFILE_AVATAR_UPLOADING_FAILED)
 
-export const profileFailFetchingProfileAvatar = errorActionFactory(actions.PROFILE_AVATAR_FETCHING_FAILED)
+export const profileFailFetchingProfileAvatar = id => errorActionFactory(id, actions.PROFILE_AVATAR_FETCHING_FAILED)
