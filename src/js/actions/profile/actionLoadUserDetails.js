@@ -7,15 +7,12 @@ import {
   createUserUri
 } from '../../constants/api'
 import { sharedInvalidateToken, failAuthentication } from '../shared/actionCreators'
-import { fetchReceive } from '../../utils/api/fetchReceive'
-
 import {
   EXPIRED_AUTHENTICATION_MESSAGE,
   FAILED_FETCH_DETAILS_MESSAGE
 } from '../../constants/uiConstants'
-import { actionLoadUserAvatar } from './actionLoadUserAvatar'
 
-export const actionLoadUserDetails = () =>
+export const actionLoadUserDetailsFactory = ({ fetchReceive, actionLoadUserAvatar }) => () =>
   (dispatch, getState) => {
     dispatch(profileStartFetchingProfileDetails())
 

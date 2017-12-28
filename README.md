@@ -1,4 +1,3 @@
-
 ## React-redux messaging app based on RESTful API.
 
 - Tested and developed only in Google Chrome
@@ -10,6 +9,9 @@
 ## TODOs
 - action tests
 - try catch - dont show console.log but custom errors
+- repair load more btn
+- try to load only one message with polling
+- delete containers -> move to components
 
 ## Questions
 - when using redux, is it good idea to have component separated in component and container file? Personally i don't like the idea that i have my component in three different files (too messy)

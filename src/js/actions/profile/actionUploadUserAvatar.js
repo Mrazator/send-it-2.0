@@ -6,15 +6,12 @@ import {
   sharedDismissError
 } from '../shared/actionCreators'
 import { performAuthorizedRequest } from './performAuthorizedRequest'
-import { fetchFileUpload } from '../../utils/api/fetchFileUpload'
-import { actionUploadUserDetails } from './actionUploadUserDetails'
 import {
   FAILED_UPDATE_AVATAR_MESSAGE,
   MILISECONDS_TO_AUTO_DISMISS_ERROR
 } from '../../constants/uiConstants'
-import { actionLoadUserAvatar } from './actionLoadUserAvatar'
 
-export const actionUploadUserAvatar = file =>
+export const actionUploadUserAvatarFactory = ({ fetchFileUpload, actionUploadUserDetails, actionLoadUserAvatar }) => file =>
   async (dispatch, getState) => {
     dispatch(profileStartUploadingProfileAvatar())
 

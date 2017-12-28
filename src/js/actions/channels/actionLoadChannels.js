@@ -1,9 +1,15 @@
 import Immutable from 'immutable'
 
 import { API_CHANNEL_URI } from '../../constants/api'
-import { channelsSavingFinished, channelsSavingStarted, channelsUpdate } from './actionCreators'
-import { fetchReceive } from '../../utils/api/fetchReceive'
+import {
+  channelsFailLoadChannels, channelsSavingFinished, channelsSavingStarted,
+  channelsUpdate
+} from './actionCreators'
 import { convertFromServerChannels } from '../../utils/api/conversions/channel'
+import { uuid } from '../../utils/uuid'
+import { sharedDismissError } from '../shared/actionCreators'
+import { MILISECONDS_TO_AUTO_DISMISS_ERROR } from '../../constants/uiConstants'
+import { fetchReceive } from '../shared'
 
 export const actionLoadChannels = () =>
   (dispatch, getState) => {
@@ -23,5 +29,8 @@ export const actionLoadChannels = () =>
 
         return dispatch(channelsUpdate(converted))
       })
-      .catch(error => console.log(error, 'actionLoadChannels - Failed'))
+      .catch((error) => {
+        const action = dispatch(channelsFailLoadChannels(uuid())('channelsFailLoadChannels', error))
+        setTimeout(() => dispatch(sharedDismissError(action.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR)
+      })
   }

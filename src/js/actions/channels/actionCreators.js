@@ -1,4 +1,5 @@
 import * as actions from '../../constants/actionTypes'
+import { errorActionFactory } from '../../utils/errorActionFactory'
 
 export const channelsUpdate = channels => ({
   type: actions.CHANNELS_UPDATE,
@@ -82,4 +83,18 @@ export const channelsUsersSavingStarted = () => ({
 export const channelsUsersSavingFinished = () => ({
   type: actions.CHANNELS_USERS_SAVING_FINISHED
 })
+
+export const channelsFailCreateChannel = id => errorActionFactory(id, actions.CHANNELS_FAIL_CREATE_CHANNEL)
+
+export const channelsFailDeleteChannel = id => errorActionFactory(id, actions.CHANNELS_FAIL_DELETE_CHANNEL)
+
+export const channelsFailEditChannel = id => errorActionFactory(id, actions.CHANNELS_FAIL_EDIT_CHANNEL)
+
+export const channelsFailLoadChannels = id => errorActionFactory(id, actions.CHANNELS_FAIL_LOAD_CHANNELS)
+
+export const channelsFailLoadUsers = id => errorActionFactory(id, actions.CHANNELS_FAIL_LOAD_USERS)
+
+export const channelsFailSaveChannels = id => errorActionFactory(id, actions.CHANNELS_FAIL_SAVE_CHANNELS)
+
+export const channelsFailUploadChannelUsers = id => errorActionFactory(id, actions.CHANNELS_FAIL_FAIL_UPLOAD_CHANNEL_USERS)
 

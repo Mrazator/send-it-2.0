@@ -1,8 +1,7 @@
 import { messagesLoadingStarted, messageSave, messagesLoadingFinished } from './actionCreators'
 import { createUserUri, createMessagesUri, createFileUri } from '../../constants/api'
-import { fetchRequest } from '../../utils/api/fetchRequest'
 import { convertFromServerMessage } from '../../utils/api/conversions/messages'
-import { fetchReceive } from '../../utils/api/fetchReceive'
+import { fetchReceive, fetchRequest } from '../shared'
 
 export const actionPostMessage = (channelId, messageText) =>
   async (dispatch, getState) => {

@@ -2,11 +2,15 @@ import { API_CHANNEL_URI } from '../../constants/api'
 
 import {
   channelsAddingUserAdded,
+  channelsFailUploadChannelUsers,
   channelsSavingStarted,
   channelsUpdateChannel
 } from './actionCreators'
 import { convertToServerEditChannel } from '../../utils/api/conversions/channel'
-import { fetchRequest } from '../../utils/api/fetchRequest'
+import { uuid } from '../../utils/uuid'
+import { sharedDismissError } from '../shared/actionCreators'
+import { MILISECONDS_TO_AUTO_DISMISS_ERROR } from '../../constants/uiConstants'
+import { fetchRequest } from '../shared'
 
 export const actionUploadChannelUsers = (values, channel) => (dispatch, getState) => {
   dispatch(channelsSavingStarted())
@@ -23,5 +27,8 @@ export const actionUploadChannelUsers = (values, channel) => (dispatch, getState
   return fetchRequest(requestUri, authToken, 'PATCH', bodyJson)
     .then(() => dispatch(channelsUpdateChannel(channel)))
     .then(() => dispatch(channelsAddingUserAdded()))
-    .catch(error => console.log('actionUploadChannelUsers - Failed', error))
+    .catch((error) => {
+      const action = dispatch(channelsFailUploadChannelUsers(uuid())('channelsFailUploadChannelUsers', error))
+      setTimeout(() => dispatch(sharedDismissError(action.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR)
+    })
 }

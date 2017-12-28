@@ -1,10 +1,14 @@
 import { API_USER_URI } from '../../constants/api'
 import {
+  channelsFailLoadUsers,
   channelsLoadRegisteredUsers,
   channelsUsersSavingStarted
 } from './actionCreators'
-import { fetchReceive } from '../../utils/api/fetchReceive'
 import { convertFromServerUsers } from '../../utils/api/conversions/users'
+import { uuid } from '../../utils/uuid'
+import { sharedDismissError } from '../shared/actionCreators'
+import { MILISECONDS_TO_AUTO_DISMISS_ERROR } from '../../constants/uiConstants'
+import { fetchReceive } from '../shared'
 
 export const actionLoadUsers = () =>
   (dispatch, getState) => {
@@ -17,5 +21,8 @@ export const actionLoadUsers = () =>
       .then((server) => {
         dispatch(channelsLoadRegisteredUsers(convertFromServerUsers(server)))
       })
-      .catch(error => console.log(error, 'actionLoadUsers - Failed'))
+      .catch((error) => {
+        const action = dispatch(channelsFailLoadUsers(uuid())('channelsFailLoadUsers', error))
+        setTimeout(() => dispatch(sharedDismissError(action.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR)
+      })
   }

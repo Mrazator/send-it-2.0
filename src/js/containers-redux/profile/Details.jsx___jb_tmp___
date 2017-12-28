@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import { Details } from '../../components/profile/Details.jsx'
 
+import { Details } from '../../components/profile/Details.jsx'
 import { DETAILS_FORM_NAME } from '../../constants/formNames'
 import { actionUploadUserDetails } from '../../actions/profile'
 

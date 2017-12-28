@@ -1,7 +1,13 @@
 import { API_CHANNEL_URI } from '../../constants/api'
 import { convertToServerEditChannel } from '../../utils/api/conversions/channel'
-import { fetchRequest } from '../../utils/api/fetchRequest'
-import { channelsSavingStarted, channelsUpdateChannel } from './actionCreators'
+import {
+  channelsFailEditChannel, channelsSavingStarted,
+  channelsUpdateChannel
+} from './actionCreators'
+import { uuid } from '../../utils/uuid'
+import { sharedDismissError } from '../shared/actionCreators'
+import { MILISECONDS_TO_AUTO_DISMISS_ERROR } from '../../constants/uiConstants'
+import { fetchRequest } from '../shared'
 
 export const actionEditChannel = channel =>
   (dispatch, getState) => {
@@ -13,5 +19,8 @@ export const actionEditChannel = channel =>
 
     return fetchRequest(requestUri, authToken, 'PATCH', bodyJson)
       .then(dispatch(channelsUpdateChannel(channel)))
-      .catch(error => console.log(error, 'actionEditChannel - Failed'))
+      .catch((error) => {
+        const action = dispatch(channelsFailEditChannel(uuid())('channelsFailEditChannel', error))
+        setTimeout(() => dispatch(sharedDismissError(action.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR)
+      })
   }

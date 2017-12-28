@@ -1,7 +1,13 @@
-import { channelsRemoveChannel, channelsSavingStarted } from './actionCreators'
+import {
+  channelsFailDeleteChannel, channelsRemoveChannel,
+  channelsSavingStarted
+} from './actionCreators'
 import { API_CHANNEL_URI } from '../../constants/api'
 import { convertToServerDeleteChannel } from '../../utils/api/conversions/channel'
-import { fetchRequest } from '../../utils/api/fetchRequest'
+import { uuid } from '../../utils/uuid'
+import { sharedDismissError } from '../shared/actionCreators'
+import { MILISECONDS_TO_AUTO_DISMISS_ERROR } from '../../constants/uiConstants'
+import { fetchRequest } from '../shared'
 
 export const actionDeleteChannel = channelId =>
   (dispatch, getState) => {
@@ -13,5 +19,8 @@ export const actionDeleteChannel = channelId =>
 
     return fetchRequest(requestUri, authToken, 'PATCH', bodyJson)
       .then(() => dispatch(channelsRemoveChannel(channelId)))
-      .catch(error => console.log(error, 'actionDeleteChannel - Failed'))
+      .catch((error) => {
+        const action = dispatch(channelsFailDeleteChannel(uuid())('channelsFailDeleteChannel', error))
+        setTimeout(() => dispatch(sharedDismissError(action.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR)
+      })
   }

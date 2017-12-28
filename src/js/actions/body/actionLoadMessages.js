@@ -1,8 +1,8 @@
 import Immutable from 'immutable'
-import { fetchReceive } from '../../utils/api/fetchReceive'
 import { createMessagesQueryUri } from '../../constants/api'
 import { convertFromServerMessages } from '../../utils/api/conversions/messages'
 import { messagesLoadingStarted, messagesSave } from './actionCreators'
+import { fetchReceive } from '../shared'
 
 export const actionLoadMessages = (channelId, lastN) =>
   (dispatch, getState) => {

@@ -3,8 +3,7 @@ import {
   stopSubmit
 } from 'redux-form'
 import {
-  profileUpdateProfileDetails,
-  profileFailUploadingProfileDetails
+  profileFailUploadingProfileDetails, profileUpdateProfileDetails
 } from './actionCreators'
 import {
   createUserUri
@@ -12,10 +11,6 @@ import {
 import {
   sharedDismissError
 } from '../shared/actionCreators'
-import { fetchRequest } from '../../utils/api/fetchRequest'
-import {
-  convertFromServerDetails
-} from '../../utils/api/conversions/profileDetails'
 import { DETAILS_FORM_NAME } from '../../constants/formNames'
 
 import {
@@ -24,8 +19,9 @@ import {
 
 } from '../../constants/uiConstants'
 import { performAuthorizedRequest } from './performAuthorizedRequest'
+import { convertFromServerDetails } from '../../utils/api/conversions/profileDetails'
 
-export const actionUploadUserDetails = details =>
+export const actionUploadUserDetailsFactory = ({ fetchRequest }) => details =>
   async (dispatch, getState) => {
     dispatch(startSubmit(DETAILS_FORM_NAME))
 

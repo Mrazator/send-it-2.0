@@ -4,11 +4,10 @@ import {
   profileUpdateProfileAvatar
 } from './actionCreators'
 import { createFileUri } from '../../constants/api'
-import { fetchReceive } from '../../utils/api/fetchReceive'
 import { FAILED_FETCH_AVATAR_MESSAGE } from '../../constants/uiConstants'
 import { performAuthorizedRequest } from './performAuthorizedRequest'
 
-export const actionLoadUserAvatar = avatarId =>
+export const actionLoadUserAvatarFactory = fetchReceive => avatarId =>
   async (dispatch, getState) => {
     dispatch(profileStartFetchingProfileAvatar())
 
