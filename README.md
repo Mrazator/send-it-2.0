@@ -7,11 +7,17 @@
 - prototype: https://www.fluidui.com/editor/live/preview/cF82N211bDdjMER4Y0F3UERBWFdsT1RMOWxxdVAwSFUzTQ==
 
 ## TODOs
-- action tests
-- try catch - dont show console.log but custom errors
-- repair load more btn
-- try to load only one message with polling
-- delete containers -> move to components
+- new user -> no channels -> error when loading channels - why?
+- after refresh showing channels where am i not in
+- picture loading bad position
+- action tests - shared and body
+- try catch - dont show console.log but custom errors - body
+- repair load more btn - load more messages
+- load only one message with polling
+- redux form green/red
+- better UI - for example get rid of grey loader
+- (delete containers -> move to components)
 
 ## Questions
-- when using redux, is it good idea to have component separated in component and container file? Personally i don't like the idea that i have my component in three different files (too messy)
+- i have tested my conversions, now i am testing thunk actions and the question is: should i add the conversions that i am invoking in thunk action as dependency (DI) even though i have them already tested? What if i have f.e. 50+ 'dependencies' in one thunk action? They should be all added as function parameters?
+- when using redux, is it good idea to have component separated in component and container file? Personally i don't like the idea that i have my component in three different files. What are the advantages of doing so?

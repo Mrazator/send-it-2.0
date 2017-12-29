@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
+
 import { AddUser } from '../../components/channels/AddUser'
-import { actionLoadUsers } from '../../actions/channels/actionLoadUsers'
-import { actionUploadChannelUsers } from '../../actions/channels/actionUploadChannelUsers'
 import { channelsAddingUserCancel } from '../../actions/channels/actionCreators'
+import { actionLoadUsers, actionUploadChannelUsers } from '../../actions/channels'
 
 const mapStateToProps = (state, ownProps) => ({
   channel: ownProps.channel,

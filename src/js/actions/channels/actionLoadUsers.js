@@ -8,9 +8,8 @@ import { convertFromServerUsers } from '../../utils/api/conversions/users'
 import { uuid } from '../../utils/uuid'
 import { sharedDismissError } from '../shared/actionCreators'
 import { MILISECONDS_TO_AUTO_DISMISS_ERROR } from '../../constants/uiConstants'
-import { fetchReceive } from '../shared'
 
-export const actionLoadUsers = () =>
+export const actionLoadUsersFactory = fetchReceive => () =>
   (dispatch, getState) => {
     const authToken = getState().shared.token
     const requestUri = API_USER_URI

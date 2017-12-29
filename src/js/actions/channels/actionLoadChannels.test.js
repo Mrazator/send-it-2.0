@@ -1,7 +1,7 @@
-import { actionCreateChannelFactory } from './actionCreateChannel'
-import { channelsAddChannel, channelsSavingStarted } from './actionCreators'
+import { actionLoadChannelsFactory } from './actionLoadChannels'
+import { channelsSavingStarted, channelsUpdate } from './actionCreators'
 
-test('create channel dispatches actions in correct order', async (done) => {
+test('load channels dispatches actions in correct order', async (done) => {
   const dispatch = jest.fn()
 
   const getState = () => ({
@@ -17,23 +17,23 @@ test('create channel dispatches actions in correct order', async (done) => {
       {
         id: 'bc78e525-c9f7-4252-aae9-7242fcf096fe',
         name: 'Ahoj kamo privatni chat',
-        customData: '{"owner":"ahoj@kamo.cz","users":"[]"}'
+        customData: '{"owner":"email@email.com","users":"[]"}'
       }
     ]
   }
 
-  const channel = {
+  const channel = [{
     id: 'bc78e525-c9f7-4252-aae9-7242fcf096fe',
     name: 'Ahoj kamo privatni chat',
-    customData: { owner: 'ahoj@kamo.cz', users: [] }
-  }
+    customData: { owner: 'email@email.com', users: [] }
+  }]
 
-  const createChannel = actionCreateChannelFactory(() => Promise.resolve(server))
+  const loadChannels = actionLoadChannelsFactory(() => Promise.resolve(server))
 
-  const dispatchable = createChannel()
+  const dispatchable = loadChannels()
   await dispatchable(dispatch, getState)
 
   expect(dispatch).toHaveBeenCalledWith(channelsSavingStarted())
-  expect(dispatch).toHaveBeenLastCalledWith(channelsAddChannel(channel))
+  expect(dispatch).toHaveBeenLastCalledWith(channelsUpdate(channel))
   done()
 })

@@ -1,9 +1,8 @@
 import { connect } from 'react-redux'
 import { Channels } from '../../components/channels/Channels'
 
-import { actionCreateChannelFactory } from '../../actions/channels/actionCreateChannel'
-import { actionLoadChannels } from '../../actions/channels/actionLoadChannels'
 import { channelsUsersSavingFinished } from '../../actions/channels/actionCreators'
+import { actionCreateChannel, actionLoadChannels } from '../../actions/channels'
 
 const mapStateToProps = state => ({
   channels: state.channelManagement.channels,
@@ -13,7 +12,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onCreateChannel: () => dispatch(actionCreateChannelFactory()),
+  onCreateChannel: () => dispatch(actionCreateChannel()),
   onLoadChannels: () => dispatch(actionLoadChannels()),
   onSavingUsersFinished: () => dispatch(channelsUsersSavingFinished())
 })

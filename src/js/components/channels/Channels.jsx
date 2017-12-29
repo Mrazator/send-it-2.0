@@ -24,6 +24,7 @@ class Channels extends React.Component {
   componentDidMount() {
     if (this.props.channels.size === 0) {
       this.props.onLoadChannels()
+      this.props.onSavingUsersFinished()
     }
   }
 

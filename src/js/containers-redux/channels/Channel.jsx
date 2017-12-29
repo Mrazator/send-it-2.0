@@ -5,7 +5,7 @@ import {
   channelsStartEditingChannel,
   channelsSelectChannel, channelsAddingUser, channelsAddingUserCancel
 } from '../../actions/channels/actionCreators'
-import { actionDeleteChannel } from '../../actions/channels/actionDeleteChannel'
+import { actionDeleteChannel } from '../../actions/channels'
 
 const mapStateToProps = state => ({
   isAddingUser: state.channelManagement.isAddingUser,

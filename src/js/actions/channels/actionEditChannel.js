@@ -7,9 +7,8 @@ import {
 import { uuid } from '../../utils/uuid'
 import { sharedDismissError } from '../shared/actionCreators'
 import { MILISECONDS_TO_AUTO_DISMISS_ERROR } from '../../constants/uiConstants'
-import { fetchRequest } from '../shared'
 
-export const actionEditChannel = channel =>
+export const actionEditChannelFactory = fetchRequest => channel =>
   (dispatch, getState) => {
     dispatch(channelsSavingStarted())
 

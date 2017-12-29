@@ -10,10 +10,9 @@ import {
 import { uuid } from '../../utils/uuid'
 import { sharedDismissError } from '../shared/actionCreators'
 import { MILISECONDS_TO_AUTO_DISMISS_ERROR } from '../../constants/uiConstants'
-import { fetchRequest } from '../shared'
 
-export const actionCreateChannelFactory = () =>
-  (dispatch, getState) => {
+export const actionCreateChannelFactory = fetchRequest => () =>
+  async (dispatch, getState) => {
     dispatch(channelsSavingStarted())
 
     const authToken = getState().shared.token
