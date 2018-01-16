@@ -2,6 +2,10 @@ import { createMessageUri } from '../../constants/api'
 import { messageVote } from './actionCreators'
 import { convertFromServerMessage } from '../../utils/api/conversions/messages'
 import { fetchRequest } from '../shared'
+import { MILISECONDS_TO_AUTO_DISMISS_ERROR } from '../../constants/uiConstants'
+import { channelsFailCreateChannel } from '../channels/actionCreators'
+import { uuid } from '../../utils/uuid'
+import { sharedDismissError } from '../shared/actionCreators'
 
 export const actionVoteMessage = (channelId, message) =>
   (dispatch, getState) => {
@@ -18,5 +22,8 @@ export const actionVoteMessage = (channelId, message) =>
 
     return fetchRequest(requestUri, authToken, 'PUT', bodyJson)
       .then((server) => { dispatch(messageVote(convertFromServerMessage(server))) })
-      .catch(error => console.log(error, 'actionVoteMessage - Failed'))
+      .catch((error) => {
+        const action = dispatch(channelsFailCreateChannel(uuid())('actionVoteMessage', error))
+        setTimeout(() => dispatch(sharedDismissError(action.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR)
+      })
   }

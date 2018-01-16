@@ -3,6 +3,10 @@ import { createMessagesQueryUri } from '../../constants/api'
 import { convertFromServerMessages } from '../../utils/api/conversions/messages'
 import { messagesLoadingStarted, messagesSave } from './actionCreators'
 import { fetchReceive } from '../shared'
+import { MILISECONDS_TO_AUTO_DISMISS_ERROR } from '../../constants/uiConstants'
+import { channelsFailCreateChannel } from '../channels/actionCreators'
+import { uuid } from '../../utils/uuid'
+import { sharedDismissError } from '../shared/actionCreators'
 
 export const actionLoadMessages = (channelId, lastN) =>
   (dispatch, getState) => {
@@ -18,5 +22,8 @@ export const actionLoadMessages = (channelId, lastN) =>
 
         dispatch(messagesSave(messages))
       })
-      .catch(error => console.log(error, 'actionLoadMessages - Failed'))
+      .catch((error) => {
+        const action = dispatch(channelsFailCreateChannel(uuid())('actionLoadMessages', error))
+        setTimeout(() => dispatch(sharedDismissError(action.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR)
+      })
   }
