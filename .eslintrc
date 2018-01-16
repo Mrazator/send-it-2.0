@@ -6,28 +6,11 @@
     "import/prefer-default-export": 0,
     "no-underscore-dangle": 0,
     "react/forbid-prop-types": "warn",
-    "max-len": ["warn", { "code": 150, "ignoreComments": true }]
+    "max-len": ["warn", { "code": 150, "ignoreComments": true }],
+    "linebreak-style": 0
   },
   "env": {
-    "browser": true
-  },
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true,
-      "experimentalObjectRestSpread": true
-    }
-  },
-  "plugins": [
-    "react"
-  ],
-  "settings": {
-    "react": {
-      "pragma": "React",
-      "version": "15.6.1"
-    }
+    "browser": true,
+    "jest": true
   }
 }

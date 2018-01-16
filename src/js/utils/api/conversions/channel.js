@@ -13,7 +13,9 @@ export const convertFromServerChannel = (channel) => {
 
 export const convertFromServerChannels = (server, owner) => server.channels
   .map(x => convertFromServerChannel(x))
-  .filter(x => x.customData.owner === owner || x.customData.users.filter(y => y === owner).length !== 0)
+  .filter(x =>
+    x.customData &&
+    (x.customData.owner === owner || (x.customData.users && x.customData.users.filter(y => y === owner).length !== 0)))
 
 export const getFromServerLastChannel = serverChannels => ({
   ...serverChannels.channels[serverChannels.channels.length - 1]
