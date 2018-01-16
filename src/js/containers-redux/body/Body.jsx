@@ -1,8 +1,7 @@
 import { connect } from 'react-redux'
 import Body from '../../components/body/Body'
-import { actionLoadMessages } from '../../actions/body/actionLoadMessages'
-import { actionPostMessage } from '../../actions/body/actionPostMessage'
 import { messagesLoadingFinished } from '../../actions/body/actionCreators'
+import { actionLoadMessages, actionPostMessage } from '../../actions/body'
 
 const mapStateToProps = (state, ownProps) => ({
   channel: state.channelManagement.channels.filter(x => x.id === ownProps.channelId).first(),

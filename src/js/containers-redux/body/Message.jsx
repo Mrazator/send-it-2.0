@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import { Message } from '../../components/body/Message'
-import { actionVoteMessage } from '../../actions/body/actionVoteMessage'
-import { actionDeleteMessage } from '../../actions/body/actionDeleteMessage'
+import { actionDeleteMessage, actionVoteMessage } from '../../actions/body'
 
 const mapStateToProps = state => ({
   loggedInUserEmail: state.shared.email

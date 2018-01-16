@@ -7,9 +7,9 @@
 - prototype: https://www.fluidui.com/editor/live/preview/cF82N211bDdjMER4Y0F3UERBWFdsT1RMOWxxdVAwSFUzTQ==
 
 ## Issues, max priority
-- action tests - shared and body
+- done
 
-## TODOs in the future
+## TODOs in the
 - picture loading bad position
 - repair load more btn - load more messages
 - load only one message with polling

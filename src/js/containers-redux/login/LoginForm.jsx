@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 
 import { LoginForm } from '../../components/login/LoginForm.jsx'
-import { sharedAuthenticateUser } from '../../actions/shared/sharedAuthenticateUser'
+import { sharedAuthenticateUser } from '../../actions/shared'
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onSubmit: reduxFormResult => dispatch(sharedAuthenticateUser(ownProps.from, reduxFormResult.email))

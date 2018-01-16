@@ -8,16 +8,14 @@ import {
   sharedStartAuthentication
 } from './actionCreators'
 
-import { fetchAuthToken } from '../../utils/api/fetchAuthToken'
 import {
   MILISECONDS_TO_AUTO_DISMISS_ERROR,
   FAILED_AUTHENTICATION_MESSAGE
 } from '../../constants/uiConstants'
 import { API_USER_URI } from '../../constants/api'
 import { profileUpdateProfileDetails } from '../profile/actionCreators'
-import { fetchPostUser } from '../../utils/api/fetchPostUser'
 
-export const sharedAuthenticateUser = (destinationLocation, userEmail) =>
+export const sharedAuthenticateUserFactory = ({ fetchPostUser, fetchAuthToken }) => (destinationLocation, userEmail) =>
   (dispatch) => {
     dispatch(sharedStartAuthentication())
 

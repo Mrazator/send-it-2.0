@@ -1,3 +1,9 @@
+.messages-container .vote-number {
+  margin-right: 10px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5); }
+
 .messages-container .btn-load-more {
   display: flex;
   justify-content: center;
@@ -47,7 +53,8 @@
         .messages-container .Messages ul .Message.logged-in-user .body {
           margin-right: 0; }
         .messages-container .Messages ul .Message.logged-in-user .delete {
-          margin-bottom: 3px; }
+          margin-bottom: 3px;
+          margin-top: 9px; }
           .messages-container .Messages ul .Message.logged-in-user .delete i {
             -webkit-appearance: initial;
             color: grey;
@@ -70,11 +77,6 @@
           border-radius: 50%;
           background: no-repeat center;
           background-size: cover; }
-        .messages-container .Messages ul .Message .col-1 .vote-number {
-          margin-right: 10px;
-          margin-bottom: 5px;
-          font-size: 12px;
-          color: rgba(0, 0, 0, 0.5); }
       .messages-container .Messages ul .Message .body {
         background: whitesmoke;
         padding: 15px 20px;

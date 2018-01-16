@@ -45,12 +45,14 @@ export class Message extends React.PureComponent {
       </div>
     )
 
-    const voteNmb = !isLoggedIn
-    && (
+    const voteNmb = (
       <div className="vote-number">
         +{this.props.item.customData.vote || 0}
       </div>
     )
+
+    const voteNmbOthers = !isLoggedIn && voteNmb
+    const voteNmbMe = isLoggedIn && voteNmb
 
     // console.log(this.props.item.customData.avatarUri)
     const style = this.props.item.customData.avatarUri
@@ -62,7 +64,7 @@ export class Message extends React.PureComponent {
         className={isLoggedIn ? 'Message logged-in-user' : 'Message'}
       >
         <div className="col-1">
-          {voteNmb}
+          {voteNmbOthers}
           <div
             className="profile-img"
             style={style}
@@ -81,7 +83,10 @@ export class Message extends React.PureComponent {
           </div>
         </div>
         {voteBtn}
-        {deleteBtn}
+        <div>
+          {voteNmbMe}
+          {deleteBtn}
+        </div>
       </div>
     )
   }

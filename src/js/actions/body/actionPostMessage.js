@@ -1,13 +1,12 @@
 import { messagesLoadingStarted, messageSave, messagesLoadingFinished } from './actionCreators'
 import { createUserUri, createMessagesUri, createFileUri } from '../../constants/api'
 import { convertFromServerMessage } from '../../utils/api/conversions/messages'
-import { fetchReceive, fetchRequest } from '../shared'
 import { MILISECONDS_TO_AUTO_DISMISS_ERROR } from '../../constants/uiConstants'
 import { channelsFailCreateChannel } from '../channels/actionCreators'
 import { uuid } from '../../utils/uuid'
 import { sharedDismissError } from '../shared/actionCreators'
 
-export const actionPostMessage = (channelId, messageText) =>
+export const actionPostMessageFactory = ({ fetchReceive, fetchRequest }) => (channelId, messageText) =>
   async (dispatch, getState) => {
     dispatch(messagesLoadingStarted())
 
@@ -34,7 +33,7 @@ export const actionPostMessage = (channelId, messageText) =>
       .then((server) => { dispatch(messageSave(convertFromServerMessage(server))) })
       .then(() => dispatch(messagesLoadingFinished()))
       .catch((error) => {
-        const action = dispatch(channelsFailCreateChannel(uuid())('actionPostMessage', error))
+        const action = dispatch(channelsFailCreateChannel(uuid())('actionPostMessageFactory', error))
         setTimeout(() => dispatch(sharedDismissError(action.payload.error.id)), MILISECONDS_TO_AUTO_DISMISS_ERROR)
       })
   }

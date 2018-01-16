@@ -44,15 +44,15 @@ class Body extends React.Component {
 
   async componentDidMount() {
     await this._LoadMessages()
-    this.intervalId = setInterval(this._LoadMessages(), 2000)
+    this.intervalId = setInterval(this._LoadMessages, 2000)
   }
 
   componentWillUnmount() {
     clearInterval(this.intervalId)
   }
 
-  async _LoadMessages(lastN) {
-    await this.props.onLoadMessages(this.props.channelId, lastN)
+  async _LoadMessages() {
+    await this.props.onLoadMessages(this.props.channelId)
     this.props.onLoadedMessage()
   }
 
